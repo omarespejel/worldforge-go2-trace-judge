@@ -55,7 +55,7 @@ selected action and rejected alternatives.
   ablation.
 - Model honesty audit with shuffled-label and plate-holdout controls.
 - One-command demo that writes annotated image, MP4, and evidence JSON.
-- 78-second final video.
+- 88-second final video.
 
 ## Model Boundary
 

@@ -61,6 +61,11 @@ We did not train a Go2 foundation world model during the hackathon.
 What we trained is a small micro world scorer: a learned score head over real Go2
 frames and counterfactual decision traces.
 
+We also ran the more ambitious ML checks: a micro JEPA-style latent scorer, a
+frozen-DINOv2 hybrid scorer, and shuffled-label controls. The JEPA-style scorer
+was slightly cleaner on score fit, while DINOv2 did not materially improve
+geometry-derived labels.
+
 That is the honest useful step. It shows how robot decisions can move from hidden
 policy output to inspectable candidate scoring.
 
