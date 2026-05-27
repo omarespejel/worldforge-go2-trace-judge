@@ -92,8 +92,11 @@ photo-smoke:
 		--output-dir artifacts/photo_smoke
 
 package:
-	cd .. && zip -qr worldforge-go2-trace-judge.zip worldforge-go2-trace-judge \
-		-x 'worldforge-go2-trace-judge/.git/*'
+	git archive \
+		--format=zip \
+		--prefix=worldforge-go2-trace-judge/ \
+		--output=../worldforge-go2-trace-judge.zip \
+		HEAD
 
 clean-generated:
 	rm -rf artifacts/replay_run/frames artifacts/replay_run/annotated_frames
