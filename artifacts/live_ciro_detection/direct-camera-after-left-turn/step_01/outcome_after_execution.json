@@ -1,0 +1,13 @@
+{
+  "executed": false,
+  "execution_result": "dry-run: selected action not executed",
+  "outcome_after_execution": {
+    "manual_intervention": false,
+    "target_area_ratio": 0.00359,
+    "target_confidence": 0.1995,
+    "unsafe_color_risk": 0.5171
+  },
+  "run_id": "direct-camera-after-left-turn",
+  "schema_version": 1,
+  "step_index": 1
+}

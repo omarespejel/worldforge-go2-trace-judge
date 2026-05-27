@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    "README.md",
+    "audit_report.html",
+    "audit_summary.json",
+    "contact_sheet.jpg",
+    "demo_report.html",
+    "demo_video.mp4",
+    "human_review.html",
+    "ranker_model.json",
+    "reviewed_dataset.jsonl",
+    "step_01_candidate_scores.json",
+    "step_01_score_info.json",
+    "step_01_selected_action.json",
+    "trace_dataset.jsonl"
+  ],
+  "bundle_dir": "submission_bundle",
+  "schema_version": 1
+}

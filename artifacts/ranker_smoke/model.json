@@ -1,0 +1,103 @@
+{
+  "alpha": 0.001,
+  "dataset_jsonl": "dataset/go2_trace_candidates.jsonl",
+  "feature_names": [
+    "bias",
+    "candidate:forward_small",
+    "candidate:stop_capture",
+    "candidate:turn_left",
+    "candidate:turn_right",
+    "feature:goal_alignment",
+    "feature:information_gain",
+    "feature:progress",
+    "feature:obstacle_risk",
+    "feature:stuck_risk",
+    "feature:execution_cost",
+    "observation:target_confidence",
+    "observation:target_bearing_degrees",
+    "observation:target_area_ratio",
+    "observation:unsafe_color_risk",
+    "observation:stuck_probability",
+    "observation:blocked_ahead",
+    "observation:localized"
+  ],
+  "honest_claim": "This tiny ranker distills the transparent scorer from trace artifacts. It is not a learned Go2 world model until labels come from measured outcomes.",
+  "label": "transparent_score_label",
+  "metrics": {
+    "test": {
+      "count": 40,
+      "mae": 2.1e-05,
+      "rmse": 2.8e-05
+    },
+    "train": {
+      "count": 172,
+      "mae": 2.6e-05,
+      "rmse": 4.4e-05
+    }
+  },
+  "model_type": "ridge_regression_transparent_scorer_distillation",
+  "row_count": 212,
+  "schema_version": 1,
+  "top_weights": [
+    {
+      "feature": "bias",
+      "weight": 0.291734
+    },
+    {
+      "feature": "feature:goal_alignment",
+      "weight": 0.280013
+    },
+    {
+      "feature": "feature:information_gain",
+      "weight": 0.269857
+    },
+    {
+      "feature": "feature:progress",
+      "weight": 0.249723
+    },
+    {
+      "feature": "feature:obstacle_risk",
+      "weight": -0.149111
+    },
+    {
+      "feature": "candidate:stop_capture",
+      "weight": -0.002201
+    },
+    {
+      "feature": "candidate:turn_left",
+      "weight": 0.000921
+    },
+    {
+      "feature": "candidate:turn_right",
+      "weight": 0.000921
+    },
+    {
+      "feature": "candidate:forward_small",
+      "weight": 0.00036
+    },
+    {
+      "feature": "feature:execution_cost",
+      "weight": -0.00019
+    }
+  ],
+  "weights": [
+    0.291734024,
+    0.0003596966,
+    -0.0022010999,
+    0.000920575,
+    0.0009208283,
+    0.2800133247,
+    0.2698565735,
+    0.2497228677,
+    -0.1491109015,
+    6.20068e-05,
+    -0.0001904758,
+    0.0001178502,
+    -2.83e-07,
+    2.6e-06,
+    0.0,
+    0.0,
+    0.0,
+    1e-10
+  ]
+}

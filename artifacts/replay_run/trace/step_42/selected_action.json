@@ -1,0 +1,13 @@
+{
+  "action": "move_joystick",
+  "execute_with": "host_runtime:dimos-mcp",
+  "params": {
+    "duration": 0.55,
+    "forward": 0.14
+  },
+  "run_id": "go2-camera-replay",
+  "schema_version": 1,
+  "selected_candidate_id": "forward_small",
+  "step_index": 42,
+  "worldforge_executes_robot": false
+}

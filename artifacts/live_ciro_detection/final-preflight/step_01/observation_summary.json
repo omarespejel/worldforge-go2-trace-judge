@@ -1,0 +1,39 @@
+{
+  "costmap_summary": {
+    "blocked_ahead": false,
+    "frontier_count": null,
+    "min_clearance_m": null,
+    "unknown_area_ratio": null
+  },
+  "navigation_state": {
+    "active_goal": "find_red_block",
+    "localized": true,
+    "stuck_probability": 0.05
+  },
+  "pose": {
+    "x": 0.0,
+    "y": 0.0,
+    "yaw_degrees": 0.0
+  },
+  "visual_summary": {
+    "strongest_distractor": {
+      "area_ratio": 0.00036,
+      "bbox": [
+        1087,
+        511,
+        1153,
+        530
+      ],
+      "center_x": 0.7604,
+      "center_y": 0.4407,
+      "color": "yellow",
+      "confidence": 0.02,
+      "found": true
+    },
+    "target_area_ratio": 0.00054,
+    "target_bearing_degrees": 3.47,
+    "target_confidence": 0.0301,
+    "target_label": "red",
+    "unsafe_color_risk": 0.2541
+  }
+}

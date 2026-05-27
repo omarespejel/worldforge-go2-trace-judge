@@ -1,0 +1,13 @@
+{
+  "executed": false,
+  "execution_result": "replay-only: no robot command executed",
+  "outcome_after_execution": {
+    "manual_intervention": false,
+    "target_area_ratio": 0.01298,
+    "target_confidence": 0.721,
+    "unsafe_color_risk": 0.0
+  },
+  "run_id": "go2-camera-replay",
+  "schema_version": 1,
+  "step_index": 40
+}

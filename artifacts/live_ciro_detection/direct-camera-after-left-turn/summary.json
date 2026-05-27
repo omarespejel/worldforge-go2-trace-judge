@@ -1,0 +1,35 @@
+{
+  "execute": false,
+  "run_id": "direct-camera-after-left-turn",
+  "schema_version": 1,
+  "steps": [
+    {
+      "execution_result": "dry-run: selected action not executed",
+      "score": 0.6491,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/live_ciro_detection/direct-camera-after-left-turn/step_01",
+      "step_index": 1,
+      "target": {
+        "area_ratio": 0.00359,
+        "bbox": [
+          442,
+          76,
+          534,
+          169
+        ],
+        "center_x": -0.2263,
+        "center_y": -0.6545,
+        "color": "red",
+        "confidence": 0.1995,
+        "found": true
+      },
+      "unsafe_color_risk": 0.5171
+    }
+  ],
+  "success": false,
+  "target": "red",
+  "unsafe_colors": [
+    "green",
+    "yellow"
+  ]
+}

@@ -1,0 +1,1167 @@
+{
+  "frame_count": 53,
+  "input_video": "data/go2_camera_recording.mp4",
+  "replay_video": "artifacts/replay_run/worldforge_trace_replay.mp4",
+  "run_id": "go2-camera-replay",
+  "schema_version": 1,
+  "steps": [
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0001.jpg",
+      "frame_index": 1,
+      "score": 0.7976,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_01",
+      "target": {
+        "area_ratio": 0.00062,
+        "bbox": [
+          243,
+          233,
+          263,
+          255
+        ],
+        "center_x": -0.4713,
+        "center_y": -0.0958,
+        "color": "green",
+        "confidence": 0.0346,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0002.jpg",
+      "frame_index": 2,
+      "score": 0.7916,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_02",
+      "target": {
+        "area_ratio": 0.00152,
+        "bbox": [
+          240,
+          233,
+          279,
+          266
+        ],
+        "center_x": -0.4614,
+        "center_y": -0.0764,
+        "color": "green",
+        "confidence": 0.0842,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0003.jpg",
+      "frame_index": 3,
+      "score": 0.7557,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_03",
+      "target": {
+        "area_ratio": 0.00146,
+        "bbox": [
+          268,
+          221,
+          307,
+          253
+        ],
+        "center_x": -0.4021,
+        "center_y": -0.1209,
+        "color": "green",
+        "confidence": 0.0809,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0004.jpg",
+      "frame_index": 4,
+      "score": 0.7548,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_04",
+      "target": {
+        "area_ratio": 0.00151,
+        "bbox": [
+          268,
+          221,
+          308,
+          254
+        ],
+        "center_x": -0.4006,
+        "center_y": -0.1223,
+        "color": "green",
+        "confidence": 0.0841,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0005.jpg",
+      "frame_index": 5,
+      "score": 0.7523,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_05",
+      "target": {
+        "area_ratio": 0.0016,
+        "bbox": [
+          269,
+          216,
+          313,
+          253
+        ],
+        "center_x": -0.3965,
+        "center_y": -0.1283,
+        "color": "green",
+        "confidence": 0.0892,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0006.jpg",
+      "frame_index": 6,
+      "score": 0.7536,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_06",
+      "target": {
+        "area_ratio": 0.00148,
+        "bbox": [
+          269,
+          222,
+          309,
+          254
+        ],
+        "center_x": -0.3987,
+        "center_y": -0.1217,
+        "color": "green",
+        "confidence": 0.0821,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0007.jpg",
+      "frame_index": 7,
+      "score": 0.7536,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_07",
+      "target": {
+        "area_ratio": 0.00141,
+        "bbox": [
+          270,
+          223,
+          309,
+          254
+        ],
+        "center_x": -0.3986,
+        "center_y": -0.1194,
+        "color": "green",
+        "confidence": 0.0784,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0008.jpg",
+      "frame_index": 8,
+      "score": 0.7534,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_08",
+      "target": {
+        "area_ratio": 0.00149,
+        "bbox": [
+          270,
+          220,
+          310,
+          253
+        ],
+        "center_x": -0.3984,
+        "center_y": -0.1208,
+        "color": "green",
+        "confidence": 0.0828,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0009.jpg",
+      "frame_index": 9,
+      "score": 0.7526,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_09",
+      "target": {
+        "area_ratio": 0.00155,
+        "bbox": [
+          271,
+          220,
+          310,
+          254
+        ],
+        "center_x": -0.3971,
+        "center_y": -0.1213,
+        "color": "green",
+        "confidence": 0.0861,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0010.jpg",
+      "frame_index": 10,
+      "score": 0.753,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_10",
+      "target": {
+        "area_ratio": 0.00139,
+        "bbox": [
+          271,
+          222,
+          310,
+          253
+        ],
+        "center_x": -0.3977,
+        "center_y": -0.1207,
+        "color": "green",
+        "confidence": 0.0771,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0011.jpg",
+      "frame_index": 11,
+      "score": 0.751,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_11",
+      "target": {
+        "area_ratio": 0.00169,
+        "bbox": [
+          271,
+          217,
+          313,
+          255
+        ],
+        "center_x": -0.3944,
+        "center_y": -0.1255,
+        "color": "green",
+        "confidence": 0.094,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0012.jpg",
+      "frame_index": 12,
+      "score": 0.7518,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_12",
+      "target": {
+        "area_ratio": 0.00162,
+        "bbox": [
+          271,
+          216,
+          310,
+          255
+        ],
+        "center_x": -0.3957,
+        "center_y": -0.1235,
+        "color": "green",
+        "confidence": 0.0898,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0013.jpg",
+      "frame_index": 13,
+      "score": 0.7521,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_13",
+      "target": {
+        "area_ratio": 0.00149,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "center_x": -0.3962,
+        "center_y": -0.1208,
+        "color": "green",
+        "confidence": 0.0831,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0014.jpg",
+      "frame_index": 14,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_14",
+      "target": {
+        "area_ratio": 0.00155,
+        "bbox": [
+          272,
+          220,
+          311,
+          255
+        ],
+        "center_x": -0.396,
+        "center_y": -0.1221,
+        "color": "green",
+        "confidence": 0.0858,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0015.jpg",
+      "frame_index": 15,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_15",
+      "target": {
+        "area_ratio": 0.00155,
+        "bbox": [
+          271,
+          220,
+          311,
+          255
+        ],
+        "center_x": -0.3961,
+        "center_y": -0.1229,
+        "color": "green",
+        "confidence": 0.0861,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0016.jpg",
+      "frame_index": 16,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_16",
+      "target": {
+        "area_ratio": 0.0015,
+        "bbox": [
+          271,
+          220,
+          311,
+          254
+        ],
+        "center_x": -0.3961,
+        "center_y": -0.1234,
+        "color": "green",
+        "confidence": 0.0833,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0017.jpg",
+      "frame_index": 17,
+      "score": 0.7528,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_17",
+      "target": {
+        "area_ratio": 0.00144,
+        "bbox": [
+          271,
+          220,
+          311,
+          254
+        ],
+        "center_x": -0.3973,
+        "center_y": -0.122,
+        "color": "green",
+        "confidence": 0.0797,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0018.jpg",
+      "frame_index": 18,
+      "score": 0.7522,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_18",
+      "target": {
+        "area_ratio": 0.00148,
+        "bbox": [
+          272,
+          223,
+          311,
+          254
+        ],
+        "center_x": -0.3964,
+        "center_y": -0.1216,
+        "color": "green",
+        "confidence": 0.082,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0019.jpg",
+      "frame_index": 19,
+      "score": 0.7522,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_19",
+      "target": {
+        "area_ratio": 0.00149,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "center_x": -0.3963,
+        "center_y": -0.1205,
+        "color": "green",
+        "confidence": 0.0826,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0020.jpg",
+      "frame_index": 20,
+      "score": 0.7521,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_20",
+      "target": {
+        "area_ratio": 0.00153,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "center_x": -0.3962,
+        "center_y": -0.1207,
+        "color": "green",
+        "confidence": 0.0852,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0021.jpg",
+      "frame_index": 21,
+      "score": 0.7518,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_21",
+      "target": {
+        "area_ratio": 0.00156,
+        "bbox": [
+          271,
+          218,
+          311,
+          254
+        ],
+        "center_x": -0.3957,
+        "center_y": -0.1232,
+        "color": "green",
+        "confidence": 0.0869,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0022.jpg",
+      "frame_index": 22,
+      "score": 0.7519,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_22",
+      "target": {
+        "area_ratio": 0.00152,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "center_x": -0.3958,
+        "center_y": -0.1205,
+        "color": "green",
+        "confidence": 0.0843,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0023.jpg",
+      "frame_index": 23,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_23",
+      "target": {
+        "area_ratio": 0.0015,
+        "bbox": [
+          271,
+          223,
+          311,
+          254
+        ],
+        "center_x": -0.3961,
+        "center_y": -0.1207,
+        "color": "green",
+        "confidence": 0.0832,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0024.jpg",
+      "frame_index": 24,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_24",
+      "target": {
+        "area_ratio": 0.00152,
+        "bbox": [
+          271,
+          223,
+          311,
+          254
+        ],
+        "center_x": -0.3961,
+        "center_y": -0.1211,
+        "color": "green",
+        "confidence": 0.0842,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0025.jpg",
+      "frame_index": 25,
+      "score": 0.7521,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_25",
+      "target": {
+        "area_ratio": 0.00149,
+        "bbox": [
+          271,
+          223,
+          310,
+          255
+        ],
+        "center_x": -0.3962,
+        "center_y": -0.1204,
+        "color": "green",
+        "confidence": 0.0831,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0026.jpg",
+      "frame_index": 26,
+      "score": 0.7519,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_26",
+      "target": {
+        "area_ratio": 0.00151,
+        "bbox": [
+          271,
+          223,
+          311,
+          254
+        ],
+        "center_x": -0.3959,
+        "center_y": -0.1213,
+        "color": "green",
+        "confidence": 0.0838,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0027.jpg",
+      "frame_index": 27,
+      "score": 0.7521,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_27",
+      "target": {
+        "area_ratio": 0.00152,
+        "bbox": [
+          271,
+          222,
+          311,
+          254
+        ],
+        "center_x": -0.3962,
+        "center_y": -0.1212,
+        "color": "green",
+        "confidence": 0.0843,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0028.jpg",
+      "frame_index": 28,
+      "score": 0.7517,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_28",
+      "target": {
+        "area_ratio": 0.0016,
+        "bbox": [
+          271,
+          218,
+          311,
+          255
+        ],
+        "center_x": -0.3955,
+        "center_y": -0.1236,
+        "color": "green",
+        "confidence": 0.0888,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0029.jpg",
+      "frame_index": 29,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_29",
+      "target": {
+        "area_ratio": 0.0015,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "center_x": -0.3961,
+        "center_y": -0.1205,
+        "color": "green",
+        "confidence": 0.0836,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0030.jpg",
+      "frame_index": 30,
+      "score": 0.7521,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_30",
+      "target": {
+        "area_ratio": 0.00149,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "center_x": -0.3962,
+        "center_y": -0.1203,
+        "color": "green",
+        "confidence": 0.0826,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0031.jpg",
+      "frame_index": 31,
+      "score": 0.7514,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_31",
+      "target": {
+        "area_ratio": 0.00158,
+        "bbox": [
+          271,
+          218,
+          311,
+          254
+        ],
+        "center_x": -0.395,
+        "center_y": -0.1227,
+        "color": "green",
+        "confidence": 0.088,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0032.jpg",
+      "frame_index": 32,
+      "score": 0.7504,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_32",
+      "target": {
+        "area_ratio": 0.00167,
+        "bbox": [
+          271,
+          217,
+          315,
+          255
+        ],
+        "center_x": -0.3934,
+        "center_y": -0.1248,
+        "color": "green",
+        "confidence": 0.0928,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0033.jpg",
+      "frame_index": 33,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_33",
+      "target": {
+        "area_ratio": 0.00148,
+        "bbox": [
+          272,
+          222,
+          311,
+          255
+        ],
+        "center_x": -0.3961,
+        "center_y": -0.1201,
+        "color": "green",
+        "confidence": 0.0821,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0034.jpg",
+      "frame_index": 34,
+      "score": 0.7513,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_34",
+      "target": {
+        "area_ratio": 0.0016,
+        "bbox": [
+          272,
+          218,
+          311,
+          255
+        ],
+        "center_x": -0.3949,
+        "center_y": -0.123,
+        "color": "green",
+        "confidence": 0.0889,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0035.jpg",
+      "frame_index": 35,
+      "score": 0.752,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_35",
+      "target": {
+        "area_ratio": 0.00153,
+        "bbox": [
+          271,
+          221,
+          311,
+          255
+        ],
+        "center_x": -0.396,
+        "center_y": -0.1207,
+        "color": "green",
+        "confidence": 0.085,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0036.jpg",
+      "frame_index": 36,
+      "score": 0.9115,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_36",
+      "target": {
+        "area_ratio": 0.00125,
+        "bbox": [
+          0,
+          153,
+          103,
+          170
+        ],
+        "center_x": -0.9258,
+        "center_y": -0.4031,
+        "color": "green",
+        "confidence": 0.0697,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0037.jpg",
+      "frame_index": 37,
+      "score": 0.7095,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_37",
+      "target": {
+        "area_ratio": 0.0,
+        "bbox": null,
+        "center_x": 0.0,
+        "center_y": 0.0,
+        "color": "green",
+        "confidence": 0.0,
+        "found": false
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0038.jpg",
+      "frame_index": 38,
+      "score": 0.8164,
+      "selected_candidate_id": "forward_small",
+      "step_dir": "artifacts/replay_run/trace/step_38",
+      "target": {
+        "area_ratio": 0.00329,
+        "bbox": [
+          374,
+          128,
+          470,
+          172
+        ],
+        "center_x": -0.1039,
+        "center_y": -0.432,
+        "color": "green",
+        "confidence": 0.1826,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0039.jpg",
+      "frame_index": 39,
+      "score": 0.9115,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_39",
+      "target": {
+        "area_ratio": 0.00188,
+        "bbox": [
+          119,
+          104,
+          165,
+          143
+        ],
+        "center_x": -0.7102,
+        "center_y": -0.5405,
+        "color": "green",
+        "confidence": 0.1046,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0040.jpg",
+      "frame_index": 40,
+      "score": 0.8937,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_40",
+      "target": {
+        "area_ratio": 0.01298,
+        "bbox": [
+          732,
+          51,
+          835,
+          207
+        ],
+        "center_x": 0.6298,
+        "center_y": -0.4615,
+        "color": "green",
+        "confidence": 0.721,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0041.jpg",
+      "frame_index": 41,
+      "score": 0.9115,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_41",
+      "target": {
+        "area_ratio": 0.0087,
+        "bbox": [
+          752,
+          112,
+          855,
+          207
+        ],
+        "center_x": 0.6779,
+        "center_y": -0.4131,
+        "color": "green",
+        "confidence": 0.4835,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0042.jpg",
+      "frame_index": 42,
+      "score": 0.798,
+      "selected_candidate_id": "forward_small",
+      "step_dir": "artifacts/replay_run/trace/step_42",
+      "target": {
+        "area_ratio": 0.00787,
+        "bbox": [
+          489,
+          65,
+          623,
+          175
+        ],
+        "center_x": 0.1404,
+        "center_y": -0.5815,
+        "color": "green",
+        "confidence": 0.4372,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0043.jpg",
+      "frame_index": 43,
+      "score": 0.7261,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_43",
+      "target": {
+        "area_ratio": 0.00322,
+        "bbox": [
+          280,
+          144,
+          340,
+          179
+        ],
+        "center_x": -0.3533,
+        "center_y": -0.3978,
+        "color": "green",
+        "confidence": 0.1789,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0044.jpg",
+      "frame_index": 44,
+      "score": 0.781,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_44",
+      "target": {
+        "area_ratio": 0.00395,
+        "bbox": [
+          662,
+          161,
+          727,
+          202
+        ],
+        "center_x": 0.4439,
+        "center_y": -0.3309,
+        "color": "green",
+        "confidence": 0.2193,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0045.jpg",
+      "frame_index": 45,
+      "score": 0.9113,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_45",
+      "target": {
+        "area_ratio": 0.00225,
+        "bbox": [
+          784,
+          191,
+          816,
+          228
+        ],
+        "center_x": 0.6661,
+        "center_y": -0.2208,
+        "color": "green",
+        "confidence": 0.1248,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0046.jpg",
+      "frame_index": 46,
+      "score": 0.7095,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_46",
+      "target": {
+        "area_ratio": 0.0,
+        "bbox": null,
+        "center_x": 0.0,
+        "center_y": 0.0,
+        "color": "green",
+        "confidence": 0.0,
+        "found": false
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0047.jpg",
+      "frame_index": 47,
+      "score": 0.793,
+      "selected_candidate_id": "forward_small",
+      "step_dir": "artifacts/replay_run/trace/step_47",
+      "target": {
+        "area_ratio": 0.00289,
+        "bbox": [
+          387,
+          40,
+          431,
+          112
+        ],
+        "center_x": -0.1504,
+        "center_y": -0.6726,
+        "color": "green",
+        "confidence": 0.1604,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0048.jpg",
+      "frame_index": 48,
+      "score": 0.779,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_48",
+      "target": {
+        "area_ratio": 0.00266,
+        "bbox": [
+          671,
+          64,
+          719,
+          127
+        ],
+        "center_x": 0.4406,
+        "center_y": -0.6191,
+        "color": "green",
+        "confidence": 0.148,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0049.jpg",
+      "frame_index": 49,
+      "score": 0.9115,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/replay_run/trace/step_49",
+      "target": {
+        "area_ratio": 0.00607,
+        "bbox": [
+          49,
+          175,
+          168,
+          215
+        ],
+        "center_x": -0.7615,
+        "center_y": -0.2795,
+        "color": "green",
+        "confidence": 0.3373,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0050.jpg",
+      "frame_index": 50,
+      "score": 0.8574,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_50",
+      "target": {
+        "area_ratio": 0.00253,
+        "bbox": [
+          735,
+          177,
+          773,
+          219
+        ],
+        "center_x": 0.57,
+        "center_y": -0.2632,
+        "color": "green",
+        "confidence": 0.1408,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0051.jpg",
+      "frame_index": 51,
+      "score": 0.8697,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_51",
+      "target": {
+        "area_ratio": 0.00237,
+        "bbox": [
+          743,
+          176,
+          782,
+          218
+        ],
+        "center_x": 0.5902,
+        "center_y": -0.2681,
+        "color": "green",
+        "confidence": 0.1317,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0052.jpg",
+      "frame_index": 52,
+      "score": 0.8696,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_52",
+      "target": {
+        "area_ratio": 0.00239,
+        "bbox": [
+          743,
+          176,
+          783,
+          216
+        ],
+        "center_x": 0.5901,
+        "center_y": -0.2685,
+        "color": "green",
+        "confidence": 0.1327,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    },
+    {
+      "annotated_frame": "artifacts/replay_run/annotated_frames/frame_0053.jpg",
+      "frame_index": 53,
+      "score": 0.8704,
+      "selected_candidate_id": "turn_right",
+      "step_dir": "artifacts/replay_run/trace/step_53",
+      "target": {
+        "area_ratio": 0.0024,
+        "bbox": [
+          743,
+          176,
+          783,
+          216
+        ],
+        "center_x": 0.5915,
+        "center_y": -0.2703,
+        "color": "green",
+        "confidence": 0.1333,
+        "found": true
+      },
+      "unsafe_risk": 0.0
+    }
+  ],
+  "target": "green",
+  "unsafe_colors": []
+}

@@ -1,0 +1,69 @@
+{
+  "lower_is_better": false,
+  "run_id": "final-after",
+  "schema_version": 1,
+  "scores": [
+    {
+      "candidate_id": "turn_left",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 0.62,
+        "information_gain": 0.72,
+        "obstacle_risk": 0.04,
+        "progress": 0.22,
+        "stuck_risk": 0.03
+      },
+      "reason": "scan candidate while target is not visible",
+      "score": 0.7095
+    },
+    {
+      "candidate_id": "turn_right",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 0.62,
+        "information_gain": 0.72,
+        "obstacle_risk": 0.04,
+        "progress": 0.22,
+        "stuck_risk": 0.03
+      },
+      "reason": "scan candidate while target is not visible",
+      "score": 0.7095
+    },
+    {
+      "candidate_id": "forward_small",
+      "features": {
+        "execution_cost": 0.08,
+        "goal_alignment": 0.08,
+        "information_gain": 0.12,
+        "obstacle_risk": 0.28,
+        "progress": 0.18,
+        "stuck_risk": 0.08
+      },
+      "reason": "scan candidate while target is not visible",
+      "score": 0.3498
+    },
+    {
+      "candidate_id": "stop_capture",
+      "features": {
+        "execution_cost": 0.2,
+        "goal_alignment": 0.1,
+        "information_gain": 0.18,
+        "obstacle_risk": 0.01,
+        "progress": 0.0,
+        "stuck_risk": 0.01
+      },
+      "reason": "scan candidate while target is not visible",
+      "score": 0.3646
+    }
+  ],
+  "selected_candidate_id": "turn_left",
+  "step_index": 1,
+  "weights": {
+    "clearance": 0.15,
+    "execution_cost": -0.05,
+    "goal_alignment": 0.28,
+    "information_gain": 0.27,
+    "not_stuck": 0.05,
+    "progress": 0.25
+  }
+}

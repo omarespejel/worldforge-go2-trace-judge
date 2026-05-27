@@ -1,0 +1,128 @@
+{
+  "action_candidates": [
+    {
+      "action": "move_joystick",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 1.0,
+        "information_gain": 1.0,
+        "obstacle_risk": 0.04,
+        "progress": 0.3,
+        "stuck_risk": 0.03
+      },
+      "id": "turn_left",
+      "params": {
+        "duration": 0.45,
+        "turn": -0.2
+      },
+      "reason_hint": "turns target toward image center"
+    },
+    {
+      "action": "move_joystick",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 0.2,
+        "information_gain": 1.0,
+        "obstacle_risk": 0.04,
+        "progress": 0.3,
+        "stuck_risk": 0.03
+      },
+      "id": "turn_right",
+      "params": {
+        "duration": 0.45,
+        "turn": 0.2
+      },
+      "reason_hint": "target is not right enough"
+    },
+    {
+      "action": "move_joystick",
+      "features": {
+        "execution_cost": 0.08,
+        "goal_alignment": 0.0,
+        "information_gain": 0.34,
+        "obstacle_risk": 0.0,
+        "progress": 0.18,
+        "stuck_risk": 0.08
+      },
+      "id": "forward_small",
+      "params": {
+        "duration": 0.55,
+        "forward": 0.14
+      },
+      "reason_hint": "safe forward progress when target is centered"
+    },
+    {
+      "action": "wait",
+      "features": {
+        "execution_cost": 0.2,
+        "goal_alignment": 0.35,
+        "information_gain": 0.18,
+        "obstacle_risk": 0.01,
+        "progress": 0.0,
+        "stuck_risk": 0.01
+      },
+      "id": "stop_capture",
+      "params": {
+        "seconds": 0.5
+      },
+      "reason_hint": "only useful once target is centered and close"
+    }
+  ],
+  "capability": "score",
+  "provider": "transparent-go2-color-target-score",
+  "score_info": {
+    "embodiment": "unitree_go2",
+    "host_runtime": "dimos-mcp-local-router",
+    "input_source": "live_camera_color_detector",
+    "observation_summary": {
+      "costmap_summary": {
+        "blocked_ahead": false,
+        "frontier_count": null,
+        "min_clearance_m": null,
+        "unknown_area_ratio": null
+      },
+      "navigation_state": {
+        "active_goal": "find_green_block",
+        "localized": true,
+        "stuck_probability": 0.05
+      },
+      "pose": {
+        "x": 0.0,
+        "y": 0.0,
+        "yaw_degrees": 0.0
+      },
+      "visual_summary": {
+        "strongest_distractor": {
+          "area_ratio": 0.09451,
+          "bbox": [
+            719,
+            0,
+            959,
+            539
+          ],
+          "center_x": 0.8139,
+          "center_y": 0.0976,
+          "color": "yellow",
+          "confidence": 1.0,
+          "found": true
+        },
+        "target_area_ratio": 0.00188,
+        "target_bearing_degrees": -31.96,
+        "target_confidence": 0.1046,
+        "target_label": "green",
+        "unsafe_color_risk": 0.0
+      }
+    },
+    "run_id": "go2-camera-replay",
+    "schema_version": 1,
+    "step_index": 39,
+    "task": {
+      "goal_representation": {
+        "target_label": "green",
+        "type": "host_interpreted_visual_goal",
+        "unsafe_markers": "configured_by_host"
+      },
+      "human_goal": "find the green block and avoid unsafe colored markers"
+    }
+  }
+}

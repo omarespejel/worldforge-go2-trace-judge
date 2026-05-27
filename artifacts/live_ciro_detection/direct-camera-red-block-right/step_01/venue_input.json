@@ -1,0 +1,121 @@
+{
+  "candidates": [
+    {
+      "action": "move_joystick",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 0.2,
+        "information_gain": 1.0,
+        "obstacle_risk": 0.04,
+        "progress": 0.3,
+        "stuck_risk": 0.03
+      },
+      "id": "turn_left",
+      "params": {
+        "duration": 0.45,
+        "turn": -0.2
+      },
+      "reason_hint": "target is not left enough"
+    },
+    {
+      "action": "move_joystick",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 1.0,
+        "information_gain": 1.0,
+        "obstacle_risk": 0.04,
+        "progress": 0.3,
+        "stuck_risk": 0.03
+      },
+      "id": "turn_right",
+      "params": {
+        "duration": 0.45,
+        "turn": 0.2
+      },
+      "reason_hint": "turns target toward image center"
+    },
+    {
+      "action": "move_joystick",
+      "features": {
+        "execution_cost": 0.08,
+        "goal_alignment": 0.0,
+        "information_gain": 0.34,
+        "obstacle_risk": 0.4925,
+        "progress": 0.18,
+        "stuck_risk": 0.18
+      },
+      "id": "forward_small",
+      "params": {
+        "duration": 0.55,
+        "forward": 0.14
+      },
+      "reason_hint": "forward progress penalized by unsafe color near path"
+    },
+    {
+      "action": "wait",
+      "features": {
+        "execution_cost": 0.2,
+        "goal_alignment": 0.35,
+        "information_gain": 0.18,
+        "obstacle_risk": 0.01,
+        "progress": 0.0,
+        "stuck_risk": 0.01
+      },
+      "id": "stop_capture",
+      "params": {
+        "seconds": 0.5
+      },
+      "reason_hint": "only useful once target is centered and close"
+    }
+  ],
+  "embodiment": "unitree_go2",
+  "host_runtime": "dimos-mcp-local-router",
+  "observation_summary": {
+    "costmap_summary": {
+      "blocked_ahead": true,
+      "frontier_count": null,
+      "min_clearance_m": null,
+      "unknown_area_ratio": null
+    },
+    "navigation_state": {
+      "active_goal": "find_red_block",
+      "localized": true,
+      "stuck_probability": 0.05
+    },
+    "pose": {
+      "x": 0.0,
+      "y": 0.0,
+      "yaw_degrees": 0.0
+    },
+    "visual_summary": {
+      "strongest_distractor": {
+        "area_ratio": 0.00032,
+        "bbox": [
+          589,
+          245,
+          613,
+          258
+        ],
+        "center_x": -0.0605,
+        "center_y": -0.3025,
+        "color": "blue",
+        "confidence": 0.0176,
+        "found": true
+      },
+      "target_area_ratio": 0.00186,
+      "target_bearing_degrees": 30.03,
+      "target_confidence": 0.1032,
+      "target_label": "red",
+      "unsafe_color_risk": 0.4925
+    }
+  },
+  "schema_version": 1,
+  "task": {
+    "goal_representation": {
+      "target_label": "red",
+      "type": "host_interpreted_visual_goal",
+      "unsafe_markers": "configured_by_host"
+    },
+    "human_goal": "find the red block and avoid unsafe colored markers"
+  }
+}

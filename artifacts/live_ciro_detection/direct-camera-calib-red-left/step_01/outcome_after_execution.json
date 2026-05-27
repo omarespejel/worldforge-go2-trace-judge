@@ -1,0 +1,13 @@
+{
+  "executed": false,
+  "execution_result": "dry-run: selected action not executed",
+  "outcome_after_execution": {
+    "manual_intervention": false,
+    "target_area_ratio": 0.00344,
+    "target_confidence": 0.1913,
+    "unsafe_color_risk": 0.5987
+  },
+  "run_id": "direct-camera-calib-red-left",
+  "schema_version": 1,
+  "step_index": 1
+}

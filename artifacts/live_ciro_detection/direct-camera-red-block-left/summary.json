@@ -1,0 +1,35 @@
+{
+  "execute": false,
+  "run_id": "direct-camera-red-block-left",
+  "schema_version": 1,
+  "steps": [
+    {
+      "execution_result": "dry-run: selected action not executed",
+      "score": 0.9115,
+      "selected_candidate_id": "turn_left",
+      "step_dir": "artifacts/live_ciro_detection/direct-camera-red-block-left/step_01",
+      "step_index": 1,
+      "target": {
+        "area_ratio": 0.00076,
+        "bbox": [
+          24,
+          550,
+          51,
+          579
+        ],
+        "center_x": -0.9414,
+        "center_y": 0.5673,
+        "color": "red",
+        "confidence": 0.0422,
+        "found": true
+      },
+      "unsafe_color_risk": 0.404
+    }
+  ],
+  "success": false,
+  "target": "red",
+  "unsafe_colors": [
+    "green",
+    "yellow"
+  ]
+}

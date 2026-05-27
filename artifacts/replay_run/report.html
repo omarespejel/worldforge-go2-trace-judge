@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WorldForge Go2 Trace Judge</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #101113;
+      color: #f5f3ed;
+    }
+    body { margin: 0; background: #101113; }
+    main { max-width: 1120px; margin: 0 auto; padding: 32px 20px 48px; }
+    h1 { font-size: 42px; margin: 0 0 8px; letter-spacing: 0; }
+    h2 { margin-top: 34px; font-size: 22px; }
+    p { line-height: 1.55; color: #d7d2c8; }
+    .hero { display: grid; gap: 20px; }
+    video { width: 100%; border: 1px solid #3a3a3a; background: #000; }
+    .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+    .fact { border: 1px solid #353535; padding: 14px; background: #18191c; }
+    .fact span { display: block; color: #a7a093; font-size: 12px; text-transform: uppercase; }
+    .fact strong { font-size: 24px; }
+    .step-grid { display: grid; gap: 14px; }
+    .step-card { display: grid; grid-template-columns: 220px 1fr; gap: 14px; border: 1px solid #343434; background: #18191c; padding: 12px; }
+    .step-card img { width: 220px; aspect-ratio: 16 / 9; object-fit: cover; }
+    .step-card h3 { margin: 0 0 6px; }
+    .step-card a { display: inline-block; margin-right: 12px; color: #8cc8ff; }
+    code, pre { background: #1e2024; color: #f1e7d0; }
+    pre { overflow: auto; padding: 14px; border: 1px solid #343434; }
+    @media (max-width: 760px) {
+      h1 { font-size: 32px; }
+      .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .step-card { grid-template-columns: 1fr; }
+      .step-card img { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div>
+      <h1>WorldForge Go2 Trace Judge</h1>
+      <p>Go2 camera observations become candidate robot moves, transparent scores, selected actions, and replayable evidence. The robot runtime stays host-owned; WorldForge is the trace judge.</p>
+    </div>
+    <video controls src="worldforge_trace_replay.mp4"></video>
+  </section>
+
+  <section class="facts">
+    <div class="fact"><span>Run</span><strong>go2-camera-replay</strong></div>
+    <div class="fact"><span>Frames</span><strong>53</strong></div>
+    <div class="fact"><span>Target</span><strong>green</strong></div>
+    <div class="fact"><span>Unsafe</span><strong></strong></div>
+  </section>
+
+  <h2>Selected Action Distribution</h2>
+  <ul><li><strong>turn_left</strong>: 41 frames</li><li><strong>turn_right</strong>: 9 frames</li><li><strong>forward_small</strong>: 3 frames</li></ul>
+
+  <h2>Evidence Contract</h2>
+  <pre>observation_summary + task + candidate actions
+-> score_info.json
+-> candidate_scores.json
+-> selected_action.json
+-> outcome_after_execution.json</pre>
+
+  <h2>Sample Frames</h2>
+  <section class="step-grid">
+    
+            <article class="step-card">
+              <img src="annotated_frames/frame_0001.jpg" alt="Annotated frame 1">
+              <div>
+                <h3>Frame 01: turn_left</h3>
+                <p>score <strong>0.7976</strong>, target confidence <strong>0.0346</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_01/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_01/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0002.jpg" alt="Annotated frame 2">
+              <div>
+                <h3>Frame 02: turn_left</h3>
+                <p>score <strong>0.7916</strong>, target confidence <strong>0.0842</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_02/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_02/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0003.jpg" alt="Annotated frame 3">
+              <div>
+                <h3>Frame 03: turn_left</h3>
+                <p>score <strong>0.7557</strong>, target confidence <strong>0.0809</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_03/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_03/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0004.jpg" alt="Annotated frame 4">
+              <div>
+                <h3>Frame 04: turn_left</h3>
+                <p>score <strong>0.7548</strong>, target confidence <strong>0.0841</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_04/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_04/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0005.jpg" alt="Annotated frame 5">
+              <div>
+                <h3>Frame 05: turn_left</h3>
+                <p>score <strong>0.7523</strong>, target confidence <strong>0.0892</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_05/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_05/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0006.jpg" alt="Annotated frame 6">
+              <div>
+                <h3>Frame 06: turn_left</h3>
+                <p>score <strong>0.7536</strong>, target confidence <strong>0.0821</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_06/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_06/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0007.jpg" alt="Annotated frame 7">
+              <div>
+                <h3>Frame 07: turn_left</h3>
+                <p>score <strong>0.7536</strong>, target confidence <strong>0.0784</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_07/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_07/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+            <article class="step-card">
+              <img src="annotated_frames/frame_0008.jpg" alt="Annotated frame 8">
+              <div>
+                <h3>Frame 08: turn_left</h3>
+                <p>score <strong>0.7534</strong>, target confidence <strong>0.0828</strong>, unsafe risk <strong>0.0</strong></p>
+                <a href="trace/step_08/candidate_scores.json">candidate_scores.json</a>
+                <a href="trace/step_08/score_info.json">score_info.json</a>
+              </div>
+            </article>
+            
+  </section>
+</main>
+</body>
+</html>

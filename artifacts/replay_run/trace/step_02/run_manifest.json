@@ -1,0 +1,23 @@
+{
+  "artifacts": {
+    "camera_frame": "artifacts/replay_run/trace/step_02/camera_frame.jpg",
+    "candidate_scores": "candidate_scores.json",
+    "observation_summary": "observation_summary.json",
+    "outcome_after_execution": "outcome_after_execution.json",
+    "score_info": "score_info.json",
+    "selected_action": "selected_action.json"
+  },
+  "goal": "find the green block and avoid unsafe colored markers",
+  "run_id": "go2-camera-replay",
+  "safety_boundary": {
+    "host_executes_selected_action": false,
+    "motion_limits": {
+      "duration": 0.55,
+      "forward": 0.14,
+      "turn": 0.2
+    },
+    "worldforge_executes_robot": false
+  },
+  "schema_version": 1,
+  "step_index": 2
+}

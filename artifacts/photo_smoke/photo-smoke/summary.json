@@ -1,0 +1,35 @@
+{
+  "execute": false,
+  "run_id": "photo-smoke",
+  "schema_version": 1,
+  "steps": [
+    {
+      "execution_result": "dry-run: selected action not executed",
+      "score": 0.7021,
+      "selected_candidate_id": "forward_small",
+      "step_dir": "artifacts/photo_smoke/photo-smoke/step_01",
+      "step_index": 1,
+      "target": {
+        "area_ratio": 0.00605,
+        "bbox": [
+          507,
+          373,
+          596,
+          459
+        ],
+        "center_x": -0.131,
+        "center_y": 0.1529,
+        "color": "green",
+        "confidence": 0.3362,
+        "found": true
+      },
+      "unsafe_color_risk": 0.6381
+    }
+  ],
+  "success": false,
+  "target": "green",
+  "unsafe_colors": [
+    "red",
+    "yellow"
+  ]
+}

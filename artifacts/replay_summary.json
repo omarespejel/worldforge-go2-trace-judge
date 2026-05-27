@@ -1,0 +1,3074 @@
+[
+  {
+    "frame_index": 1,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00062,
+        "center_x": -0.4713,
+        "bbox": [
+          243,
+          233,
+          263,
+          255
+        ],
+        "confidence": 0.0312
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.0391,
+        "center_x": 0.2863,
+        "bbox": [
+          454,
+          0,
+          728,
+          140
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00404,
+        "center_x": -0.9048,
+        "bbox": [
+          11,
+          143,
+          80,
+          181
+        ],
+        "confidence": 0.2022
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00067,
+        "center_x": 0.2628,
+        "bbox": [
+          597,
+          512,
+          618,
+          539
+        ],
+        "confidence": 0.0333
+      }
+    },
+    "red_risk": 0.828
+  },
+  {
+    "frame_index": 2,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00152,
+        "center_x": -0.4614,
+        "bbox": [
+          240,
+          233,
+          279,
+          266
+        ],
+        "confidence": 0.0758
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03646,
+        "center_x": 0.2973,
+        "bbox": [
+          464,
+          0,
+          730,
+          127
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00402,
+        "center_x": -0.9043,
+        "bbox": [
+          12,
+          141,
+          81,
+          181
+        ],
+        "confidence": 0.2011
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00082,
+        "center_x": 0.253,
+        "bbox": [
+          584,
+          516,
+          621,
+          539
+        ],
+        "confidence": 0.041
+      }
+    },
+    "red_risk": 0.822
+  },
+  {
+    "frame_index": 3,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00146,
+        "center_x": -0.4021,
+        "bbox": [
+          268,
+          221,
+          307,
+          253
+        ],
+        "confidence": 0.0728
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02976,
+        "center_x": 0.4849,
+        "bbox": [
+          607,
+          0,
+          795,
+          123
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00412,
+        "center_x": -0.8459,
+        "bbox": [
+          37,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2059
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00131,
+        "center_x": 0.3153,
+        "bbox": [
+          616,
+          510,
+          653,
+          539
+        ],
+        "confidence": 0.0655
+      }
+    },
+    "red_risk": 0.709
+  },
+  {
+    "frame_index": 4,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00151,
+        "center_x": -0.4006,
+        "bbox": [
+          268,
+          221,
+          308,
+          254
+        ],
+        "confidence": 0.0757
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02688,
+        "center_x": 0.5017,
+        "bbox": [
+          612,
+          0,
+          800,
+          118
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00409,
+        "center_x": -0.8473,
+        "bbox": [
+          37,
+          123,
+          111,
+          161
+        ],
+        "confidence": 0.2043
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00105,
+        "center_x": 0.3227,
+        "bbox": [
+          619,
+          507,
+          654,
+          539
+        ],
+        "confidence": 0.0523
+      }
+    },
+    "red_risk": 0.699
+  },
+  {
+    "frame_index": 5,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0016,
+        "center_x": -0.3965,
+        "bbox": [
+          269,
+          216,
+          313,
+          253
+        ],
+        "confidence": 0.0802
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02785,
+        "center_x": 0.5079,
+        "bbox": [
+          614,
+          0,
+          802,
+          121
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00418,
+        "center_x": -0.8455,
+        "bbox": [
+          38,
+          123,
+          111,
+          161
+        ],
+        "confidence": 0.2091
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00037,
+        "center_x": 0.326,
+        "bbox": [
+          626,
+          512,
+          645,
+          533
+        ],
+        "confidence": 0.0186
+      }
+    },
+    "red_risk": 0.695
+  },
+  {
+    "frame_index": 6,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00148,
+        "center_x": -0.3987,
+        "bbox": [
+          269,
+          222,
+          309,
+          254
+        ],
+        "confidence": 0.0739
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02763,
+        "center_x": 0.5116,
+        "bbox": [
+          615,
+          0,
+          803,
+          123
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00417,
+        "center_x": -0.8453,
+        "bbox": [
+          37,
+          123,
+          110,
+          161
+        ],
+        "confidence": 0.2085
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.0009,
+        "center_x": 0.3321,
+        "bbox": [
+          628,
+          509,
+          655,
+          539
+        ],
+        "confidence": 0.0451
+      }
+    },
+    "red_risk": 0.693
+  },
+  {
+    "frame_index": 7,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00141,
+        "center_x": -0.3986,
+        "bbox": [
+          270,
+          223,
+          309,
+          254
+        ],
+        "confidence": 0.0706
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02677,
+        "center_x": 0.5132,
+        "bbox": [
+          615,
+          0,
+          802,
+          122
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00419,
+        "center_x": -0.8439,
+        "bbox": [
+          38,
+          122,
+          111,
+          161
+        ],
+        "confidence": 0.2094
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00051,
+        "center_x": 0.3194,
+        "bbox": [
+          613,
+          512,
+          651,
+          527
+        ],
+        "confidence": 0.0255
+      }
+    },
+    "red_risk": 0.692
+  },
+  {
+    "frame_index": 8,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00149,
+        "center_x": -0.3984,
+        "bbox": [
+          270,
+          220,
+          310,
+          253
+        ],
+        "confidence": 0.0746
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03028,
+        "center_x": 0.5227,
+        "bbox": [
+          616,
+          0,
+          803,
+          152
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00402,
+        "center_x": -0.8448,
+        "bbox": [
+          38,
+          123,
+          111,
+          161
+        ],
+        "confidence": 0.2009
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00194,
+        "center_x": 0.3195,
+        "bbox": [
+          611,
+          493,
+          655,
+          539
+        ],
+        "confidence": 0.0968
+      }
+    },
+    "red_risk": 0.686
+  },
+  {
+    "frame_index": 9,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00155,
+        "center_x": -0.3971,
+        "bbox": [
+          271,
+          220,
+          310,
+          254
+        ],
+        "confidence": 0.0774
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02437,
+        "center_x": 0.524,
+        "bbox": [
+          616,
+          0,
+          803,
+          124
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00407,
+        "center_x": -0.8436,
+        "bbox": [
+          39,
+          122,
+          111,
+          160
+        ],
+        "confidence": 0.2035
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.0012,
+        "center_x": 0.334,
+        "bbox": [
+          628,
+          495,
+          659,
+          539
+        ],
+        "confidence": 0.06
+      }
+    },
+    "red_risk": 0.686
+  },
+  {
+    "frame_index": 10,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00139,
+        "center_x": -0.3977,
+        "bbox": [
+          271,
+          222,
+          310,
+          253
+        ],
+        "confidence": 0.0693
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02914,
+        "center_x": 0.53,
+        "bbox": [
+          618,
+          0,
+          804,
+          171
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00417,
+        "center_x": -0.8427,
+        "bbox": [
+          38,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2087
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00034,
+        "center_x": 0.0584,
+        "bbox": [
+          504,
+          237,
+          513,
+          265
+        ],
+        "confidence": 0.0172
+      }
+    },
+    "red_risk": 0.682
+  },
+  {
+    "frame_index": 11,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00169,
+        "center_x": -0.3944,
+        "bbox": [
+          271,
+          217,
+          313,
+          255
+        ],
+        "confidence": 0.0846
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02752,
+        "center_x": 0.531,
+        "bbox": [
+          618,
+          0,
+          806,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00403,
+        "center_x": -0.8419,
+        "bbox": [
+          42,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2014
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00111,
+        "center_x": 0.3257,
+        "bbox": [
+          616,
+          512,
+          658,
+          539
+        ],
+        "confidence": 0.0556
+      }
+    },
+    "red_risk": 0.681
+  },
+  {
+    "frame_index": 12,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00162,
+        "center_x": -0.3957,
+        "bbox": [
+          271,
+          216,
+          310,
+          255
+        ],
+        "confidence": 0.0808
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02491,
+        "center_x": 0.5262,
+        "bbox": [
+          617,
+          0,
+          807,
+          122
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.0041,
+        "center_x": -0.8427,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.2048
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00128,
+        "center_x": 0.3187,
+        "bbox": [
+          614,
+          512,
+          655,
+          539
+        ],
+        "confidence": 0.0638
+      }
+    },
+    "red_risk": 0.684
+  },
+  {
+    "frame_index": 13,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00149,
+        "center_x": -0.3962,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "confidence": 0.0747
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03171,
+        "center_x": 0.5346,
+        "bbox": [
+          623,
+          0,
+          805,
+          162
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.004,
+        "center_x": -0.8421,
+        "bbox": [
+          40,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00112,
+        "center_x": 0.3163,
+        "bbox": [
+          612,
+          514,
+          656,
+          539
+        ],
+        "confidence": 0.056
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 14,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00155,
+        "center_x": -0.396,
+        "bbox": [
+          272,
+          220,
+          311,
+          255
+        ],
+        "confidence": 0.0773
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03173,
+        "center_x": 0.5298,
+        "bbox": [
+          621,
+          0,
+          804,
+          159
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00403,
+        "center_x": -0.8414,
+        "bbox": [
+          40,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2017
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.0008,
+        "center_x": 0.3331,
+        "bbox": [
+          624,
+          515,
+          655,
+          539
+        ],
+        "confidence": 0.0398
+      }
+    },
+    "red_risk": 0.682
+  },
+  {
+    "frame_index": 15,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00155,
+        "center_x": -0.3961,
+        "bbox": [
+          271,
+          220,
+          311,
+          255
+        ],
+        "confidence": 0.0774
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03101,
+        "center_x": 0.5288,
+        "bbox": [
+          619,
+          0,
+          804,
+          159
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00402,
+        "center_x": -0.8414,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.2008
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00044,
+        "center_x": 0.06,
+        "bbox": [
+          504,
+          237,
+          514,
+          263
+        ],
+        "confidence": 0.0222
+      }
+    },
+    "red_risk": 0.683
+  },
+  {
+    "frame_index": 16,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0015,
+        "center_x": -0.3961,
+        "bbox": [
+          271,
+          220,
+          311,
+          254
+        ],
+        "confidence": 0.0749
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03206,
+        "center_x": 0.5304,
+        "bbox": [
+          619,
+          0,
+          805,
+          163
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00412,
+        "center_x": -0.8425,
+        "bbox": [
+          39,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2062
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.0003,
+        "center_x": 0.1578,
+        "bbox": [
+          552,
+          245,
+          559,
+          271
+        ],
+        "confidence": 0.0149
+      }
+    },
+    "red_risk": 0.682
+  },
+  {
+    "frame_index": 17,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00144,
+        "center_x": -0.3973,
+        "bbox": [
+          271,
+          220,
+          311,
+          254
+        ],
+        "confidence": 0.0718
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03144,
+        "center_x": 0.5319,
+        "bbox": [
+          619,
+          0,
+          803,
+          163
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00406,
+        "center_x": -0.8411,
+        "bbox": [
+          39,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2032
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00038,
+        "center_x": 0.0625,
+        "bbox": [
+          506,
+          237,
+          515,
+          263
+        ],
+        "confidence": 0.019
+      }
+    },
+    "red_risk": 0.681
+  },
+  {
+    "frame_index": 18,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00148,
+        "center_x": -0.3964,
+        "bbox": [
+          272,
+          223,
+          311,
+          254
+        ],
+        "confidence": 0.0738
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02788,
+        "center_x": 0.5327,
+        "bbox": [
+          620,
+          0,
+          802,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00403,
+        "center_x": -0.8417,
+        "bbox": [
+          39,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2013
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00133,
+        "center_x": 0.3137,
+        "bbox": [
+          613,
+          515,
+          655,
+          539
+        ],
+        "confidence": 0.0663
+      }
+    },
+    "red_risk": 0.68
+  },
+  {
+    "frame_index": 19,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00149,
+        "center_x": -0.3963,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "confidence": 0.0744
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02811,
+        "center_x": 0.5358,
+        "bbox": [
+          620,
+          0,
+          802,
+          162
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00402,
+        "center_x": -0.8408,
+        "bbox": [
+          40,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2008
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00198,
+        "center_x": 0.3188,
+        "bbox": [
+          612,
+          493,
+          656,
+          539
+        ],
+        "confidence": 0.0992
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 20,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00153,
+        "center_x": -0.3962,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "confidence": 0.0767
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02726,
+        "center_x": 0.5336,
+        "bbox": [
+          620,
+          0,
+          805,
+          147
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00401,
+        "center_x": -0.8413,
+        "bbox": [
+          40,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2006
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00159,
+        "center_x": 0.3201,
+        "bbox": [
+          614,
+          492,
+          655,
+          539
+        ],
+        "confidence": 0.0794
+      }
+    },
+    "red_risk": 0.68
+  },
+  {
+    "frame_index": 21,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00156,
+        "center_x": -0.3957,
+        "bbox": [
+          271,
+          218,
+          311,
+          254
+        ],
+        "confidence": 0.0782
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02889,
+        "center_x": 0.536,
+        "bbox": [
+          620,
+          0,
+          803,
+          162
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00396,
+        "center_x": -0.8421,
+        "bbox": [
+          40,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.1979
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00115,
+        "center_x": 0.3224,
+        "bbox": [
+          614,
+          516,
+          657,
+          539
+        ],
+        "confidence": 0.0575
+      }
+    },
+    "red_risk": 0.678
+  },
+  {
+    "frame_index": 22,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00152,
+        "center_x": -0.3958,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "confidence": 0.0759
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02854,
+        "center_x": 0.535,
+        "bbox": [
+          620,
+          0,
+          804,
+          162
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00395,
+        "center_x": -0.8423,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.1974
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00218,
+        "center_x": 0.3141,
+        "bbox": [
+          613,
+          492,
+          655,
+          539
+        ],
+        "confidence": 0.109
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 23,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0015,
+        "center_x": -0.3961,
+        "bbox": [
+          271,
+          223,
+          311,
+          254
+        ],
+        "confidence": 0.0748
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02788,
+        "center_x": 0.5337,
+        "bbox": [
+          620,
+          0,
+          802,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00399,
+        "center_x": -0.8415,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.1996
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00141,
+        "center_x": 0.3145,
+        "bbox": [
+          613,
+          513,
+          660,
+          539
+        ],
+        "confidence": 0.0703
+      }
+    },
+    "red_risk": 0.68
+  },
+  {
+    "frame_index": 24,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00152,
+        "center_x": -0.3961,
+        "bbox": [
+          271,
+          223,
+          311,
+          254
+        ],
+        "confidence": 0.0758
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02794,
+        "center_x": 0.5345,
+        "bbox": [
+          620,
+          0,
+          804,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00406,
+        "center_x": -0.8408,
+        "bbox": [
+          39,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.2028
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00208,
+        "center_x": 0.316,
+        "bbox": [
+          613,
+          492,
+          660,
+          539
+        ],
+        "confidence": 0.1039
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 25,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00149,
+        "center_x": -0.3962,
+        "bbox": [
+          271,
+          223,
+          310,
+          255
+        ],
+        "confidence": 0.0747
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.0272,
+        "center_x": 0.5338,
+        "bbox": [
+          622,
+          0,
+          805,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00397,
+        "center_x": -0.842,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.1985
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.0015,
+        "center_x": 0.3174,
+        "bbox": [
+          613,
+          512,
+          655,
+          539
+        ],
+        "confidence": 0.0752
+      }
+    },
+    "red_risk": 0.68
+  },
+  {
+    "frame_index": 26,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00151,
+        "center_x": -0.3959,
+        "bbox": [
+          271,
+          223,
+          311,
+          254
+        ],
+        "confidence": 0.0754
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02862,
+        "center_x": 0.5354,
+        "bbox": [
+          620,
+          0,
+          805,
+          162
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00402,
+        "center_x": -0.8416,
+        "bbox": [
+          39,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.201
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00173,
+        "center_x": 0.3165,
+        "bbox": [
+          613,
+          494,
+          659,
+          539
+        ],
+        "confidence": 0.0865
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 27,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00152,
+        "center_x": -0.3962,
+        "bbox": [
+          271,
+          222,
+          311,
+          254
+        ],
+        "confidence": 0.0759
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.02823,
+        "center_x": 0.5347,
+        "bbox": [
+          620,
+          0,
+          805,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00398,
+        "center_x": -0.8417,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.1992
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00264,
+        "center_x": 0.3199,
+        "bbox": [
+          610,
+          488,
+          657,
+          539
+        ],
+        "confidence": 0.1321
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 28,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0016,
+        "center_x": -0.3955,
+        "bbox": [
+          271,
+          218,
+          311,
+          255
+        ],
+        "confidence": 0.08
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03309,
+        "center_x": 0.5355,
+        "bbox": [
+          623,
+          0,
+          808,
+          164
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.004,
+        "center_x": -0.8417,
+        "bbox": [
+          39,
+          123,
+          111,
+          160
+        ],
+        "confidence": 0.1998
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00255,
+        "center_x": 0.315,
+        "bbox": [
+          608,
+          488,
+          655,
+          539
+        ],
+        "confidence": 0.1275
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 29,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0015,
+        "center_x": -0.3961,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "confidence": 0.0752
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.0295,
+        "center_x": 0.531,
+        "bbox": [
+          624,
+          0,
+          808,
+          156
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00399,
+        "center_x": -0.8416,
+        "bbox": [
+          40,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.1997
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00222,
+        "center_x": 0.3196,
+        "bbox": [
+          611,
+          491,
+          655,
+          539
+        ],
+        "confidence": 0.1112
+      }
+    },
+    "red_risk": 0.681
+  },
+  {
+    "frame_index": 30,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00149,
+        "center_x": -0.3962,
+        "bbox": [
+          271,
+          223,
+          311,
+          255
+        ],
+        "confidence": 0.0744
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03217,
+        "center_x": 0.5308,
+        "bbox": [
+          624,
+          0,
+          811,
+          159
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00403,
+        "center_x": -0.8416,
+        "bbox": [
+          38,
+          124,
+          111,
+          160
+        ],
+        "confidence": 0.2013
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00154,
+        "center_x": 0.3215,
+        "bbox": [
+          608,
+          512,
+          655,
+          539
+        ],
+        "confidence": 0.0768
+      }
+    },
+    "red_risk": 0.682
+  },
+  {
+    "frame_index": 31,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00158,
+        "center_x": -0.395,
+        "bbox": [
+          271,
+          218,
+          311,
+          254
+        ],
+        "confidence": 0.0792
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03224,
+        "center_x": 0.5327,
+        "bbox": [
+          624,
+          0,
+          807,
+          162
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.0085,
+        "center_x": -0.7851,
+        "bbox": [
+          32,
+          0,
+          146,
+          85
+        ],
+        "confidence": 0.4249
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00149,
+        "center_x": 0.3159,
+        "bbox": [
+          611,
+          517,
+          655,
+          539
+        ],
+        "confidence": 0.0743
+      }
+    },
+    "red_risk": 0.68
+  },
+  {
+    "frame_index": 32,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00167,
+        "center_x": -0.3934,
+        "bbox": [
+          271,
+          217,
+          315,
+          255
+        ],
+        "confidence": 0.0835
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.0333,
+        "center_x": 0.5352,
+        "bbox": [
+          623,
+          0,
+          832,
+          167
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.01301,
+        "center_x": -0.4945,
+        "bbox": [
+          208,
+          0,
+          287,
+          145
+        ],
+        "confidence": 0.6505
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00139,
+        "center_x": 0.3108,
+        "bbox": [
+          610,
+          513,
+          647,
+          539
+        ],
+        "confidence": 0.0694
+      }
+    },
+    "red_risk": 0.679
+  },
+  {
+    "frame_index": 33,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00148,
+        "center_x": -0.3961,
+        "bbox": [
+          272,
+          222,
+          311,
+          255
+        ],
+        "confidence": 0.0739
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03107,
+        "center_x": 0.5337,
+        "bbox": [
+          623,
+          0,
+          832,
+          151
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00708,
+        "center_x": -0.5504,
+        "bbox": [
+          176,
+          40,
+          244,
+          163
+        ],
+        "confidence": 0.3538
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00078,
+        "center_x": 0.31,
+        "bbox": [
+          611,
+          520,
+          639,
+          539
+        ],
+        "confidence": 0.0388
+      }
+    },
+    "red_risk": 0.68
+  },
+  {
+    "frame_index": 34,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0016,
+        "center_x": -0.3949,
+        "bbox": [
+          272,
+          218,
+          311,
+          255
+        ],
+        "confidence": 0.0801
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03226,
+        "center_x": 0.532,
+        "bbox": [
+          620,
+          0,
+          805,
+          167
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00464,
+        "center_x": -0.533,
+        "bbox": [
+          192,
+          45,
+          245,
+          175
+        ],
+        "confidence": 0.2321
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00151,
+        "center_x": 0.3159,
+        "bbox": [
+          611,
+          516,
+          655,
+          539
+        ],
+        "confidence": 0.0755
+      }
+    },
+    "red_risk": 0.681
+  },
+  {
+    "frame_index": 35,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00153,
+        "center_x": -0.396,
+        "bbox": [
+          271,
+          221,
+          311,
+          255
+        ],
+        "confidence": 0.0765
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.03268,
+        "center_x": 0.5318,
+        "bbox": [
+          623,
+          0,
+          805,
+          167
+        ],
+        "confidence": 1.0
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00419,
+        "center_x": -0.4766,
+        "bbox": [
+          204,
+          0,
+          286,
+          50
+        ],
+        "confidence": 0.2095
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00157,
+        "center_x": 0.3199,
+        "bbox": [
+          613,
+          513,
+          655,
+          539
+        ],
+        "confidence": 0.0785
+      }
+    },
+    "red_risk": 0.681
+  },
+  {
+    "frame_index": 36,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00125,
+        "center_x": -0.9258,
+        "bbox": [
+          0,
+          153,
+          103,
+          170
+        ],
+        "confidence": 0.0627
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00185,
+        "center_x": -0.9757,
+        "bbox": [
+          0,
+          0,
+          31,
+          46
+        ],
+        "confidence": 0.0926
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      }
+    },
+    "red_risk": 0.233
+  },
+  {
+    "frame_index": 37,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "red": {
+        "color": "red",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00214,
+        "center_x": -0.9091,
+        "bbox": [
+          0,
+          302,
+          73,
+          366
+        ],
+        "confidence": 0.107
+      }
+    },
+    "red_risk": 0
+  },
+  {
+    "frame_index": 38,
+    "selected": "forward_small",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00329,
+        "center_x": -0.1039,
+        "bbox": [
+          374,
+          128,
+          470,
+          172
+        ],
+        "confidence": 0.1644
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00046,
+        "center_x": 0.648,
+        "bbox": [
+          784,
+          320,
+          798,
+          335
+        ],
+        "confidence": 0.023
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00238,
+        "center_x": -0.063,
+        "bbox": [
+          416,
+          258,
+          480,
+          287
+        ],
+        "confidence": 0.1188
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.06906,
+        "center_x": -0.5518,
+        "bbox": [
+          92,
+          0,
+          342,
+          303
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.416
+  },
+  {
+    "frame_index": 39,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00188,
+        "center_x": -0.7102,
+        "bbox": [
+          119,
+          104,
+          165,
+          143
+        ],
+        "confidence": 0.0941
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00142,
+        "center_x": 0.0922,
+        "bbox": [
+          512,
+          176,
+          542,
+          207
+        ],
+        "confidence": 0.0709
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00078,
+        "center_x": -0.7637,
+        "bbox": [
+          104,
+          175,
+          126,
+          207
+        ],
+        "confidence": 0.0392
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.09451,
+        "center_x": 0.8139,
+        "bbox": [
+          719,
+          0,
+          959,
+          539
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.759
+  },
+  {
+    "frame_index": 40,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.01298,
+        "center_x": 0.6298,
+        "bbox": [
+          732,
+          51,
+          835,
+          207
+        ],
+        "confidence": 0.6489
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00046,
+        "center_x": -0.375,
+        "bbox": [
+          290,
+          208,
+          309,
+          239
+        ],
+        "confidence": 0.0228
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00138,
+        "center_x": 0.6415,
+        "bbox": [
+          744,
+          319,
+          831,
+          328
+        ],
+        "confidence": 0.0688
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.24732,
+        "center_x": -0.2485,
+        "bbox": [
+          0,
+          160,
+          736,
+          539
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.58
+  },
+  {
+    "frame_index": 41,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0087,
+        "center_x": 0.6779,
+        "bbox": [
+          752,
+          112,
+          855,
+          207
+        ],
+        "confidence": 0.4352
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.0018,
+        "center_x": -0.3914,
+        "bbox": [
+          272,
+          164,
+          318,
+          196
+        ],
+        "confidence": 0.09
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00204,
+        "center_x": 0.6961,
+        "bbox": [
+          784,
+          267,
+          847,
+          295
+        ],
+        "confidence": 0.1018
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.22026,
+        "center_x": -0.2764,
+        "bbox": [
+          16,
+          0,
+          687,
+          431
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.583
+  },
+  {
+    "frame_index": 42,
+    "selected": "forward_small",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00787,
+        "center_x": 0.1404,
+        "bbox": [
+          489,
+          65,
+          623,
+          175
+        ],
+        "confidence": 0.3935
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00041,
+        "center_x": -0.9854,
+        "bbox": [
+          0,
+          161,
+          14,
+          174
+        ],
+        "confidence": 0.0203
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00535,
+        "center_x": 0.6896,
+        "bbox": [
+          767,
+          160,
+          848,
+          288
+        ],
+        "confidence": 0.2677
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.25643,
+        "center_x": -0.5869,
+        "bbox": [
+          0,
+          0,
+          511,
+          539
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.213
+  },
+  {
+    "frame_index": 43,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00322,
+        "center_x": -0.3533,
+        "bbox": [
+          280,
+          144,
+          340,
+          179
+        ],
+        "confidence": 0.161
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00318,
+        "center_x": -0.2249,
+        "bbox": [
+          337,
+          142,
+          399,
+          181
+        ],
+        "confidence": 0.1591
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00075,
+        "center_x": 0.9623,
+        "bbox": [
+          924,
+          320,
+          959,
+          334
+        ],
+        "confidence": 0.0376
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.14077,
+        "center_x": 0.0186,
+        "bbox": [
+          246,
+          0,
+          755,
+          415
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.697
+  },
+  {
+    "frame_index": 44,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00395,
+        "center_x": 0.4439,
+        "bbox": [
+          662,
+          161,
+          727,
+          202
+        ],
+        "confidence": 0.1973
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00403,
+        "center_x": 0.5902,
+        "bbox": [
+          728,
+          160,
+          799,
+          207
+        ],
+        "confidence": 0.2016
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00038,
+        "center_x": -0.4272,
+        "bbox": [
+          258,
+          164,
+          287,
+          172
+        ],
+        "confidence": 0.0192
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.13655,
+        "center_x": 0.204,
+        "bbox": [
+          155,
+          0,
+          919,
+          539
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.486
+  },
+  {
+    "frame_index": 45,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00225,
+        "center_x": 0.6661,
+        "bbox": [
+          784,
+          191,
+          816,
+          228
+        ],
+        "confidence": 0.1124
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00077,
+        "center_x": 0.9281,
+        "bbox": [
+          912,
+          189,
+          938,
+          227
+        ],
+        "confidence": 0.0383
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00352,
+        "center_x": 0.315,
+        "bbox": [
+          608,
+          142,
+          652,
+          222
+        ],
+        "confidence": 0.1762
+      }
+    },
+    "red_risk": 0.251
+  },
+  {
+    "frame_index": 46,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00046,
+        "center_x": -0.1132,
+        "bbox": [
+          400,
+          324,
+          447,
+          330
+        ],
+        "confidence": 0.0231
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00582,
+        "center_x": 0.3456,
+        "bbox": [
+          560,
+          176,
+          727,
+          230
+        ],
+        "confidence": 0.2911
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00192,
+        "center_x": -0.2252,
+        "bbox": [
+          288,
+          311,
+          455,
+          327
+        ],
+        "confidence": 0.0959
+      }
+    },
+    "red_risk": 0.737
+  },
+  {
+    "frame_index": 47,
+    "selected": "forward_small",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00289,
+        "center_x": -0.1504,
+        "bbox": [
+          387,
+          40,
+          431,
+          112
+        ],
+        "confidence": 0.1444
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00083,
+        "center_x": 0.1148,
+        "bbox": [
+          513,
+          127,
+          550,
+          151
+        ],
+        "confidence": 0.0416
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00979,
+        "center_x": -0.0895,
+        "bbox": [
+          321,
+          240,
+          543,
+          319
+        ],
+        "confidence": 0.4893
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.09908,
+        "center_x": -0.7267,
+        "bbox": [
+          0,
+          256,
+          383,
+          539
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.739
+  },
+  {
+    "frame_index": 48,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00266,
+        "center_x": 0.4406,
+        "bbox": [
+          671,
+          64,
+          719,
+          127
+        ],
+        "confidence": 0.1332
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00056,
+        "center_x": -0.0289,
+        "bbox": [
+          457,
+          272,
+          478,
+          292
+        ],
+        "confidence": 0.0278
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00395,
+        "center_x": 0.5654,
+        "bbox": [
+          717,
+          120,
+          807,
+          174
+        ],
+        "confidence": 0.1976
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.16022,
+        "center_x": -0.6781,
+        "bbox": [
+          0,
+          0,
+          415,
+          415
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.788
+  },
+  {
+    "frame_index": 49,
+    "selected": "turn_left",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00607,
+        "center_x": -0.7615,
+        "bbox": [
+          49,
+          175,
+          168,
+          215
+        ],
+        "confidence": 0.3035
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00395,
+        "center_x": -0.5507,
+        "bbox": [
+          182,
+          169,
+          254,
+          207
+        ],
+        "confidence": 0.1977
+      },
+      "blue": {
+        "color": "blue",
+        "found": true,
+        "area_ratio": 0.00392,
+        "center_x": 0.6969,
+        "bbox": [
+          777,
+          246,
+          894,
+          319
+        ],
+        "confidence": 0.196
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.0733,
+        "center_x": -0.5996,
+        "bbox": [
+          0,
+          0,
+          399,
+          335
+        ],
+        "confidence": 1.0
+      }
+    },
+    "red_risk": 0.509
+  },
+  {
+    "frame_index": 50,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00253,
+        "center_x": 0.57,
+        "bbox": [
+          735,
+          177,
+          773,
+          219
+        ],
+        "confidence": 0.1267
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00066,
+        "center_x": 0.8476,
+        "bbox": [
+          875,
+          176,
+          895,
+          215
+        ],
+        "confidence": 0.033
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00771,
+        "center_x": 0.2157,
+        "bbox": [
+          560,
+          128,
+          606,
+          240
+        ],
+        "confidence": 0.3853
+      }
+    },
+    "red_risk": 0.298
+  },
+  {
+    "frame_index": 51,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00237,
+        "center_x": 0.5902,
+        "bbox": [
+          743,
+          176,
+          782,
+          218
+        ],
+        "confidence": 0.1185
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00029,
+        "center_x": 0.8536,
+        "bbox": [
+          883,
+          192,
+          895,
+          211
+        ],
+        "confidence": 0.0145
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00209,
+        "center_x": -0.3167,
+        "bbox": [
+          306,
+          213,
+          344,
+          273
+        ],
+        "confidence": 0.1047
+      }
+    },
+    "red_risk": 0.291
+  },
+  {
+    "frame_index": 52,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.00239,
+        "center_x": 0.5901,
+        "bbox": [
+          743,
+          176,
+          783,
+          216
+        ],
+        "confidence": 0.1194
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00026,
+        "center_x": 0.8545,
+        "bbox": [
+          884,
+          195,
+          895,
+          211
+        ],
+        "confidence": 0.013
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00145,
+        "center_x": -0.3157,
+        "bbox": [
+          311,
+          223,
+          343,
+          273
+        ],
+        "confidence": 0.0726
+      }
+    },
+    "red_risk": 0.29
+  },
+  {
+    "frame_index": 53,
+    "selected": "turn_right",
+    "scene": {
+      "green": {
+        "color": "green",
+        "found": true,
+        "area_ratio": 0.0024,
+        "center_x": 0.5915,
+        "bbox": [
+          743,
+          176,
+          783,
+          216
+        ],
+        "confidence": 0.12
+      },
+      "red": {
+        "color": "red",
+        "found": true,
+        "area_ratio": 0.00027,
+        "center_x": 0.8543,
+        "bbox": [
+          884,
+          195,
+          895,
+          212
+        ],
+        "confidence": 0.0137
+      },
+      "blue": {
+        "color": "blue",
+        "found": false,
+        "area_ratio": 0,
+        "center_x": 0,
+        "bbox": null,
+        "confidence": 0
+      },
+      "yellow": {
+        "color": "yellow",
+        "found": true,
+        "area_ratio": 0.00126,
+        "center_x": -0.3136,
+        "bbox": [
+          312,
+          222,
+          344,
+          273
+        ],
+        "confidence": 0.0632
+      }
+    },
+    "red_risk": 0.29
+  }
+]

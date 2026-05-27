@@ -1,0 +1,69 @@
+{
+  "lower_is_better": false,
+  "run_id": "go2-camera-replay",
+  "schema_version": 1,
+  "scores": [
+    {
+      "candidate_id": "turn_left",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 0.6732799999999999,
+        "information_gain": 0.7444,
+        "obstacle_risk": 0.04,
+        "progress": 0.3,
+        "stuck_risk": 0.03
+      },
+      "reason": "turns target toward image center",
+      "score": 0.751
+    },
+    {
+      "candidate_id": "turn_right",
+      "features": {
+        "execution_cost": 0.12,
+        "goal_alignment": 0.2,
+        "information_gain": 0.7444,
+        "obstacle_risk": 0.04,
+        "progress": 0.3,
+        "stuck_risk": 0.03
+      },
+      "reason": "target is not right enough",
+      "score": 0.6185
+    },
+    {
+      "candidate_id": "forward_small",
+      "features": {
+        "execution_cost": 0.08,
+        "goal_alignment": 0.29008,
+        "information_gain": 0.34,
+        "obstacle_risk": 0.0,
+        "progress": 0.18,
+        "stuck_risk": 0.08
+      },
+      "reason": "safe forward progress when target is centered",
+      "score": 0.51
+    },
+    {
+      "candidate_id": "stop_capture",
+      "features": {
+        "execution_cost": 0.2,
+        "goal_alignment": 0.35,
+        "information_gain": 0.18,
+        "obstacle_risk": 0.01,
+        "progress": 0.0,
+        "stuck_risk": 0.01
+      },
+      "reason": "only useful once target is centered and close",
+      "score": 0.4346
+    }
+  ],
+  "selected_candidate_id": "turn_left",
+  "step_index": 11,
+  "weights": {
+    "clearance": 0.15,
+    "execution_cost": -0.05,
+    "goal_alignment": 0.28,
+    "information_gain": 0.27,
+    "not_stuck": 0.05,
+    "progress": 0.25
+  }
+}

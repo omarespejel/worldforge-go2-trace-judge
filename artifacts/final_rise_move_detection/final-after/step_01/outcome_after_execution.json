@@ -1,0 +1,13 @@
+{
+  "executed": false,
+  "execution_result": "dry-run: selected action not executed",
+  "outcome_after_execution": {
+    "manual_intervention": false,
+    "target_area_ratio": 0.0,
+    "target_confidence": 0.0,
+    "unsafe_color_risk": 0.0
+  },
+  "run_id": "final-after",
+  "schema_version": 1,
+  "step_index": 1
+}
