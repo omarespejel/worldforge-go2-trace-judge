@@ -7,7 +7,7 @@ DATASET_JSONL ?= dataset/go2_trace_candidates.jsonl
 RANKER_DIR ?= artifacts/ranker_smoke
 AUDIT_DIR ?= artifacts/dataset_audit
 
-.PHONY: check replay report review dataset audit ranker bundle package all clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker hf-dataset bundle package all clean-generated photo-smoke
 
 all: check replay report review dataset audit ranker bundle package
 
@@ -46,6 +46,9 @@ ranker:
 	$(PYTHON) scripts/train_tiny_ranker.py \
 		--dataset-jsonl "$(DATASET_JSONL)" \
 		--output-dir "$(RANKER_DIR)"
+
+hf-dataset:
+	$(PYTHON) scripts/build_hf_decision_trace_dataset.py --clean --synthetic-count 180
 
 bundle:
 	$(PYTHON) scripts/build_submission_bundle.py

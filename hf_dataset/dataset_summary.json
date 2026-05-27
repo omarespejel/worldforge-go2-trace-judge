@@ -1,0 +1,22 @@
+{
+  "dataset_name": "worldforge-go2-trace-judge-dataset",
+  "label_source": "transparent_heuristic_score",
+  "notes": [
+    "Synthetic rows are for scorer/data-pipeline testing.",
+    "Real seed rows are small hackathon traces and should be privacy-reviewed before upload.",
+    "This is not an imitation policy dataset and not a validated Go2 world model dataset."
+  ],
+  "row_counts": {
+    "real_seed": 64,
+    "test": 18,
+    "train": 126,
+    "validation": 36
+  },
+  "schema_version": "0.1.0",
+  "source_domains": [
+    "real_go2_control_probe",
+    "real_go2_replay",
+    "real_go2_single_frame",
+    "synthetic_procedural"
+  ]
+}

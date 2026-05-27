@@ -173,6 +173,30 @@ This is not a new Go2 world model. It is a production sanity check that the evid
 contract can feed a learned scorer later. Current labels are `transparent_score_label`;
 future labels should come from measured outcomes after execution.
 
+## Hugging Face Dataset Package
+
+Build a Hugging Face-ready decision-trace dataset:
+
+```bash
+python3 scripts/build_hf_decision_trace_dataset.py --clean --synthetic-count 180
+```
+
+Output:
+
+```text
+hf_dataset/README.md
+hf_dataset/data/train.jsonl
+hf_dataset/data/validation.jsonl
+hf_dataset/data/test.jsonl
+hf_dataset/data/real_seed.jsonl
+hf_dataset/images/
+hf_dataset/dataset_summary.json
+```
+
+The synthetic splits are procedural color-block scenes. The `real_seed` split is built
+from the hackathon Go2 camera/replay traces and is marked `privacy_review_required`.
+This package is intended for scorer/data-pipeline research, not policy imitation.
+
 ## Live Demo
 
 Run this only with robot on floor, operator supervision, and emergency stop ready.
