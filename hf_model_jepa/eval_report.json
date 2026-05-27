@@ -1,0 +1,346 @@
+{
+  "alpha": 0.01,
+  "architecture": "action_conditioned_latent_ridge_predictor",
+  "baselines": {
+    "real_seed": {
+      "always_forward_small_accuracy": 0.25,
+      "always_turn_left_accuracy": 0.375,
+      "random_expected_accuracy": 0.25
+    },
+    "test": {
+      "always_forward_small_accuracy": 0.3125,
+      "always_turn_left_accuracy": 0.333333,
+      "random_expected_accuracy": 0.25
+    },
+    "train": {
+      "always_forward_small_accuracy": 0.3125,
+      "always_turn_left_accuracy": 0.327381,
+      "random_expected_accuracy": 0.25
+    },
+    "validation": {
+      "always_forward_small_accuracy": 0.3125,
+      "always_turn_left_accuracy": 0.34375,
+      "random_expected_accuracy": 0.25
+    }
+  },
+  "candidate_ids": [
+    "turn_left",
+    "turn_right",
+    "forward_small",
+    "stop_capture"
+  ],
+  "claim_boundary": "Small JEPA-style latent predictor trained on transparent action-outcome latents from real Go2 frames and label-safe real-photo-edit counterfactuals. Not a trained V-JEPA model or Go2 foundation world model.",
+  "dataset_dir": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/hf_dataset",
+  "latent_metrics": {
+    "real_seed": {
+      "execution_cost": {
+        "count": 32,
+        "mae": 3e-06,
+        "r2": 1.0,
+        "rmse": 4e-06
+      },
+      "goal_alignment": {
+        "count": 32,
+        "mae": 0.036524,
+        "r2": 0.960601,
+        "rmse": 0.060537
+      },
+      "information_gain": {
+        "count": 32,
+        "mae": 0.019298,
+        "r2": 0.991769,
+        "rmse": 0.02865
+      },
+      "obstacle_risk": {
+        "count": 32,
+        "mae": 0.004075,
+        "r2": 0.998742,
+        "rmse": 0.006863
+      },
+      "progress": {
+        "count": 32,
+        "mae": 0.037996,
+        "r2": 0.803989,
+        "rmse": 0.086162
+      },
+      "stuck_risk": {
+        "count": 32,
+        "mae": 0.008533,
+        "r2": 0.88573,
+        "rmse": 0.020799
+      }
+    },
+    "test": {
+      "execution_cost": {
+        "count": 192,
+        "mae": 3e-06,
+        "r2": 1.0,
+        "rmse": 4e-06
+      },
+      "goal_alignment": {
+        "count": 192,
+        "mae": 0.036135,
+        "r2": 0.946543,
+        "rmse": 0.078447
+      },
+      "information_gain": {
+        "count": 192,
+        "mae": 0.020388,
+        "r2": 0.98536,
+        "rmse": 0.040642
+      },
+      "obstacle_risk": {
+        "count": 192,
+        "mae": 0.003797,
+        "r2": 0.994674,
+        "rmse": 0.015033
+      },
+      "progress": {
+        "count": 192,
+        "mae": 0.023007,
+        "r2": 0.928679,
+        "rmse": 0.05541
+      },
+      "stuck_risk": {
+        "count": 192,
+        "mae": 0.001441,
+        "r2": 0.9929,
+        "rmse": 0.004671
+      }
+    },
+    "train": {
+      "execution_cost": {
+        "count": 1344,
+        "mae": 2e-06,
+        "r2": 1.0,
+        "rmse": 4e-06
+      },
+      "goal_alignment": {
+        "count": 1344,
+        "mae": 0.030666,
+        "r2": 0.957006,
+        "rmse": 0.066484
+      },
+      "information_gain": {
+        "count": 1344,
+        "mae": 0.01671,
+        "r2": 0.988334,
+        "rmse": 0.034386
+      },
+      "obstacle_risk": {
+        "count": 1344,
+        "mae": 0.00328,
+        "r2": 0.995767,
+        "rmse": 0.014407
+      },
+      "progress": {
+        "count": 1344,
+        "mae": 0.021912,
+        "r2": 0.937921,
+        "rmse": 0.0517
+      },
+      "stuck_risk": {
+        "count": 1344,
+        "mae": 0.001421,
+        "r2": 0.991659,
+        "rmse": 0.005014
+      }
+    },
+    "validation": {
+      "execution_cost": {
+        "count": 384,
+        "mae": 2e-06,
+        "r2": 1.0,
+        "rmse": 4e-06
+      },
+      "goal_alignment": {
+        "count": 384,
+        "mae": 0.032873,
+        "r2": 0.942899,
+        "rmse": 0.07558
+      },
+      "information_gain": {
+        "count": 384,
+        "mae": 0.017305,
+        "r2": 0.985139,
+        "rmse": 0.038338
+      },
+      "obstacle_risk": {
+        "count": 384,
+        "mae": 0.003482,
+        "r2": 0.994688,
+        "rmse": 0.016438
+      },
+      "progress": {
+        "count": 384,
+        "mae": 0.02344,
+        "r2": 0.92548,
+        "rmse": 0.056639
+      },
+      "stuck_risk": {
+        "count": 384,
+        "mae": 0.001519,
+        "r2": 0.990089,
+        "rmse": 0.005444
+      }
+    }
+  },
+  "latent_names": [
+    "goal_alignment",
+    "information_gain",
+    "progress",
+    "obstacle_risk",
+    "stuck_risk",
+    "execution_cost"
+  ],
+  "model_type": "go2_cube_micro_jepa_latent_predictor",
+  "oracle_latent_selection_metrics": {
+    "real_seed": {
+      "accuracy": 1.0,
+      "groups": 8,
+      "predicted_counts": {
+        "forward_small": 2,
+        "turn_left": 3,
+        "turn_right": 3
+      },
+      "selected_counts": {
+        "forward_small": 2,
+        "turn_left": 3,
+        "turn_right": 3
+      }
+    },
+    "test": {
+      "accuracy": 1.0,
+      "groups": 48,
+      "predicted_counts": {
+        "forward_small": 15,
+        "turn_left": 16,
+        "turn_right": 17
+      },
+      "selected_counts": {
+        "forward_small": 15,
+        "turn_left": 16,
+        "turn_right": 17
+      }
+    },
+    "train": {
+      "accuracy": 1.0,
+      "groups": 336,
+      "predicted_counts": {
+        "forward_small": 105,
+        "turn_left": 110,
+        "turn_right": 121
+      },
+      "selected_counts": {
+        "forward_small": 105,
+        "turn_left": 110,
+        "turn_right": 121
+      }
+    },
+    "validation": {
+      "accuracy": 1.0,
+      "groups": 96,
+      "predicted_counts": {
+        "forward_small": 30,
+        "turn_left": 33,
+        "turn_right": 33
+      },
+      "selected_counts": {
+        "forward_small": 30,
+        "turn_left": 33,
+        "turn_right": 33
+      }
+    }
+  },
+  "schema_version": 1,
+  "score_metrics_from_predicted_latents": {
+    "real_seed": {
+      "count": 32,
+      "mae": 0.023954,
+      "r2": 0.94953,
+      "rmse": 0.040826
+    },
+    "test": {
+      "count": 192,
+      "mae": 0.019977,
+      "r2": 0.951363,
+      "rmse": 0.041885
+    },
+    "train": {
+      "count": 1344,
+      "mae": 0.017099,
+      "r2": 0.960863,
+      "rmse": 0.036011
+    },
+    "validation": {
+      "count": 384,
+      "mae": 0.018252,
+      "r2": 0.948977,
+      "rmse": 0.040775
+    }
+  },
+  "selection_metrics_from_predicted_latents": {
+    "real_seed": {
+      "accuracy": 1.0,
+      "groups": 8,
+      "predicted_counts": {
+        "forward_small": 2,
+        "turn_left": 3,
+        "turn_right": 3
+      },
+      "selected_counts": {
+        "forward_small": 2,
+        "turn_left": 3,
+        "turn_right": 3
+      }
+    },
+    "test": {
+      "accuracy": 0.979167,
+      "groups": 48,
+      "predicted_counts": {
+        "forward_small": 16,
+        "turn_left": 15,
+        "turn_right": 17
+      },
+      "selected_counts": {
+        "forward_small": 15,
+        "turn_left": 16,
+        "turn_right": 17
+      }
+    },
+    "train": {
+      "accuracy": 0.985119,
+      "groups": 336,
+      "predicted_counts": {
+        "forward_small": 110,
+        "turn_left": 105,
+        "turn_right": 121
+      },
+      "selected_counts": {
+        "forward_small": 105,
+        "turn_left": 110,
+        "turn_right": 121
+      }
+    },
+    "validation": {
+      "accuracy": 0.979167,
+      "groups": 96,
+      "predicted_counts": {
+        "forward_small": 32,
+        "turn_left": 31,
+        "turn_right": 33
+      },
+      "selected_counts": {
+        "forward_small": 30,
+        "turn_left": 33,
+        "turn_right": 33
+      }
+    }
+  },
+  "splits": {
+    "real_seed_candidate_rows": 32,
+    "test_candidate_rows": 192,
+    "train_candidate_rows": 1344,
+    "validation_candidate_rows": 384
+  }
+}

@@ -1,0 +1,642 @@
+[
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.9115,
+    "predicted_score": 0.927259,
+    "row_id": "real-photo-edit-0000",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6875,
+    "predicted_score": 0.689559,
+    "row_id": "real-photo-edit-0000",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3682,
+    "predicted_score": 0.342148,
+    "row_id": "real-photo-edit-0000",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.442038,
+    "row_id": "real-photo-edit-0000",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5167,
+    "predicted_score": 0.540103,
+    "row_id": "real-photo-edit-0010",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5225,
+    "predicted_score": 0.547387,
+    "row_id": "real-photo-edit-0010",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.7484,
+    "predicted_score": 0.695322,
+    "row_id": "real-photo-edit-0010",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.434933,
+    "row_id": "real-photo-edit-0010",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.6669,
+    "predicted_score": 0.654763,
+    "row_id": "real-photo-edit-0020",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.8596,
+    "predicted_score": 0.835624,
+    "row_id": "real-photo-edit-0020",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.4288,
+    "predicted_score": 0.505339,
+    "row_id": "real-photo-edit-0020",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.435377,
+    "row_id": "real-photo-edit-0020",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.9115,
+    "predicted_score": 0.912323,
+    "row_id": "real-photo-edit-0030",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6875,
+    "predicted_score": 0.687739,
+    "row_id": "real-photo-edit-0030",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3285,
+    "predicted_score": 0.300489,
+    "row_id": "real-photo-edit-0030",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.437578,
+    "row_id": "real-photo-edit-0030",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5485,
+    "predicted_score": 0.568001,
+    "row_id": "real-photo-edit-0040",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5939,
+    "predicted_score": 0.612035,
+    "row_id": "real-photo-edit-0040",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.8007,
+    "predicted_score": 0.73191,
+    "row_id": "real-photo-edit-0040",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.434119,
+    "row_id": "real-photo-edit-0040",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.6754,
+    "predicted_score": 0.658922,
+    "row_id": "real-photo-edit-0050",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.8788,
+    "predicted_score": 0.847677,
+    "row_id": "real-photo-edit-0050",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3148,
+    "predicted_score": 0.365431,
+    "row_id": "real-photo-edit-0050",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.432251,
+    "row_id": "real-photo-edit-0050",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.908,
+    "predicted_score": 0.897445,
+    "row_id": "real-photo-edit-0060",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6875,
+    "predicted_score": 0.684067,
+    "row_id": "real-photo-edit-0060",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.4288,
+    "predicted_score": 0.425445,
+    "row_id": "real-photo-edit-0060",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.440421,
+    "row_id": "real-photo-edit-0060",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5318,
+    "predicted_score": 0.554297,
+    "row_id": "real-photo-edit-0070",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5208,
+    "predicted_score": 0.545279,
+    "row_id": "real-photo-edit-0070",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.7407,
+    "predicted_score": 0.682892,
+    "row_id": "real-photo-edit-0070",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.434456,
+    "row_id": "real-photo-edit-0070",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.6875,
+    "predicted_score": 0.678263,
+    "row_id": "real-photo-edit-0080",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.9099,
+    "predicted_score": 0.884378,
+    "row_id": "real-photo-edit-0080",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.4288,
+    "predicted_score": 0.431859,
+    "row_id": "real-photo-edit-0080",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.432738,
+    "row_id": "real-photo-edit-0080",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.894,
+    "predicted_score": 0.889046,
+    "row_id": "real-photo-edit-0090",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6822,
+    "predicted_score": 0.678049,
+    "row_id": "real-photo-edit-0090",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3632,
+    "predicted_score": 0.376561,
+    "row_id": "real-photo-edit-0090",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.44514,
+    "row_id": "real-photo-edit-0090",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5146,
+    "predicted_score": 0.536222,
+    "row_id": "real-photo-edit-0100",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5178,
+    "predicted_score": 0.542162,
+    "row_id": "real-photo-edit-0100",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.864,
+    "predicted_score": 0.805504,
+    "row_id": "real-photo-edit-0100",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.430945,
+    "row_id": "real-photo-edit-0100",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.6875,
+    "predicted_score": 0.677405,
+    "row_id": "real-photo-edit-0110",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.9077,
+    "predicted_score": 0.879332,
+    "row_id": "real-photo-edit-0110",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3141,
+    "predicted_score": 0.312275,
+    "row_id": "real-photo-edit-0110",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.431752,
+    "row_id": "real-photo-edit-0110",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.9115,
+    "predicted_score": 0.931582,
+    "row_id": "real-photo-edit-0120",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6875,
+    "predicted_score": 0.697541,
+    "row_id": "real-photo-edit-0120",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.4288,
+    "predicted_score": 0.380076,
+    "row_id": "real-photo-edit-0120",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.439197,
+    "row_id": "real-photo-edit-0120",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5239,
+    "predicted_score": 0.544841,
+    "row_id": "real-photo-edit-0130",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5387,
+    "predicted_score": 0.559322,
+    "row_id": "real-photo-edit-0130",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.7306,
+    "predicted_score": 0.666124,
+    "row_id": "real-photo-edit-0130",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.431818,
+    "row_id": "real-photo-edit-0130",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.6875,
+    "predicted_score": 0.679004,
+    "row_id": "real-photo-edit-0140",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.9096,
+    "predicted_score": 0.884488,
+    "row_id": "real-photo-edit-0140",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.4288,
+    "predicted_score": 0.428142,
+    "row_id": "real-photo-edit-0140",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.432312,
+    "row_id": "real-photo-edit-0140",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.8806,
+    "predicted_score": 0.869055,
+    "row_id": "real-photo-edit-0150",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6762,
+    "predicted_score": 0.670218,
+    "row_id": "real-photo-edit-0150",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3204,
+    "predicted_score": 0.339416,
+    "row_id": "real-photo-edit-0150",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.437549,
+    "row_id": "real-photo-edit-0150",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5361,
+    "predicted_score": 0.557089,
+    "row_id": "real-photo-edit-0160",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5227,
+    "predicted_score": 0.546312,
+    "row_id": "real-photo-edit-0160",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.8488,
+    "predicted_score": 0.778912,
+    "row_id": "real-photo-edit-0160",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.429887,
+    "row_id": "real-photo-edit-0160",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.6875,
+    "predicted_score": 0.673429,
+    "row_id": "real-photo-edit-0170",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.9115,
+    "predicted_score": 0.880513,
+    "row_id": "real-photo-edit-0170",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3632,
+    "predicted_score": 0.400108,
+    "row_id": "real-photo-edit-0170",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.438363,
+    "row_id": "real-photo-edit-0170",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.9115,
+    "predicted_score": 0.904434,
+    "row_id": "real-photo-edit-0180",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.6875,
+    "predicted_score": 0.679844,
+    "row_id": "real-photo-edit-0180",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.3669,
+    "predicted_score": 0.348981,
+    "row_id": "real-photo-edit-0180",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.43794,
+    "row_id": "real-photo-edit-0180",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_score": 0.5464,
+    "predicted_score": 0.56428,
+    "row_id": "real-photo-edit-0190",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_score": 0.5892,
+    "predicted_score": 0.605455,
+    "row_id": "real-photo-edit-0190",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_score": 0.6941,
+    "predicted_score": 0.634257,
+    "row_id": "real-photo-edit-0190",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_score": 0.4346,
+    "predicted_score": 0.435576,
+    "row_id": "real-photo-edit-0190",
+    "selected": false,
+    "split": "test"
+  }
+]

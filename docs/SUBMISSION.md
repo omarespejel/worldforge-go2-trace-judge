@@ -51,6 +51,9 @@ selected action and rejected alternatives.
   cube cutouts.
 - Hugging Face-ready dataset package with train/validation/test/real_seed splits.
 - Small pure-NumPy micro world scorer trained on the decision traces.
+- Optional micro JEPA-style latent scorer and frozen-DINOv2 hybrid scorer
+  ablation.
+- Model honesty audit with shuffled-label and plate-holdout controls.
 - One-command demo that writes annotated image, MP4, and evidence JSON.
 - 78-second final video.
 
@@ -76,6 +79,19 @@ always-forward baseline: 31.2%
 
 These metrics prove the scorer learned the trace scoring boundary. They do not
 prove long-horizon real-world navigation success.
+
+Additional audit:
+
+```text
+micro JEPA-style scorer: 97.9% selection accuracy, R2 0.951
+DINOv2 hybrid scorer: 97.9% selection accuracy, R2 0.944
+shuffled-label control: 21.8% mean selection accuracy, R2 -0.012
+plate-holdout minimum selection accuracy: 92.9%
+```
+
+The DINOv2 result is deliberately framed as an ablation, not a win: frozen
+full-frame DINOv2 features do not materially improve this dataset because the
+cube is tiny and the labels are geometry-derived.
 
 ## Why It Matters
 

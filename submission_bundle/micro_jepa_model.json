@@ -1,0 +1,720 @@
+{
+  "alpha": 0.01,
+  "architecture": "action_conditioned_latent_ridge_predictor",
+  "candidate_ids": [
+    "turn_left",
+    "turn_right",
+    "forward_small",
+    "stop_capture"
+  ],
+  "feature_names": [
+    "bias",
+    "candidate:turn_left",
+    "candidate:turn_right",
+    "candidate:forward_small",
+    "candidate:stop_capture",
+    "obs:target_confidence",
+    "obs:target_bearing_norm",
+    "obs:target_abs_bearing_norm",
+    "obs:target_area_ratio",
+    "obs:target_area_sqrt",
+    "obs:unsafe_color_risk",
+    "obs:blocked_ahead",
+    "obs:localized",
+    "obs:stuck_probability",
+    "interaction:turn_left:target_bearing_norm",
+    "interaction:turn_left:target_abs_bearing_norm",
+    "interaction:turn_left:target_area_sqrt",
+    "interaction:turn_left:unsafe_color_risk",
+    "interaction:turn_left:blocked_ahead",
+    "interaction:turn_right:target_bearing_norm",
+    "interaction:turn_right:target_abs_bearing_norm",
+    "interaction:turn_right:target_area_sqrt",
+    "interaction:turn_right:unsafe_color_risk",
+    "interaction:turn_right:blocked_ahead",
+    "interaction:forward_small:target_bearing_norm",
+    "interaction:forward_small:target_abs_bearing_norm",
+    "interaction:forward_small:target_area_sqrt",
+    "interaction:forward_small:unsafe_color_risk",
+    "interaction:forward_small:blocked_ahead",
+    "interaction:stop_capture:target_bearing_norm",
+    "interaction:stop_capture:target_abs_bearing_norm",
+    "interaction:stop_capture:target_area_sqrt",
+    "interaction:stop_capture:unsafe_color_risk",
+    "interaction:stop_capture:blocked_ahead"
+  ],
+  "input_feature_names": [
+    "bias",
+    "candidate:turn_left",
+    "candidate:turn_right",
+    "candidate:forward_small",
+    "candidate:stop_capture",
+    "obs:target_confidence",
+    "obs:target_bearing_norm",
+    "obs:target_abs_bearing_norm",
+    "obs:target_area_ratio",
+    "obs:target_area_sqrt",
+    "obs:unsafe_color_risk",
+    "obs:blocked_ahead",
+    "obs:localized",
+    "obs:stuck_probability",
+    "interaction:turn_left:target_bearing_norm",
+    "interaction:turn_left:target_abs_bearing_norm",
+    "interaction:turn_left:target_area_sqrt",
+    "interaction:turn_left:unsafe_color_risk",
+    "interaction:turn_left:blocked_ahead",
+    "interaction:turn_right:target_bearing_norm",
+    "interaction:turn_right:target_abs_bearing_norm",
+    "interaction:turn_right:target_area_sqrt",
+    "interaction:turn_right:unsafe_color_risk",
+    "interaction:turn_right:blocked_ahead",
+    "interaction:forward_small:target_bearing_norm",
+    "interaction:forward_small:target_abs_bearing_norm",
+    "interaction:forward_small:target_area_sqrt",
+    "interaction:forward_small:unsafe_color_risk",
+    "interaction:forward_small:blocked_ahead",
+    "interaction:stop_capture:target_bearing_norm",
+    "interaction:stop_capture:target_abs_bearing_norm",
+    "interaction:stop_capture:target_area_sqrt",
+    "interaction:stop_capture:unsafe_color_risk",
+    "interaction:stop_capture:blocked_ahead"
+  ],
+  "latent_names": [
+    "goal_alignment",
+    "information_gain",
+    "progress",
+    "obstacle_risk",
+    "stuck_risk",
+    "execution_cost"
+  ],
+  "model_type": "go2_cube_micro_jepa_latent_predictor",
+  "schema_version": 1,
+  "score_weights": {
+    "clearance": 0.15,
+    "execution_cost": -0.05,
+    "goal_alignment": 0.28,
+    "information_gain": 0.27,
+    "not_stuck": 0.05,
+    "progress": 0.25
+  },
+  "training_summary": {
+    "alpha": 0.01,
+    "architecture": "action_conditioned_latent_ridge_predictor",
+    "baselines": {
+      "real_seed": {
+        "always_forward_small_accuracy": 0.25,
+        "always_turn_left_accuracy": 0.375,
+        "random_expected_accuracy": 0.25
+      },
+      "test": {
+        "always_forward_small_accuracy": 0.3125,
+        "always_turn_left_accuracy": 0.333333,
+        "random_expected_accuracy": 0.25
+      },
+      "train": {
+        "always_forward_small_accuracy": 0.3125,
+        "always_turn_left_accuracy": 0.327381,
+        "random_expected_accuracy": 0.25
+      },
+      "validation": {
+        "always_forward_small_accuracy": 0.3125,
+        "always_turn_left_accuracy": 0.34375,
+        "random_expected_accuracy": 0.25
+      }
+    },
+    "candidate_ids": [
+      "turn_left",
+      "turn_right",
+      "forward_small",
+      "stop_capture"
+    ],
+    "claim_boundary": "Small JEPA-style latent predictor trained on transparent action-outcome latents from real Go2 frames and label-safe real-photo-edit counterfactuals. Not a trained V-JEPA model or Go2 foundation world model.",
+    "dataset_dir": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/hf_dataset",
+    "latent_metrics": {
+      "real_seed": {
+        "execution_cost": {
+          "count": 32,
+          "mae": 3e-06,
+          "r2": 1.0,
+          "rmse": 4e-06
+        },
+        "goal_alignment": {
+          "count": 32,
+          "mae": 0.036524,
+          "r2": 0.960601,
+          "rmse": 0.060537
+        },
+        "information_gain": {
+          "count": 32,
+          "mae": 0.019298,
+          "r2": 0.991769,
+          "rmse": 0.02865
+        },
+        "obstacle_risk": {
+          "count": 32,
+          "mae": 0.004075,
+          "r2": 0.998742,
+          "rmse": 0.006863
+        },
+        "progress": {
+          "count": 32,
+          "mae": 0.037996,
+          "r2": 0.803989,
+          "rmse": 0.086162
+        },
+        "stuck_risk": {
+          "count": 32,
+          "mae": 0.008533,
+          "r2": 0.88573,
+          "rmse": 0.020799
+        }
+      },
+      "test": {
+        "execution_cost": {
+          "count": 192,
+          "mae": 3e-06,
+          "r2": 1.0,
+          "rmse": 4e-06
+        },
+        "goal_alignment": {
+          "count": 192,
+          "mae": 0.036135,
+          "r2": 0.946543,
+          "rmse": 0.078447
+        },
+        "information_gain": {
+          "count": 192,
+          "mae": 0.020388,
+          "r2": 0.98536,
+          "rmse": 0.040642
+        },
+        "obstacle_risk": {
+          "count": 192,
+          "mae": 0.003797,
+          "r2": 0.994674,
+          "rmse": 0.015033
+        },
+        "progress": {
+          "count": 192,
+          "mae": 0.023007,
+          "r2": 0.928679,
+          "rmse": 0.05541
+        },
+        "stuck_risk": {
+          "count": 192,
+          "mae": 0.001441,
+          "r2": 0.9929,
+          "rmse": 0.004671
+        }
+      },
+      "train": {
+        "execution_cost": {
+          "count": 1344,
+          "mae": 2e-06,
+          "r2": 1.0,
+          "rmse": 4e-06
+        },
+        "goal_alignment": {
+          "count": 1344,
+          "mae": 0.030666,
+          "r2": 0.957006,
+          "rmse": 0.066484
+        },
+        "information_gain": {
+          "count": 1344,
+          "mae": 0.01671,
+          "r2": 0.988334,
+          "rmse": 0.034386
+        },
+        "obstacle_risk": {
+          "count": 1344,
+          "mae": 0.00328,
+          "r2": 0.995767,
+          "rmse": 0.014407
+        },
+        "progress": {
+          "count": 1344,
+          "mae": 0.021912,
+          "r2": 0.937921,
+          "rmse": 0.0517
+        },
+        "stuck_risk": {
+          "count": 1344,
+          "mae": 0.001421,
+          "r2": 0.991659,
+          "rmse": 0.005014
+        }
+      },
+      "validation": {
+        "execution_cost": {
+          "count": 384,
+          "mae": 2e-06,
+          "r2": 1.0,
+          "rmse": 4e-06
+        },
+        "goal_alignment": {
+          "count": 384,
+          "mae": 0.032873,
+          "r2": 0.942899,
+          "rmse": 0.07558
+        },
+        "information_gain": {
+          "count": 384,
+          "mae": 0.017305,
+          "r2": 0.985139,
+          "rmse": 0.038338
+        },
+        "obstacle_risk": {
+          "count": 384,
+          "mae": 0.003482,
+          "r2": 0.994688,
+          "rmse": 0.016438
+        },
+        "progress": {
+          "count": 384,
+          "mae": 0.02344,
+          "r2": 0.92548,
+          "rmse": 0.056639
+        },
+        "stuck_risk": {
+          "count": 384,
+          "mae": 0.001519,
+          "r2": 0.990089,
+          "rmse": 0.005444
+        }
+      }
+    },
+    "latent_names": [
+      "goal_alignment",
+      "information_gain",
+      "progress",
+      "obstacle_risk",
+      "stuck_risk",
+      "execution_cost"
+    ],
+    "model_type": "go2_cube_micro_jepa_latent_predictor",
+    "oracle_latent_selection_metrics": {
+      "real_seed": {
+        "accuracy": 1.0,
+        "groups": 8,
+        "predicted_counts": {
+          "forward_small": 2,
+          "turn_left": 3,
+          "turn_right": 3
+        },
+        "selected_counts": {
+          "forward_small": 2,
+          "turn_left": 3,
+          "turn_right": 3
+        }
+      },
+      "test": {
+        "accuracy": 1.0,
+        "groups": 48,
+        "predicted_counts": {
+          "forward_small": 15,
+          "turn_left": 16,
+          "turn_right": 17
+        },
+        "selected_counts": {
+          "forward_small": 15,
+          "turn_left": 16,
+          "turn_right": 17
+        }
+      },
+      "train": {
+        "accuracy": 1.0,
+        "groups": 336,
+        "predicted_counts": {
+          "forward_small": 105,
+          "turn_left": 110,
+          "turn_right": 121
+        },
+        "selected_counts": {
+          "forward_small": 105,
+          "turn_left": 110,
+          "turn_right": 121
+        }
+      },
+      "validation": {
+        "accuracy": 1.0,
+        "groups": 96,
+        "predicted_counts": {
+          "forward_small": 30,
+          "turn_left": 33,
+          "turn_right": 33
+        },
+        "selected_counts": {
+          "forward_small": 30,
+          "turn_left": 33,
+          "turn_right": 33
+        }
+      }
+    },
+    "schema_version": 1,
+    "score_metrics_from_predicted_latents": {
+      "real_seed": {
+        "count": 32,
+        "mae": 0.023954,
+        "r2": 0.94953,
+        "rmse": 0.040826
+      },
+      "test": {
+        "count": 192,
+        "mae": 0.019977,
+        "r2": 0.951363,
+        "rmse": 0.041885
+      },
+      "train": {
+        "count": 1344,
+        "mae": 0.017099,
+        "r2": 0.960863,
+        "rmse": 0.036011
+      },
+      "validation": {
+        "count": 384,
+        "mae": 0.018252,
+        "r2": 0.948977,
+        "rmse": 0.040775
+      }
+    },
+    "selection_metrics_from_predicted_latents": {
+      "real_seed": {
+        "accuracy": 1.0,
+        "groups": 8,
+        "predicted_counts": {
+          "forward_small": 2,
+          "turn_left": 3,
+          "turn_right": 3
+        },
+        "selected_counts": {
+          "forward_small": 2,
+          "turn_left": 3,
+          "turn_right": 3
+        }
+      },
+      "test": {
+        "accuracy": 0.979167,
+        "groups": 48,
+        "predicted_counts": {
+          "forward_small": 16,
+          "turn_left": 15,
+          "turn_right": 17
+        },
+        "selected_counts": {
+          "forward_small": 15,
+          "turn_left": 16,
+          "turn_right": 17
+        }
+      },
+      "train": {
+        "accuracy": 0.985119,
+        "groups": 336,
+        "predicted_counts": {
+          "forward_small": 110,
+          "turn_left": 105,
+          "turn_right": 121
+        },
+        "selected_counts": {
+          "forward_small": 105,
+          "turn_left": 110,
+          "turn_right": 121
+        }
+      },
+      "validation": {
+        "accuracy": 0.979167,
+        "groups": 96,
+        "predicted_counts": {
+          "forward_small": 32,
+          "turn_left": 31,
+          "turn_right": 33
+        },
+        "selected_counts": {
+          "forward_small": 30,
+          "turn_left": 33,
+          "turn_right": 33
+        }
+      }
+    },
+    "splits": {
+      "real_seed_candidate_rows": 32,
+      "test_candidate_rows": 192,
+      "train_candidate_rows": 1344,
+      "validation_candidate_rows": 384
+    }
+  },
+  "weights": [
+    [
+      0.391933560364,
+      0.355465285421,
+      0.279180213671,
+      0.042622098072,
+      0.036984137958,
+      0.130000000047
+    ],
+    [
+      -0.136494225643,
+      0.085778083366,
+      -0.025081920029,
+      0.007741159359,
+      -0.007166910546,
+      -0.009996855019
+    ],
+    [
+      -0.142550037478,
+      0.085778083366,
+      -0.025081920029,
+      0.007741159359,
+      -0.007166910546,
+      -0.009996855019
+    ],
+    [
+      0.368139131111,
+      -0.021515851259,
+      0.363724057581,
+      0.006767086715,
+      0.041494441521,
+      -0.049984274904
+    ],
+    [
+      -0.089094868104,
+      -0.15004031521,
+      -0.313560218048,
+      -0.022249405555,
+      -0.027160620489,
+      0.069977984753
+    ],
+    [
+      -0.158734110472,
+      0.867070571683,
+      -0.882117236209,
+      0.317446762892,
+      -0.003718453863,
+      0.0
+    ],
+    [
+      0.005251260859,
+      -0.010588813041,
+      0.009910541738,
+      0.000715491672,
+      -0.000174395753,
+      1e-12
+    ],
+    [
+      -0.065189806403,
+      0.360063484877,
+      -0.200823767045,
+      -0.002181695229,
+      0.000726847426,
+      0.0
+    ],
+    [
+      -0.004129709618,
+      0.017788113069,
+      -0.018114161142,
+      0.005711066588,
+      -8.032354e-06,
+      -0.0
+    ],
+    [
+      1.282154752978,
+      -2.202148693848,
+      3.354320221456,
+      -0.947845036529,
+      0.01802139167,
+      -1e-12
+    ],
+    [
+      0.006229416033,
+      -0.007619026604,
+      0.005889301987,
+      0.197510378917,
+      0.044840125639,
+      0.0
+    ],
+    [
+      -0.004573455342,
+      0.00421555954,
+      -0.003842620205,
+      0.001520989945,
+      -0.011811588415,
+      3e-12
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      6.2e-11,
+      8.1e-11,
+      4.7e-11,
+      -1.4e-11,
+      7e-12,
+      4e-12
+    ],
+    [
+      -0.58461334026,
+      -0.012308519371,
+      -0.011279342214,
+      -0.001066018443,
+      0.000174995821,
+      3.37533e-07
+    ],
+    [
+      0.623805003173,
+      0.532077245866,
+      0.200863959228,
+      0.003145039238,
+      -0.000757335521,
+      -1.05136e-06
+    ],
+    [
+      -2.356768415194,
+      -1.327222521735,
+      -0.239850511544,
+      0.023754008188,
+      -0.00487322994,
+      -7.7567874e-05
+    ],
+    [
+      -0.0084947012,
+      -0.017743546279,
+      -0.001681576829,
+      -0.196787231148,
+      -0.044712301548,
+      -1.913385e-06
+    ],
+    [
+      0.004421853112,
+      0.009912967752,
+      0.000933365955,
+      -0.001869108302,
+      0.011727329755,
+      7.03078e-07
+    ],
+    [
+      0.556551470207,
+      -0.012308519371,
+      -0.011279342214,
+      -0.001066018443,
+      0.000174995821,
+      3.37533e-07
+    ],
+    [
+      0.566241653149,
+      0.532077245866,
+      0.200863959228,
+      0.003145039238,
+      -0.000757335521,
+      -1.05136e-06
+    ],
+    [
+      -1.411628708738,
+      -1.327222521735,
+      -0.239850511544,
+      0.023754008188,
+      -0.00487322994,
+      -7.7567874e-05
+    ],
+    [
+      -0.050861864056,
+      -0.017743546279,
+      -0.001681576829,
+      -0.196787231148,
+      -0.044712301548,
+      -1.913385e-06
+    ],
+    [
+      0.030912256319,
+      0.009912967752,
+      0.000933365955,
+      -0.001869108302,
+      0.011727329755,
+      7.03078e-07
+    ],
+    [
+      0.044098003635,
+      0.004931677566,
+      0.042225907837,
+      0.003912534403,
+      -0.000700058283,
+      1.687665e-06
+    ],
+    [
+      -1.33190878408,
+      -0.345982273726,
+      -0.798980599354,
+      -0.011613658865,
+      0.003000956699,
+      -5.2568e-06
+    ],
+    [
+      4.642426864127,
+      0.650172977221,
+      4.384129162801,
+      -1.018874357471,
+      0.03279621724,
+      -0.000387839371
+    ],
+    [
+      0.059277133313,
+      0.018837388939,
+      0.014546378664,
+      0.787877812505,
+      0.178980857052,
+      -9.566921e-06
+    ],
+    [
+      -0.036756494109,
+      -0.010762946977,
+      -0.0088108173,
+      0.007126205505,
+      -0.046994983863,
+      3.515402e-06
+    ],
+    [
+      -0.010784872716,
+      0.009096548124,
+      -0.009756681663,
+      -0.001065005844,
+      0.000175670887,
+      -2.362733e-06
+    ],
+    [
+      0.076672321319,
+      -0.358108733176,
+      0.196428913815,
+      0.003141885158,
+      -0.000759438241,
+      7.359519e-06
+    ],
+    [
+      0.408125012784,
+      -0.197876627594,
+      -0.550107918255,
+      0.023521304565,
+      -0.005028365689,
+      0.000542975119
+    ],
+    [
+      0.006308847968,
+      0.009030676967,
+      -0.005293923019,
+      -0.196792971301,
+      -0.044716128316,
+      1.3393689e-05
+    ],
+    [
+      -0.003151070497,
+      -0.004847429047,
+      0.003101465159,
+      -0.001866999059,
+      0.011728735917,
+      -4.921569e-06
+    ]
+  ]
+}

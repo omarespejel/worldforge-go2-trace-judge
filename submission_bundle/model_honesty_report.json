@@ -1,0 +1,97 @@
+{
+  "baselines": {
+    "always_forward_small_accuracy": 0.3125,
+    "random_expected_accuracy": 0.25
+  },
+  "claim_boundary": "The model distills transparent score labels from real Go2 frames and label-safe counterfactuals. It is not a Go2 foundation world model or validated autonomy policy.",
+  "feature_count": 34,
+  "main_model": {
+    "test_score_metrics": {
+      "count": 192,
+      "mae": 0.02337,
+      "r2": 0.94378,
+      "rmse": 0.045032
+    },
+    "test_selection_accuracy": 0.979167
+  },
+  "plate_holdout": [
+    {
+      "candidate_rows": 448,
+      "decision_groups": 112,
+      "heldout_group": "artifacts/live_ciro/direct_camera_final_preflight.jpg",
+      "score_metrics": {
+        "count": 448,
+        "mae": 0.029614,
+        "r2": 0.80193,
+        "rmse": 0.076054
+      },
+      "selection_accuracy": 0.928571
+    },
+    {
+      "candidate_rows": 340,
+      "decision_groups": 85,
+      "heldout_group": "artifacts/live_ciro/direct_camera_no_red.jpg",
+      "score_metrics": {
+        "count": 340,
+        "mae": 0.016742,
+        "r2": 0.980977,
+        "rmse": 0.025314
+      },
+      "selection_accuracy": 1.0
+    },
+    {
+      "candidate_rows": 440,
+      "decision_groups": 110,
+      "heldout_group": "artifacts/live_ciro/direct_camera_red_block_front.jpg",
+      "score_metrics": {
+        "count": 440,
+        "mae": 0.016652,
+        "r2": 0.982034,
+        "rmse": 0.024616
+      },
+      "selection_accuracy": 0.990909
+    },
+    {
+      "candidate_rows": 420,
+      "decision_groups": 105,
+      "heldout_group": "artifacts/live_ciro/direct_camera_red_block_left.jpg",
+      "score_metrics": {
+        "count": 420,
+        "mae": 0.026655,
+        "r2": 0.922228,
+        "rmse": 0.050189
+      },
+      "selection_accuracy": 1.0
+    },
+    {
+      "candidate_rows": 272,
+      "decision_groups": 68,
+      "heldout_group": "artifacts/live_ciro/direct_camera_red_block_right.jpg",
+      "score_metrics": {
+        "count": 272,
+        "mae": 0.022939,
+        "r2": 0.972438,
+        "rmse": 0.033255
+      },
+      "selection_accuracy": 1.0
+    }
+  ],
+  "schema_version": 1,
+  "shuffled_label_control": {
+    "repeats": 20,
+    "test_r2": {
+      "count": 20,
+      "max": 0.071718,
+      "mean": -0.011856,
+      "min": -0.094895,
+      "std": 0.047628
+    },
+    "test_selection_accuracy": {
+      "count": 20,
+      "max": 0.604167,
+      "mean": 0.217708,
+      "min": 0.0,
+      "std": 0.158727
+    }
+  }
+}

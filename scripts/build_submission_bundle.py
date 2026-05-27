@@ -36,6 +36,12 @@ def run(args: argparse.Namespace) -> int:
         "micro_world_model": root / "artifacts/micro_world_scorer/model.json",
         "micro_world_eval": root / "artifacts/micro_world_scorer/eval_report.json",
         "micro_world_predictions": root / "artifacts/micro_world_scorer/predictions_sample.json",
+        "micro_jepa_model": root / "artifacts/micro_jepa_scorer/model.json",
+        "micro_jepa_eval": root / "artifacts/micro_jepa_scorer/eval_report.json",
+        "dinov2_hybrid_model": root / "artifacts/dinov2_scorer/model.json",
+        "dinov2_hybrid_eval": root / "artifacts/dinov2_scorer/eval_report.json",
+        "model_honesty_report": root / "artifacts/model_audit/honesty_report.json",
+        "model_honesty_report_md": root / "artifacts/model_audit/honesty_report.md",
         "score_info": root / "artifacts/micro_world_demo/latest/score_info.json",
         "candidate_scores": root / "artifacts/micro_world_demo/latest/candidate_scores.json",
         "selected_action": root / "artifacts/micro_world_demo/latest/selected_action.json",
@@ -50,12 +56,14 @@ def run(args: argparse.Namespace) -> int:
     for split in ("train", "validation", "test", "real_seed"):
         _copy(root / "hf_dataset/data" / f"{split}.jsonl", data_out / f"{split}.jsonl")
     _copy_tree(root / "hf_model", out / "hf_model")
+    _copy_tree(root / "hf_model_jepa", out / "hf_model_jepa")
+    _copy_tree(root / "hf_model_dinov2", out / "hf_model_dinov2")
 
     readme = """# WorldForge Go2 Trace Judge Submission Bundle
 
 ## Main Demo
 
-- `final_hackathon_video.mp4`: 78-second final judge video.
+- `final_hackathon_video.mp4`: 88-second final judge video.
 - `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
 - `micro_world_annotated.jpg`: annotated frame with candidate scores.
 
@@ -92,10 +100,19 @@ outcome labels.
 - `micro_world_model.json`
 - `micro_world_eval.json`
 - `micro_world_predictions.json`
+- `micro_jepa_model.json`
+- `micro_jepa_eval.json`
+- `dinov2_hybrid_model.json`
+- `dinov2_hybrid_eval.json`
+- `model_honesty_report.json`
+- `model_honesty_report_md.md`
 - `hf_model/README.md`
+- `hf_model_jepa/README.md`
+- `hf_model_dinov2/README.md`
 
-This is a small micro world scorer head. It is not a Go2 foundation model and not a
-trained V-JEPA model.
+The headline model is a small micro world scorer head. The bundle also includes
+an optional JEPA-style latent scorer, a frozen-DINOv2 hybrid ablation, and an
+honesty audit. None of these are Go2 foundation models or trained V-JEPA models.
 """
     (out / "README.md").write_text(readme)
     manifest = {

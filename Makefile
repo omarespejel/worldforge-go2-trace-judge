@@ -8,9 +8,10 @@ RANKER_DIR ?= artifacts/ranker_smoke
 AUDIT_DIR ?= artifacts/dataset_audit
 REAL_PHOTO_EDIT_COUNT ?= 480
 MICRO_WORLD_MODEL ?= artifacts/micro_world_scorer/model.json
+MICRO_JEPA_MODEL ?= artifacts/micro_jepa_scorer/model.json
 MICRO_WORLD_IMAGE ?= artifacts/live_ciro/direct_camera_unsafe_path.jpg
 
-.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo final-video bundle package all hackathon-final clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
 
 all: hackathon-final
 
@@ -75,6 +76,42 @@ micro-world-demo:
 		--model "$(MICRO_WORLD_MODEL)" \
 		--run-id latest \
 		--clean
+
+micro-jepa-scorer:
+	$(PYTHON) scripts/train_micro_jepa_scorer.py \
+		--dataset-dir hf_dataset \
+		--output-dir artifacts/micro_jepa_scorer
+	mkdir -p hf_model_jepa
+	cp artifacts/micro_jepa_scorer/model.json hf_model_jepa/model.json
+	cp artifacts/micro_jepa_scorer/eval_report.json hf_model_jepa/eval_report.json
+	cp artifacts/micro_jepa_scorer/predictions_sample.json hf_model_jepa/predictions_sample.json
+
+micro-jepa-demo:
+	$(PYTHON) scripts/run_micro_world_scorer_demo.py \
+		--image "$(MICRO_WORLD_IMAGE)" \
+		--model "$(MICRO_JEPA_MODEL)" \
+		--output-dir artifacts/micro_jepa_demo \
+		--run-id latest \
+		--clean
+
+jepa-stretch: check micro-jepa-scorer micro-jepa-demo
+
+model-honesty-audit:
+	$(PYTHON) scripts/audit_model_honesty.py \
+		--dataset-dir hf_dataset \
+		--output-dir artifacts/model_audit
+
+dinov2-scorer:
+	$(PYTHON) scripts/train_dinov2_scorer.py \
+		--dataset-dir hf_dataset \
+		--output-dir artifacts/dinov2_scorer \
+		--alpha 0.01
+	mkdir -p hf_model_dinov2
+	cp artifacts/dinov2_scorer/model.json hf_model_dinov2/model.json
+	cp artifacts/dinov2_scorer/eval_report.json hf_model_dinov2/eval_report.json
+	cp artifacts/dinov2_scorer/predictions_sample.json hf_model_dinov2/predictions_sample.json
+
+ml-stretch: check jepa-stretch model-honesty-audit dinov2-scorer
 
 final-video:
 	$(PYTHON) scripts/build_final_showcase_video.py

@@ -54,6 +54,28 @@ eval_report.json
 predictions_sample.json
 ```
 
+## JEPA-Style Model
+
+```bash
+hf upload \
+  omarespejel/go2-cube-micro-jepa-scorer \
+  hf_model_jepa \
+  . \
+  --repo-type model \
+  --commit-message "Add Go2 cube micro JEPA-style latent scorer"
+```
+
+## DINOv2 Hybrid Model
+
+```bash
+hf upload \
+  omarespejel/go2-cube-dinov2-hybrid-scorer \
+  hf_model_dinov2 \
+  . \
+  --repo-type model \
+  --commit-message "Add Go2 cube DINOv2 hybrid scorer ablation"
+```
+
 ## Claim Boundary
 
 Use this wording:

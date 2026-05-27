@@ -2,7 +2,7 @@
 
 ## Main Demo
 
-- `final_hackathon_video.mp4`: 78-second final judge video.
+- `final_hackathon_video.mp4`: 88-second final judge video.
 - `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
 - `micro_world_annotated.jpg`: annotated frame with candidate scores.
 
@@ -39,7 +39,16 @@ outcome labels.
 - `micro_world_model.json`
 - `micro_world_eval.json`
 - `micro_world_predictions.json`
+- `micro_jepa_model.json`
+- `micro_jepa_eval.json`
+- `dinov2_hybrid_model.json`
+- `dinov2_hybrid_eval.json`
+- `model_honesty_report.json`
+- `model_honesty_report_md.md`
 - `hf_model/README.md`
+- `hf_model_jepa/README.md`
+- `hf_model_dinov2/README.md`
 
-This is a small micro world scorer head. It is not a Go2 foundation model and not a
-trained V-JEPA model.
+The headline model is a small micro world scorer head. The bundle also includes
+an optional JEPA-style latent scorer, a frozen-DINOv2 hybrid ablation, and an
+honesty audit. None of these are Go2 foundation models or trained V-JEPA models.

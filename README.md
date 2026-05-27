@@ -31,6 +31,12 @@ why one won, and what artifacts were saved for replay or later training.
   - Hugging Face-ready dataset package with the compact image/mask copy.
 - `artifacts/micro_world_scorer/` and `hf_model/`
   - Small scorer model, eval report, model card.
+- `artifacts/micro_jepa_scorer/` and `hf_model_jepa/`
+  - Optional action-conditioned latent scorer.
+- `artifacts/dinov2_scorer/` and `hf_model_dinov2/`
+  - Frozen-DINOv2 hybrid scorer ablation.
+- `artifacts/model_audit/` and `docs/MODEL_AUDIT.md`
+  - Honesty audit: shuffled labels, plate holdout, and model comparison.
 - `submission_bundle/`
   - Copy-ready hackathon bundle.
 
@@ -81,6 +87,12 @@ scoring, evidence, and replayability.
   - Builds the HF-ready dataset with real seed and real-photo-edit splits.
 - `scripts/train_micro_world_scorer.py`
   - Trains the small NumPy scorer head.
+- `scripts/train_micro_jepa_scorer.py`
+  - Trains a small JEPA-style latent predictor.
+- `scripts/train_dinov2_scorer.py`
+  - Trains a frozen-DINOv2 hybrid scorer head.
+- `scripts/audit_model_honesty.py`
+  - Runs shuffled-label and plate-holdout controls.
 - `scripts/run_micro_world_scorer_demo.py`
   - Runs one real frame through the model and writes trace artifacts plus MP4.
 - `scripts/build_final_showcase_video.py`
@@ -185,6 +197,38 @@ always-forward baseline: 31.2%
 
 These metrics show the small model learned the trace scoring boundary. They do not
 prove real-world long-horizon navigation success.
+
+## ML Stretch And Honesty Audit
+
+Run:
+
+```bash
+make ml-stretch
+```
+
+This adds:
+
+```text
+artifacts/micro_jepa_scorer/
+artifacts/dinov2_scorer/
+artifacts/model_audit/
+hf_model_jepa/
+hf_model_dinov2/
+```
+
+Current comparison:
+
+```text
+geometry micro scorer: 97.9% selection accuracy, R2 0.9438
+micro JEPA-style scorer: 97.9% selection accuracy, R2 0.9514
+DINOv2 hybrid scorer: 97.9% selection accuracy, R2 0.9443
+shuffled-label control: 21.8% mean selection accuracy, R2 -0.0119
+```
+
+Interpretation: the JEPA-style latent scorer is architecturally cleaner, but all
+models are still distilling transparent labels. The frozen-DINOv2 ablation is a
+useful negative/neutral result: visual foundation features do not materially
+improve labels that were generated from geometry/risk traces.
 
 ## One-Command Demo
 

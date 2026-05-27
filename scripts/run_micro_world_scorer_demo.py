@@ -149,13 +149,34 @@ def _model_vector(candidate_id: str, obs: dict[str, float], model: JSON) -> np.n
     return np.asarray(values, dtype=float)
 
 
+def _score_from_predicted_latent(latent: np.ndarray, model: JSON) -> float:
+    latent_names = model["latent_names"]
+    score_weights = model.get("score_weights", SCORE_WEIGHTS)
+    values = {name: float(latent[index]) for index, name in enumerate(latent_names)}
+    score = (
+        0.10
+        + float(score_weights["goal_alignment"]) * values["goal_alignment"]
+        + float(score_weights["information_gain"]) * values["information_gain"]
+        + float(score_weights["progress"]) * values["progress"]
+        + float(score_weights["clearance"]) * (1.0 - values["obstacle_risk"])
+        + float(score_weights["not_stuck"]) * (1.0 - values["stuck_risk"])
+        + float(score_weights["execution_cost"]) * values["execution_cost"]
+    )
+    return round(max(0.0, min(1.0, score)), 4)
+
+
 def _predict_scores(model: JSON, observation: JSON, candidates: list[JSON]) -> list[float]:
     weights = np.asarray(model["weights"], dtype=float)
     obs = _obs_features(observation)
     scores = []
     for candidate in candidates:
-        raw_score = float(_model_vector(str(candidate["id"]), obs, model) @ weights)
-        scores.append(round(max(0.0, min(1.0, raw_score)), 4))
+        vector = _model_vector(str(candidate["id"]), obs, model)
+        if model.get("model_type") == "go2_cube_micro_jepa_latent_predictor":
+            predicted_latent = np.clip(vector @ weights, 0.0, 1.0)
+            scores.append(_score_from_predicted_latent(predicted_latent, model))
+        else:
+            raw_score = float(vector @ weights)
+            scores.append(round(max(0.0, min(1.0, raw_score)), 4))
     return scores
 
 

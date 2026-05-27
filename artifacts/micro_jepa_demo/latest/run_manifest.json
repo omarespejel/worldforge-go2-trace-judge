@@ -1,0 +1,15 @@
+{
+  "artifacts": {
+    "annotated_image": "annotated_image.jpg",
+    "camera_frame": "camera_frame.jpg",
+    "candidate_scores": "candidate_scores.json",
+    "micro_world_trace": "micro_world_trace.mp4",
+    "outcome_after_execution": "outcome_after_execution.json",
+    "score_info": "score_info.json",
+    "selected_action": "selected_action.json"
+  },
+  "claim_boundary": "Offline replay of a small learned scorer head. Host runtime owns robot execution.",
+  "goal": "find the red block and avoid unsafe colored markers",
+  "run_id": "latest",
+  "schema_version": 1
+}

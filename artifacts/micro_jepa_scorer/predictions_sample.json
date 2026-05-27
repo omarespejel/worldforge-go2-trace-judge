@@ -1,0 +1,1922 @@
+[
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9115,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.040806,
+      "progress": 0.305522,
+      "stuck_risk": 0.030049
+    },
+    "predicted_score_from_latent": 0.912757,
+    "row_id": "real-photo-edit-0000",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.17415,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.040806,
+      "progress": 0.305522,
+      "stuck_risk": 0.030049
+    },
+    "predicted_score_from_latent": 0.681519,
+    "row_id": "real-photo-edit-0000",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.3707,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3682,
+    "predicted_latent": {
+      "execution_cost": 0.079994,
+      "goal_alignment": 0.0,
+      "information_gain": 0.356533,
+      "obstacle_risk": 0.354572,
+      "progress": 0.10492,
+      "stuck_risk": 0.166262
+    },
+    "predicted_score_from_latent": 0.356995,
+    "row_id": "real-photo-edit-0000",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200009,
+      "goal_alignment": 0.367622,
+      "information_gain": 0.18331,
+      "obstacle_risk": 0.010803,
+      "progress": 0.000683,
+      "stuck_risk": 0.010047
+    },
+    "predicted_score_from_latent": 0.440475,
+    "row_id": "real-photo-edit-0000",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.3673,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5167,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.231252,
+      "information_gain": 0.404797,
+      "obstacle_risk": 0.039693,
+      "progress": 0.294075,
+      "stuck_risk": 0.029992
+    },
+    "predicted_score_from_latent": 0.534111,
+    "row_id": "real-photo-edit-0010",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.22076,
+      "information_gain": 0.3673,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5225,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.257253,
+      "information_gain": 0.404797,
+      "obstacle_risk": 0.039693,
+      "progress": 0.294075,
+      "stuck_risk": 0.029992
+    },
+    "predicted_score_from_latent": 0.541391,
+    "row_id": "real-photo-edit-0010",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.96886,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.711,
+      "progress": 0.82,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.7484,
+    "predicted_latent": {
+      "execution_cost": 0.080005,
+      "goal_alignment": 0.845096,
+      "information_gain": 0.323288,
+      "obstacle_risk": 0.728991,
+      "progress": 0.750988,
+      "stuck_risk": 0.179701
+    },
+    "predicted_score_from_latent": 0.689328,
+    "row_id": "real-photo-edit-0010",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199992,
+      "goal_alignment": 0.331526,
+      "information_gain": 0.178398,
+      "obstacle_risk": 0.009697,
+      "progress": 0.0,
+      "stuck_risk": 0.009994
+    },
+    "predicted_score_from_latent": 0.429041,
+    "row_id": "real-photo-edit-0010",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.9236,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6669,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.19969,
+      "information_gain": 0.876206,
+      "obstacle_risk": 0.0393,
+      "progress": 0.302681,
+      "stuck_risk": 0.030009
+    },
+    "predicted_score_from_latent": 0.654764,
+    "row_id": "real-photo-edit-0020",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.88832,
+      "information_gain": 0.9236,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.8596,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.845619,
+      "information_gain": 0.876206,
+      "obstacle_risk": 0.0393,
+      "progress": 0.302681,
+      "stuck_risk": 0.030009
+    },
+    "predicted_score_from_latent": 0.835624,
+    "row_id": "real-photo-edit-0020",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.18,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.4288,
+    "predicted_latent": {
+      "execution_cost": 0.080001,
+      "goal_alignment": 0.168931,
+      "information_gain": 0.338953,
+      "obstacle_risk": 0.0,
+      "progress": 0.297828,
+      "stuck_risk": 0.081539
+    },
+    "predicted_score_from_latent": 0.505198,
+    "row_id": "real-photo-edit-0020",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199998,
+      "goal_alignment": 0.351566,
+      "information_gain": 0.178514,
+      "obstacle_risk": 0.009301,
+      "progress": 0.002527,
+      "stuck_risk": 0.010009
+    },
+    "predicted_score_from_latent": 0.435373,
+    "row_id": "real-photo-edit-0020",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9115,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.994463,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.039872,
+      "progress": 0.304267,
+      "stuck_risk": 0.030002
+    },
+    "predicted_score_from_latent": 0.911036,
+    "row_id": "real-photo-edit-0030",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.192373,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.039872,
+      "progress": 0.304267,
+      "stuck_risk": 0.030002
+    },
+    "predicted_score_from_latent": 0.68645,
+    "row_id": "real-photo-edit-0030",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.6354,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3285,
+    "predicted_latent": {
+      "execution_cost": 0.079996,
+      "goal_alignment": 0.0,
+      "information_gain": 0.347743,
+      "obstacle_risk": 0.626653,
+      "progress": 0.115677,
+      "stuck_risk": 0.16647
+    },
+    "predicted_score_from_latent": 0.316488,
+    "row_id": "real-photo-edit-0030",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200006,
+      "goal_alignment": 0.359782,
+      "information_gain": 0.180595,
+      "obstacle_risk": 0.009869,
+      "progress": 0.001648,
+      "stuck_risk": 0.01
+    },
+    "predicted_score_from_latent": 0.437931,
+    "row_id": "real-photo-edit-0030",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.4852,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5485,
+    "predicted_latent": {
+      "execution_cost": 0.120002,
+      "goal_alignment": 0.230602,
+      "information_gain": 0.510905,
+      "obstacle_risk": 0.039536,
+      "progress": 0.294013,
+      "stuck_risk": 0.029983
+    },
+    "predicted_score_from_latent": 0.562587,
+    "row_id": "real-photo-edit-0040",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.36224,
+      "information_gain": 0.4852,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5939,
+    "predicted_latent": {
+      "execution_cost": 0.120002,
+      "goal_alignment": 0.38786,
+      "information_gain": 0.510905,
+      "obstacle_risk": 0.039536,
+      "progress": 0.294013,
+      "stuck_risk": 0.029983
+    },
+    "predicted_score_from_latent": 0.606619,
+    "row_id": "real-photo-edit-0040",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.75664,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.82,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.8007,
+    "predicted_latent": {
+      "execution_cost": 0.080008,
+      "goal_alignment": 0.681148,
+      "information_gain": 0.322678,
+      "obstacle_risk": 0.018589,
+      "progress": 0.637674,
+      "stuck_risk": 0.079707
+    },
+    "predicted_score_from_latent": 0.726489,
+    "row_id": "real-photo-edit-0040",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199988,
+      "goal_alignment": 0.331068,
+      "information_gain": 0.177907,
+      "obstacle_risk": 0.009541,
+      "progress": 0.0,
+      "stuck_risk": 0.009986
+    },
+    "predicted_score_from_latent": 0.428804,
+    "row_id": "real-photo-edit-0040",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.9553,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6754,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.200631,
+      "information_gain": 0.900553,
+      "obstacle_risk": 0.039103,
+      "progress": 0.302741,
+      "stuck_risk": 0.030016
+    },
+    "predicted_score_from_latent": 0.661645,
+    "row_id": "real-photo-edit-0050",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.92636,
+      "information_gain": 0.9553,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.8788,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.874741,
+      "information_gain": 0.900553,
+      "obstacle_risk": 0.039103,
+      "progress": 0.302741,
+      "stuck_risk": 0.030016
+    },
+    "predicted_score_from_latent": 0.850396,
+    "row_id": "real-photo-edit-0050",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.7264,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3148,
+    "predicted_latent": {
+      "execution_cost": 0.079998,
+      "goal_alignment": 0.121176,
+      "information_gain": 0.337723,
+      "obstacle_risk": 0.725013,
+      "progress": 0.260228,
+      "stuck_risk": 0.185328
+    },
+    "predicted_score_from_latent": 0.368153,
+    "row_id": "real-photo-edit-0050",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200002,
+      "goal_alignment": 0.350777,
+      "information_gain": 0.177589,
+      "obstacle_risk": 0.009102,
+      "progress": 0.002685,
+      "stuck_risk": 0.010016
+    },
+    "predicted_score_from_latent": 0.434971,
+    "row_id": "real-photo-edit-0050",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.98744,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.908,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.958141,
+      "information_gain": 0.977829,
+      "obstacle_risk": 0.039763,
+      "progress": 0.304585,
+      "stuck_risk": 0.030006
+    },
+    "predicted_score_from_latent": 0.894975,
+    "row_id": "real-photo-edit-0060",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.196079,
+      "information_gain": 0.977829,
+      "obstacle_risk": 0.039763,
+      "progress": 0.304585,
+      "stuck_risk": 0.030006
+    },
+    "predicted_score_from_latent": 0.681598,
+    "row_id": "real-photo-edit-0060",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.18,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.4288,
+    "predicted_latent": {
+      "execution_cost": 0.079999,
+      "goal_alignment": 0.0,
+      "information_gain": 0.347095,
+      "obstacle_risk": 0.0,
+      "progress": 0.151994,
+      "stuck_risk": 0.082929
+    },
+    "predicted_score_from_latent": 0.423568,
+    "row_id": "real-photo-edit-0060",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200002,
+      "goal_alignment": 0.359534,
+      "information_gain": 0.180399,
+      "obstacle_risk": 0.009762,
+      "progress": 0.002144,
+      "stuck_risk": 0.010006
+    },
+    "predicted_score_from_latent": 0.437949,
+    "row_id": "real-photo-edit-0060",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.23912,
+      "information_gain": 0.3826,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5318,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.269166,
+      "information_gain": 0.420172,
+      "obstacle_risk": 0.039828,
+      "progress": 0.29371,
+      "stuck_risk": 0.02999
+    },
+    "predicted_score_from_latent": 0.548767,
+    "row_id": "real-photo-edit-0070",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.3826,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5208,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.236943,
+      "information_gain": 0.420172,
+      "obstacle_risk": 0.039828,
+      "progress": 0.29371,
+      "stuck_risk": 0.02999
+    },
+    "predicted_score_from_latent": 0.539744,
+    "row_id": "real-photo-edit-0070",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.94132,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.7114,
+      "progress": 0.82,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.7407,
+    "predicted_latent": {
+      "execution_cost": 0.080005,
+      "goal_alignment": 0.819643,
+      "information_gain": 0.323795,
+      "obstacle_risk": 0.729337,
+      "progress": 0.73132,
+      "stuck_risk": 0.179879
+    },
+    "predicted_score_from_latent": 0.67736,
+    "row_id": "real-photo-edit-0070",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199992,
+      "goal_alignment": 0.331587,
+      "information_gain": 0.178746,
+      "obstacle_risk": 0.009831,
+      "progress": 0.0,
+      "stuck_risk": 0.009992
+    },
+    "predicted_score_from_latent": 0.429132,
+    "row_id": "real-photo-edit-0070",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.207395,
+      "information_gain": 0.957195,
+      "obstacle_risk": 0.038657,
+      "progress": 0.301232,
+      "stuck_risk": 0.03
+    },
+    "predicted_score_from_latent": 0.678522,
+    "row_id": "real-photo-edit-0080",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.99428,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9099,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.94351,
+      "information_gain": 0.957195,
+      "obstacle_risk": 0.038657,
+      "progress": 0.301232,
+      "stuck_risk": 0.03
+    },
+    "predicted_score_from_latent": 0.884635,
+    "row_id": "real-photo-edit-0080",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.18,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.4288,
+    "predicted_latent": {
+      "execution_cost": 0.080003,
+      "goal_alignment": 0.017406,
+      "information_gain": 0.33198,
+      "obstacle_risk": 0.003821,
+      "progress": 0.185023,
+      "stuck_risk": 0.08156
+    },
+    "predicted_score_from_latent": 0.432113,
+    "row_id": "real-photo-edit-0080",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199996,
+      "goal_alignment": 0.345095,
+      "information_gain": 0.175909,
+      "obstacle_risk": 0.008659,
+      "progress": 0.002676,
+      "stuck_risk": 0.010002
+    },
+    "predicted_score_from_latent": 0.432992,
+    "row_id": "real-photo-edit-0080",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.95648,
+      "information_gain": 0.9804,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.894,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.936816,
+      "information_gain": 0.94761,
+      "obstacle_risk": 0.039295,
+      "progress": 0.305223,
+      "stuck_risk": 0.030054
+    },
+    "predicted_score_from_latent": 0.881072,
+    "row_id": "real-photo-edit-0090",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.9804,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6822,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.183273,
+      "information_gain": 0.94761,
+      "obstacle_risk": 0.039295,
+      "progress": 0.305223,
+      "stuck_risk": 0.030054
+    },
+    "predicted_score_from_latent": 0.67008,
+    "row_id": "real-photo-edit-0090",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.404,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3632,
+    "predicted_latent": {
+      "execution_cost": 0.079997,
+      "goal_alignment": 0.027301,
+      "information_gain": 0.343717,
+      "obstacle_risk": 0.395705,
+      "progress": 0.160581,
+      "stuck_risk": 0.17302
+    },
+    "predicted_score_from_latent": 0.368587,
+    "row_id": "real-photo-edit-0090",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200004,
+      "goal_alignment": 0.357682,
+      "information_gain": 0.178205,
+      "obstacle_risk": 0.009293,
+      "progress": 0.003205,
+      "stuck_risk": 0.010053
+    },
+    "predicted_score_from_latent": 0.437171,
+    "row_id": "real-photo-edit-0090",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.3596,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5146,
+    "predicted_latent": {
+      "execution_cost": 0.120002,
+      "goal_alignment": 0.233207,
+      "information_gain": 0.401767,
+      "obstacle_risk": 0.039459,
+      "progress": 0.29418,
+      "stuck_risk": 0.029986
+    },
+    "predicted_score_from_latent": 0.533902,
+    "row_id": "real-photo-edit-0100",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.21152,
+      "information_gain": 0.3596,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5178,
+    "predicted_latent": {
+      "execution_cost": 0.120002,
+      "goal_alignment": 0.254413,
+      "information_gain": 0.401767,
+      "obstacle_risk": 0.039459,
+      "progress": 0.29418,
+      "stuck_risk": 0.029986
+    },
+    "predicted_score_from_latent": 0.539839,
+    "row_id": "real-photo-edit-0100",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.98272,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.82,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.864,
+    "predicted_latent": {
+      "execution_cost": 0.080009,
+      "goal_alignment": 0.850365,
+      "information_gain": 0.32162,
+      "obstacle_risk": 0.01974,
+      "progress": 0.756659,
+      "stuck_risk": 0.079349
+    },
+    "predicted_score_from_latent": 0.803176,
+    "row_id": "real-photo-edit-0100",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199988,
+      "goal_alignment": 0.330321,
+      "information_gain": 0.177849,
+      "obstacle_risk": 0.009464,
+      "progress": 0.000123,
+      "stuck_risk": 0.00999
+    },
+    "predicted_score_from_latent": 0.428622,
+    "row_id": "real-photo-edit-0100",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.211252,
+      "information_gain": 0.951586,
+      "obstacle_risk": 0.039095,
+      "progress": 0.298669,
+      "stuck_risk": 0.029998
+    },
+    "predicted_score_from_latent": 0.677382,
+    "row_id": "real-photo-edit-0110",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.9866,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9077,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.9324,
+      "information_gain": 0.951586,
+      "obstacle_risk": 0.039095,
+      "progress": 0.298669,
+      "stuck_risk": 0.029998
+    },
+    "predicted_score_from_latent": 0.879303,
+    "row_id": "real-photo-edit-0110",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.7315,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3141,
+    "predicted_latent": {
+      "execution_cost": 0.080001,
+      "goal_alignment": 0.012422,
+      "information_gain": 0.330716,
+      "obstacle_risk": 0.737442,
+      "progress": 0.173648,
+      "stuck_risk": 0.18631
+    },
+    "predicted_score_from_latent": 0.312252,
+    "row_id": "real-photo-edit-0110",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199998,
+      "goal_alignment": 0.341847,
+      "information_gain": 0.176563,
+      "obstacle_risk": 0.009096,
+      "progress": 0.000801,
+      "stuck_risk": 0.009999
+    },
+    "predicted_score_from_latent": 0.431725,
+    "row_id": "real-photo-edit-0110",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9115,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.039662,
+      "progress": 0.304396,
+      "stuck_risk": 0.030003
+    },
+    "predicted_score_from_latent": 0.912649,
+    "row_id": "real-photo-edit-0120",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.193338,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.039662,
+      "progress": 0.304396,
+      "stuck_risk": 0.030003
+    },
+    "predicted_score_from_latent": 0.686784,
+    "row_id": "real-photo-edit-0120",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.18,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.4288,
+    "predicted_latent": {
+      "execution_cost": 0.079999,
+      "goal_alignment": 0.0,
+      "information_gain": 0.346414,
+      "obstacle_risk": 0.0,
+      "progress": 0.08157,
+      "stuck_risk": 0.083152
+    },
+    "predicted_score_from_latent": 0.405767,
+    "row_id": "real-photo-edit-0120",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200002,
+      "goal_alignment": 0.358909,
+      "information_gain": 0.179939,
+      "obstacle_risk": 0.009661,
+      "progress": 0.002035,
+      "stuck_risk": 0.010003
+    },
+    "predicted_score_from_latent": 0.437637,
+    "row_id": "real-photo-edit-0120",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.3941,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5239,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.2335,
+      "information_gain": 0.431103,
+      "obstacle_risk": 0.04038,
+      "progress": 0.291222,
+      "stuck_risk": 0.029982
+    },
+    "predicted_score_from_latent": 0.541027,
+    "row_id": "real-photo-edit-0130",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.25292,
+      "information_gain": 0.3941,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5387,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.285205,
+      "information_gain": 0.431103,
+      "obstacle_risk": 0.04038,
+      "progress": 0.291222,
+      "stuck_risk": 0.029982
+    },
+    "predicted_score_from_latent": 0.555505,
+    "row_id": "real-photo-edit-0130",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.92062,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.74,
+      "progress": 0.82,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.7306,
+    "predicted_latent": {
+      "execution_cost": 0.080006,
+      "goal_alignment": 0.799385,
+      "information_gain": 0.323592,
+      "obstacle_risk": 0.760138,
+      "progress": 0.713766,
+      "stuck_risk": 0.186177
+    },
+    "predicted_score_from_latent": 0.662309,
+    "row_id": "real-photo-edit-0130",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199992,
+      "goal_alignment": 0.329172,
+      "information_gain": 0.179967,
+      "obstacle_risk": 0.010384,
+      "progress": 0.0,
+      "stuck_risk": 0.009985
+    },
+    "predicted_score_from_latent": 0.428703,
+    "row_id": "real-photo-edit-0130",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.209487,
+      "information_gain": 0.957954,
+      "obstacle_risk": 0.038714,
+      "progress": 0.300325,
+      "stuck_risk": 0.029997
+    },
+    "predicted_score_from_latent": 0.679078,
+    "row_id": "real-photo-edit-0140",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.99332,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9096,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.943346,
+      "information_gain": 0.957954,
+      "obstacle_risk": 0.038714,
+      "progress": 0.300325,
+      "stuck_risk": 0.029997
+    },
+    "predicted_score_from_latent": 0.884559,
+    "row_id": "real-photo-edit-0140",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.18,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.4288,
+    "predicted_latent": {
+      "execution_cost": 0.080004,
+      "goal_alignment": 0.011103,
+      "information_gain": 0.3308,
+      "obstacle_risk": 0.005313,
+      "progress": 0.178632,
+      "stuck_risk": 0.081502
+    },
+    "predicted_score_from_latent": 0.42821,
+    "row_id": "real-photo-edit-0140",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199995,
+      "goal_alignment": 0.34338,
+      "information_gain": 0.175896,
+      "obstacle_risk": 0.008716,
+      "progress": 0.002196,
+      "stuck_risk": 0.009998
+    },
+    "predicted_score_from_latent": 0.43238,
+    "row_id": "real-photo-edit-0140",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.92984,
+      "information_gain": 0.9582,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.8806,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.906781,
+      "information_gain": 0.932314,
+      "obstacle_risk": 0.03936,
+      "progress": 0.304187,
+      "stuck_risk": 0.03001
+    },
+    "predicted_score_from_latent": 0.868266,
+    "row_id": "real-photo-edit-0150",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.9582,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6762,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.196644,
+      "information_gain": 0.932314,
+      "obstacle_risk": 0.03936,
+      "progress": 0.304187,
+      "stuck_risk": 0.03001
+    },
+    "predicted_score_from_latent": 0.669427,
+    "row_id": "real-photo-edit-0150",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.6891,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3204,
+    "predicted_latent": {
+      "execution_cost": 0.079997,
+      "goal_alignment": 0.050289,
+      "information_gain": 0.343,
+      "obstacle_risk": 0.683333,
+      "progress": 0.189363,
+      "stuck_risk": 0.178019
+    },
+    "predicted_score_from_latent": 0.338631,
+    "row_id": "real-photo-edit-0150",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200004,
+      "goal_alignment": 0.356097,
+      "information_gain": 0.178854,
+      "obstacle_risk": 0.009358,
+      "progress": 0.002666,
+      "stuck_risk": 0.010009
+    },
+    "predicted_score_from_latent": 0.43676,
+    "row_id": "real-photo-edit-0150",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.24764,
+      "information_gain": 0.3897,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5361,
+    "predicted_latent": {
+      "execution_cost": 0.120002,
+      "goal_alignment": 0.281107,
+      "information_gain": 0.433136,
+      "obstacle_risk": 0.040056,
+      "progress": 0.291755,
+      "stuck_risk": 0.029975
+    },
+    "predicted_score_from_latent": 0.555088,
+    "row_id": "real-photo-edit-0160",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.3897,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5227,
+    "predicted_latent": {
+      "execution_cost": 0.120002,
+      "goal_alignment": 0.242608,
+      "information_gain": 0.433136,
+      "obstacle_risk": 0.040056,
+      "progress": 0.291755,
+      "stuck_risk": 0.029975
+    },
+    "predicted_score_from_latent": 0.544308,
+    "row_id": "real-photo-edit-0160",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.92854,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.0,
+      "progress": 0.82,
+      "stuck_risk": 0.08
+    },
+    "label_score": 0.8488,
+    "predicted_latent": {
+      "execution_cost": 0.080009,
+      "goal_alignment": 0.795796,
+      "information_gain": 0.322113,
+      "obstacle_risk": 0.021485,
+      "progress": 0.71322,
+      "stuck_risk": 0.079428
+    },
+    "predicted_score_from_latent": 0.776904,
+    "row_id": "real-photo-edit-0160",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199987,
+      "goal_alignment": 0.3285,
+      "information_gain": 0.179267,
+      "obstacle_risk": 0.010061,
+      "progress": 0.0,
+      "stuck_risk": 0.009979
+    },
+    "predicted_score_from_latent": 0.428374,
+    "row_id": "real-photo-edit-0160",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.192052,
+      "information_gain": 0.951577,
+      "obstacle_risk": 0.040284,
+      "progress": 0.304038,
+      "stuck_risk": 0.030057
+    },
+    "predicted_score_from_latent": 0.673164,
+    "row_id": "real-photo-edit-0170",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9115,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.931652,
+      "information_gain": 0.951577,
+      "obstacle_risk": 0.040284,
+      "progress": 0.304038,
+      "stuck_risk": 0.030057
+    },
+    "predicted_score_from_latent": 0.880252,
+    "row_id": "real-photo-edit-0170",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.404,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3632,
+    "predicted_latent": {
+      "execution_cost": 0.079996,
+      "goal_alignment": 0.076021,
+      "information_gain": 0.348793,
+      "obstacle_risk": 0.393963,
+      "progress": 0.224367,
+      "stuck_risk": 0.172353
+    },
+    "predicted_score_from_latent": 0.39984,
+    "row_id": "real-photo-edit-0170",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200006,
+      "goal_alignment": 0.360375,
+      "information_gain": 0.181204,
+      "obstacle_risk": 0.010282,
+      "progress": 0.001258,
+      "stuck_risk": 0.010055
+    },
+    "predicted_score_from_latent": 0.438099,
+    "row_id": "real-photo-edit-0170",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 1.0,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.9115,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.98282,
+      "information_gain": 0.986225,
+      "obstacle_risk": 0.039543,
+      "progress": 0.305483,
+      "stuck_risk": 0.030051
+    },
+    "predicted_score_from_latent": 0.904407,
+    "row_id": "real-photo-edit-0180",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 1.0,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.6875,
+    "predicted_latent": {
+      "execution_cost": 0.119999,
+      "goal_alignment": 0.180729,
+      "information_gain": 0.986225,
+      "obstacle_risk": 0.039543,
+      "progress": 0.305483,
+      "stuck_risk": 0.030051
+    },
+    "predicted_score_from_latent": 0.679821,
+    "row_id": "real-photo-edit-0180",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.0,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.379,
+      "progress": 0.18,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.3669,
+    "predicted_latent": {
+      "execution_cost": 0.079996,
+      "goal_alignment": 0.0,
+      "information_gain": 0.346437,
+      "obstacle_risk": 0.368798,
+      "progress": 0.123018,
+      "stuck_risk": 0.167683
+    },
+    "predicted_score_from_latent": 0.356589,
+    "row_id": "real-photo-edit-0180",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.200005,
+      "goal_alignment": 0.359988,
+      "information_gain": 0.179094,
+      "obstacle_risk": 0.009541,
+      "progress": 0.002795,
+      "stuck_risk": 0.01005
+    },
+    "predicted_score_from_latent": 0.437917,
+    "row_id": "real-photo-edit-0180",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_left",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.2,
+      "information_gain": 0.4774,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5464,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.226786,
+      "information_gain": 0.497546,
+      "obstacle_risk": 0.039225,
+      "progress": 0.296248,
+      "stuck_risk": 0.029998
+    },
+    "predicted_score_from_latent": 0.558516,
+    "row_id": "real-photo-edit-0190",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "turn_right",
+    "label_latent": {
+      "execution_cost": 0.12,
+      "goal_alignment": 0.35288,
+      "information_gain": 0.4774,
+      "obstacle_risk": 0.04,
+      "progress": 0.3,
+      "stuck_risk": 0.03
+    },
+    "label_score": 0.5892,
+    "predicted_latent": {
+      "execution_cost": 0.120001,
+      "goal_alignment": 0.373826,
+      "information_gain": 0.497546,
+      "obstacle_risk": 0.039225,
+      "progress": 0.296248,
+      "stuck_risk": 0.029998
+    },
+    "predicted_score_from_latent": 0.599687,
+    "row_id": "real-photo-edit-0190",
+    "selected": false,
+    "split": "test"
+  },
+  {
+    "candidate_id": "forward_small",
+    "label_latent": {
+      "execution_cost": 0.08,
+      "goal_alignment": 0.77068,
+      "information_gain": 0.34,
+      "obstacle_risk": 0.7033,
+      "progress": 0.82,
+      "stuck_risk": 0.18
+    },
+    "label_score": 0.6941,
+    "predicted_latent": {
+      "execution_cost": 0.080004,
+      "goal_alignment": 0.705372,
+      "information_gain": 0.32424,
+      "obstacle_risk": 0.718191,
+      "progress": 0.656361,
+      "stuck_risk": 0.178362
+    },
+    "predicted_score_from_latent": 0.628492,
+    "row_id": "real-photo-edit-0190",
+    "selected": true,
+    "split": "test"
+  },
+  {
+    "candidate_id": "stop_capture",
+    "label_latent": {
+      "execution_cost": 0.2,
+      "goal_alignment": 0.35,
+      "information_gain": 0.18,
+      "obstacle_risk": 0.01,
+      "progress": 0.0,
+      "stuck_risk": 0.01
+    },
+    "label_score": 0.4346,
+    "predicted_latent": {
+      "execution_cost": 0.199994,
+      "goal_alignment": 0.33432,
+      "information_gain": 0.177188,
+      "obstacle_risk": 0.009227,
+      "progress": 0.000979,
+      "stuck_risk": 0.009999
+    },
+    "predicted_score_from_latent": 0.429811,
+    "row_id": "real-photo-edit-0190",
+    "selected": false,
+    "split": "test"
+  }
+]

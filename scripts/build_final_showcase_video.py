@@ -337,6 +337,63 @@ def metrics_slide(_: float) -> Image.Image:
     return img
 
 
+def audit_slide(_: float) -> Image.Image:
+    img = canvas()
+    draw = ImageDraw.Draw(img)
+    audit = load_json(ROOT / "artifacts" / "model_audit" / "honesty_report.json")
+    jepa = load_json(ROOT / "artifacts" / "micro_jepa_scorer" / "eval_report.json")
+    dino = load_json(ROOT / "artifacts" / "dinov2_scorer" / "eval_report.json")
+    header(draw, "Model Audit", "We tried the cooler ML path, then kept the claim honest.")
+    rows = [
+        (
+            "geometry micro scorer",
+            "trace geometry + action",
+            f"{audit['main_model']['test_selection_accuracy'] * 100:.1f}%",
+            f"{audit['main_model']['test_score_metrics']['r2']:.3f}",
+        ),
+        (
+            "micro JEPA-style scorer",
+            "predict latent -> score",
+            f"{jepa['selection_metrics_from_predicted_latents']['test']['accuracy'] * 100:.1f}%",
+            f"{jepa['score_metrics_from_predicted_latents']['test']['r2']:.3f}",
+        ),
+        (
+            "DINOv2 hybrid scorer",
+            "frozen DINOv2 + trace features",
+            f"{dino['selection_metrics']['test']['accuracy'] * 100:.1f}%",
+            f"{dino['score_metrics']['test']['r2']:.3f}",
+        ),
+        (
+            "shuffled-label control",
+            "destroyed labels",
+            f"{audit['shuffled_label_control']['test_selection_accuracy']['mean'] * 100:.1f}%",
+            f"{audit['shuffled_label_control']['test_r2']['mean']:.3f}",
+        ),
+    ]
+    rounded(draw, (106, 238, 1814, 672), fill=PANEL_2, radius=26)
+    headers = [("model", 146), ("input", 640), ("accuracy", 1200), ("R2", 1580)]
+    for label, x in headers:
+        text(draw, (x, 278), label, F_SMALL, fill=MUTED)
+    y = 340
+    for name, input_text, accuracy, r2 in rows:
+        color = RED if "shuffled" in name else GREEN if "JEPA" in name else TEXT
+        text(draw, (146, y), name, F_BODY, fill=color)
+        text(draw, (640, y), input_text, F_BODY, fill=MUTED)
+        text(draw, (1200, y), accuracy, F_BODY, fill=color)
+        text(draw, (1580, y), r2, F_BODY, fill=color)
+        y += 78
+    rounded(draw, (188, 742, 1732, 918), fill=PANEL, radius=24)
+    wrapped(
+        draw,
+        (230, 784),
+        "Result: the JEPA-style scorer is architecturally cleaner, but the strongest honest claim is still the trace interface. DINOv2 did not materially improve geometry-derived labels; the audit makes that visible instead of hiding it.",
+        F_BODY,
+        92,
+        fill=TEXT,
+    )
+    return img
+
+
 def demo_slide(_: float) -> Image.Image:
     img = canvas()
     draw = ImageDraw.Draw(img)
@@ -427,6 +484,7 @@ def main() -> None:
     builder.hold(9.0, observation_slide)
     builder.hold(11.0, dataset_slide)
     builder.hold(10.0, metrics_slide)
+    builder.hold(10.0, audit_slide)
     builder.hold(12.0, demo_slide)
     builder.hold(10.0, evidence_slide)
     builder.hold(8.0, package_slide)
