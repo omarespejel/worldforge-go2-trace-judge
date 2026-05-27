@@ -1,0 +1,46 @@
+{
+  "decisions": [
+    {
+      "decision": "drop",
+      "item": "raw Go2 recording frame around 4s",
+      "path": "artifacts/media_review/video_thumbs/go2_camera_recording_0.jpg",
+      "reason": "User marked as not useful for the final artifact."
+    },
+    {
+      "decision": "drop",
+      "item": "raw Go2 recording frame around 13s",
+      "path": "artifacts/media_review/video_thumbs/go2_camera_recording_1.jpg",
+      "reason": "User marked as delete/drop; same low-signal venue/table/chair category as item 1."
+    },
+    {
+      "decision": "delete",
+      "item": "raw Go2 recording frame around 22s review thumbnail",
+      "path": "artifacts/media_review/video_thumbs/go2_camera_recording_2.jpg",
+      "reason": "User approved DROP category deletion."
+    },
+    {
+      "decision": "delete",
+      "item": "after-left-turn table context frame and trace",
+      "path": "artifacts/live_ciro/direct_camera_after_left_turn.jpg",
+      "reason": "User approved DROP category deletion."
+    },
+    {
+      "decision": "delete",
+      "item": "generic raw POV photo without cube target signal",
+      "path": "data/go2_camera_photo.jpg",
+      "reason": "User approved DROP category deletion."
+    },
+    {
+      "decision": "delete",
+      "item": "ceiling-only movement evidence category",
+      "path": "artifacts/final_rise_move/",
+      "reason": "User explicitly said these should be deleted as well."
+    },
+    {
+      "decision": "keep_review",
+      "item": "real-photo-edit examples",
+      "path": "artifacts/real_photo_edit_examples/",
+      "reason": "User agreed with keeping these for review."
+    }
+  ]
+}

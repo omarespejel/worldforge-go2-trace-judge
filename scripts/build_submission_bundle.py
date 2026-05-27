@@ -13,6 +13,12 @@ def _copy(src: Path, dst: Path) -> None:
     shutil.copy2(src, dst)
 
 
+def _copy_tree(src: Path, dst: Path) -> None:
+    if not src.is_dir():
+        raise RuntimeError(f"Missing source directory: {src}")
+    shutil.copytree(src, dst, dirs_exist_ok=True)
+
+
 def run(args: argparse.Namespace) -> int:
     root = Path.cwd()
     out = Path(args.output_dir).expanduser()
@@ -20,37 +26,48 @@ def run(args: argparse.Namespace) -> int:
     out.mkdir(parents=True, exist_ok=True)
 
     artifacts = {
-        "demo_video": root / "artifacts/replay_run/worldforge_trace_replay.mp4",
-        "demo_report": root / "artifacts/replay_run/report.html",
-        "human_review": root / "artifacts/human_review/human_review.html",
-        "contact_sheet": root / "artifacts/human_review/contact_sheet.jpg",
-        "audit_report": root / "artifacts/dataset_audit/audit_report.html",
-        "audit_summary": root / "artifacts/dataset_audit/audit_summary.json",
-        "trace_dataset": root / "dataset/go2_trace_candidates.jsonl",
-        "reviewed_dataset": root / "artifacts/dataset_audit/go2_trace_candidates_reviewed.jsonl",
-        "ranker_model": root / "artifacts/ranker_smoke/model.json",
-        "step_01_score_info": root / "artifacts/replay_run/trace/step_01/score_info.json",
-        "step_01_candidate_scores": root / "artifacts/replay_run/trace/step_01/candidate_scores.json",
-        "step_01_selected_action": root / "artifacts/replay_run/trace/step_01/selected_action.json",
+        "final_hackathon_video": root / "artifacts/showcase/final_hackathon_video.mp4",
+        "micro_world_trace": root / "artifacts/micro_world_demo/latest/micro_world_trace.mp4",
+        "micro_world_annotated": root / "artifacts/micro_world_demo/latest/annotated_image.jpg",
+        "real_photo_edit_contact_sheet": root / "artifacts/real_photo_edit_dataset/contact_sheet.jpg",
+        "media_review_contact_sheet": root / "artifacts/media_review/batch_review_kept_after_deletes.jpg",
+        "hf_dataset_summary": root / "hf_dataset/dataset_summary.json",
+        "hf_dataset_card": root / "hf_dataset/README.md",
+        "micro_world_model": root / "artifacts/micro_world_scorer/model.json",
+        "micro_world_eval": root / "artifacts/micro_world_scorer/eval_report.json",
+        "micro_world_predictions": root / "artifacts/micro_world_scorer/predictions_sample.json",
+        "score_info": root / "artifacts/micro_world_demo/latest/score_info.json",
+        "candidate_scores": root / "artifacts/micro_world_demo/latest/candidate_scores.json",
+        "selected_action": root / "artifacts/micro_world_demo/latest/selected_action.json",
+        "outcome_after_execution": root / "artifacts/micro_world_demo/latest/outcome_after_execution.json",
+        "run_manifest": root / "artifacts/micro_world_demo/latest/run_manifest.json",
     }
     for name, src in artifacts.items():
-        suffix = src.suffix
-        _copy(src, out / f"{name}{suffix}")
+        _copy(src, out / f"{name}{src.suffix}")
+
+    data_out = out / "hf_dataset_data"
+    data_out.mkdir(parents=True, exist_ok=True)
+    for split in ("train", "validation", "test", "real_seed"):
+        _copy(root / "hf_dataset/data" / f"{split}.jsonl", data_out / f"{split}.jsonl")
+    _copy_tree(root / "hf_model", out / "hf_model")
 
     readme = """# WorldForge Go2 Trace Judge Submission Bundle
 
 ## Main Demo
 
-- `demo_video.mp4`: annotated replay from real Unitree Go2 camera video.
-- `demo_report.html`: browser report with selected action distribution and evidence links.
+- `final_hackathon_video.mp4`: 78-second final judge video.
+- `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
+- `micro_world_annotated.jpg`: annotated frame with candidate scores.
 
 ## Evidence
 
-- `step_01_score_info.json`
-- `step_01_candidate_scores.json`
-- `step_01_selected_action.json`
+- `score_info.json`
+- `candidate_scores.json`
+- `selected_action.json`
+- `outcome_after_execution.json`
+- `run_manifest.json`
 
-These show the WorldForge-shaped boundary:
+These show the WorldForge-style boundary:
 
 ```text
 observation_summary + task + candidate actions
@@ -61,20 +78,32 @@ observation_summary + task + candidate actions
 
 ## Dataset
 
-- `trace_dataset.jsonl`: candidate-level trace rows.
-- `reviewed_dataset.jsonl`: same rows with audit fields.
-- `audit_report.html`: human/audit view of label quality.
+- `hf_dataset_data/*.jsonl`
+- `hf_dataset_summary.json`
+- `hf_dataset_card.md`
+- `real_photo_edit_contact_sheet.jpg`
 
-Current labels are transparent-scorer labels. They are not measured outcome labels yet.
+Rows are built from curated real Go2 seed frames and label-safe real-photo-edit
+counterfactuals. The labels are transparent scorer labels, not measured long-horizon
+outcome labels.
 
-## Model Smoke Test
+## Model
 
-- `ranker_model.json`: tiny ranker that distills the transparent scorer.
+- `micro_world_model.json`
+- `micro_world_eval.json`
+- `micro_world_predictions.json`
+- `hf_model/README.md`
 
-This is a smoke test proving the trace can feed a model, not a new Go2 foundation world model.
+This is a small micro world scorer head. It is not a Go2 foundation model and not a
+trained V-JEPA model.
 """
     (out / "README.md").write_text(readme)
-    manifest = {"schema_version": 1, "bundle_dir": str(out), "artifacts": sorted(p.name for p in out.iterdir())}
+    manifest = {
+        "schema_version": 1,
+        "bundle_dir": str(out),
+        "artifacts": sorted(p.name for p in out.iterdir()),
+        "claim_boundary": "Small micro world scorer over real Go2 frames and label-safe counterfactual traces. Not a Go2 foundation model.",
+    }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     print(out)
     return 0

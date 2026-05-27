@@ -1,15 +1,20 @@
 PYTHON ?= python3
 INPUT_VIDEO ?= data/go2_camera_recording.mp4
-TARGET ?= green
-UNSAFE_COLORS ?=
+TARGET ?= red
+UNSAFE_COLORS ?= green,yellow
 REPLAY_DIR ?= artifacts/replay_run
 DATASET_JSONL ?= dataset/go2_trace_candidates.jsonl
 RANKER_DIR ?= artifacts/ranker_smoke
 AUDIT_DIR ?= artifacts/dataset_audit
+REAL_PHOTO_EDIT_COUNT ?= 480
+MICRO_WORLD_MODEL ?= artifacts/micro_world_scorer/model.json
+MICRO_WORLD_IMAGE ?= artifacts/live_ciro/direct_camera_unsafe_path.jpg
 
-.PHONY: check replay report review dataset audit ranker hf-dataset bundle package all clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo final-video bundle package all hackathon-final clean-generated photo-smoke
 
-all: check replay report review dataset audit ranker bundle package
+all: hackathon-final
+
+hackathon-final: check real-photo-edit hf-dataset micro-world-scorer micro-world-demo final-video bundle package
 
 check:
 	$(PYTHON) -m py_compile scripts/*.py
@@ -47,18 +52,42 @@ ranker:
 		--dataset-jsonl "$(DATASET_JSONL)" \
 		--output-dir "$(RANKER_DIR)"
 
+real-photo-edit:
+	$(PYTHON) scripts/build_real_photo_edit_dataset.py \
+		--count "$(REAL_PHOTO_EDIT_COUNT)" \
+		--clean
+
 hf-dataset:
-	$(PYTHON) scripts/build_hf_decision_trace_dataset.py --clean --synthetic-count 180
+	$(PYTHON) scripts/build_hf_decision_trace_dataset.py --clean
+
+micro-world-scorer:
+	$(PYTHON) scripts/train_micro_world_scorer.py \
+		--dataset-dir hf_dataset \
+		--output-dir artifacts/micro_world_scorer
+	mkdir -p hf_model
+	cp artifacts/micro_world_scorer/model.json hf_model/model.json
+	cp artifacts/micro_world_scorer/eval_report.json hf_model/eval_report.json
+	cp artifacts/micro_world_scorer/predictions_sample.json hf_model/predictions_sample.json
+
+micro-world-demo:
+	$(PYTHON) scripts/run_micro_world_scorer_demo.py \
+		--image "$(MICRO_WORLD_IMAGE)" \
+		--model "$(MICRO_WORLD_MODEL)" \
+		--run-id latest \
+		--clean
+
+final-video:
+	$(PYTHON) scripts/build_final_showcase_video.py
 
 bundle:
 	$(PYTHON) scripts/build_submission_bundle.py
 
 photo-smoke:
 	$(PYTHON) scripts/go2_find_colored_target.py \
-		--target green \
-		--unsafe-colors red,yellow \
+		--target "$(TARGET)" \
+		--unsafe-colors "$(UNSAFE_COLORS)" \
 		--max-steps 1 \
-		--dry-run-frame data/go2_camera_photo.jpg \
+		--dry-run-frame artifacts/live_ciro/direct_camera_unsafe_path.jpg \
 		--run-id photo-smoke \
 		--output-dir artifacts/photo_smoke
 
@@ -68,3 +97,5 @@ package:
 
 clean-generated:
 	rm -rf artifacts/replay_run/frames artifacts/replay_run/annotated_frames
+	rm -rf artifacts/showcase/frames artifacts/showcase/final_frames artifacts/showcase/robot_video_frames
+	rm -rf artifacts/micro_world_demo/*/video_frames

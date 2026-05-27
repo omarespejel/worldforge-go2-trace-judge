@@ -1,0 +1,80 @@
+[
+  {
+    "category": "KEPT: real cube target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_front.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEPT: real cube target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_left.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEPT: real cube target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_right.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEPT: real cube target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_left_annotated.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEPT: real cube target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_right_floor_aware_annotated.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEPT: unsafe-marker / no-target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_unsafe_path.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEPT: unsafe-marker / no-target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_unsafe_path_annotated.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEPT: unsafe-marker / no-target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_no_red.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEPT: unsafe-marker / no-target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_no_red_annotated.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEPT: unsafe-marker / no-target frames",
+    "decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_final_preflight.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEPT FOR REVIEW: real-photo-edit examples",
+    "decision": "review",
+    "path": "artifacts/real_photo_edit_examples/example_01_red_left_annotated.jpg",
+    "reason": "Approved as concept; keep while we improve realism and labels."
+  },
+  {
+    "category": "KEPT FOR REVIEW: real-photo-edit examples",
+    "decision": "review",
+    "path": "artifacts/real_photo_edit_examples/example_02_green_blocker_red_left_annotated.jpg",
+    "reason": "Approved as concept; keep while we improve realism and labels."
+  },
+  {
+    "category": "KEPT FOR REVIEW: real-photo-edit examples",
+    "decision": "review",
+    "path": "artifacts/real_photo_edit_examples/example_03_red_right_far_annotated.jpg",
+    "reason": "Approved as concept; keep while we improve realism and labels."
+  }
+]

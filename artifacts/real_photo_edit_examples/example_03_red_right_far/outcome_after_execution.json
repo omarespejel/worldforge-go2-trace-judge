@@ -1,0 +1,13 @@
+{
+  "executed": false,
+  "execution_result": "preview only: synthetic real-photo edit not executed",
+  "outcome_after_execution": {
+    "manual_intervention": false,
+    "target_area_ratio": 0.0003,
+    "target_confidence": 0.0164,
+    "unsafe_color_risk": 0.0
+  },
+  "run_id": "real-photo-edit-preview",
+  "schema_version": 1,
+  "step_index": 3
+}

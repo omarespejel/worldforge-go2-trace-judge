@@ -6,19 +6,33 @@ WorldForge Go2 Trace Judge
 
 ## One-Liner
 
-Inspectable autonomy for a Unitree Go2: every move is scored, selected, and replayed with evidence.
+An inspectable decision layer for Unitree Go2 autonomy: real robot-view frames,
+counterfactual candidate scenes, a small learned scorer, and replayable evidence.
+
+## Final Deliverables
+
+```text
+artifacts/showcase/final_hackathon_video.mp4
+artifacts/micro_world_demo/latest/micro_world_trace.mp4
+artifacts/micro_world_demo/latest/*.json
+artifacts/real_photo_edit_dataset/
+hf_dataset/
+hf_model/
+submission_bundle/
+```
 
 ## Problem
 
-Most robot demos show the robot moving but hide the decision process. That makes it hard to debug,
-trust, or improve autonomy.
+Most robot demos show motion while hiding the decision process. That makes autonomy
+hard to debug, trust, compare, or improve.
 
 ## Solution
 
-Use DimOS/host runtime for robot control and WorldForge-style scoring artifacts for decision evidence:
+Keep robot execution host-owned, but make decision scoring inspectable:
 
 ```text
 observation_summary
+task / goal
 candidate actions
 score_info
 candidate_scores
@@ -26,64 +40,71 @@ selected_action
 outcome_after_execution
 ```
 
-## Demo
+The Go2 frame becomes a set of candidate futures. The scorer ranks `turn_left`,
+`turn_right`, `forward_small`, and `stop_capture`. The trace records both the
+selected action and rejected alternatives.
 
-The current fallback demo uses real Go2 camera video in target-only mode. Unsafe color
-markers should be enabled only after live calibration with the actual blocks:
+## What We Actually Built
 
-```text
-artifacts/replay_run/worldforge_trace_replay.mp4
-artifacts/replay_run/report.html
-```
+- Curated real Go2 robot-view frames from the venue.
+- Label-safe real-photo-edit counterfactual dataset from real Go2 plates and real
+  cube cutouts.
+- Hugging Face-ready dataset package with train/validation/test/real_seed splits.
+- Small pure-NumPy micro world scorer trained on the decision traces.
+- One-command demo that writes annotated image, MP4, and evidence JSON.
+- 78-second final video.
 
-The live demo uses the same scoring loop but executes bounded Go2 moves through MCP.
+## Model Boundary
 
-## Dataset Artifact
+We did **not** train a Go2 foundation world model or V-JEPA model.
 
-The package also exports a candidate-level dataset:
-
-```text
-dataset/go2_trace_candidates.jsonl
-dataset/go2_trace_dataset_summary.json
-```
-
-Each row has:
+The included model is a small micro world scorer:
 
 ```text
-observation + goal + candidate action + score label + selected flag + outcome
+cube geometry + unsafe risk + candidate action token -> candidate score
 ```
 
-This is the useful research artifact: it is the shape needed to replace the transparent
-scorer with a learned scorer once more real robot outcomes are collected.
-
-## Tiny Ranker Smoke Test
-
-The included ranker is a sanity check, not a new foundation model:
+Current local metrics against transparent labels:
 
 ```text
-artifacts/ranker_smoke/model.json
+test selection accuracy: 97.9%
+test MAE: 0.0234
+test R2: 0.944
+random baseline: 25%
+always-forward baseline: 31.2%
 ```
 
-It distills the transparent scorer from trace artifacts. Later, the same training entry
-point can use measured outcome labels.
+These metrics prove the scorer learned the trace scoring boundary. They do not
+prove long-horizon real-world navigation success.
 
 ## Why It Matters
 
 This separates:
 
-- policy/candidate generation: what could the robot do?
-- scoring/world model: which candidate leads to the best future?
+- candidate generation: what could the robot do?
+- scoring/world model boundary: which candidate is best under the goal?
 - host execution: how does the robot safely perform the selected action?
-- evidence: what happened and why?
+- evidence: why was this action selected?
 
-## What Is Experimental
+That separation is the useful WorldForge layer.
 
-- The current scorer is transparent and heuristic.
-- The live bridge is host-owned and not an upstream WorldForge dependency.
-- The learned model path depends on collecting more candidate/outcome traces.
+## Runbook
+
+```bash
+make hackathon-final
+```
+
+Or inspect the final artifacts directly:
+
+```bash
+open artifacts/showcase/final_hackathon_video.mp4
+open artifacts/micro_world_demo/latest/annotated_image.jpg
+cat artifacts/micro_world_demo/latest/candidate_scores.json
+```
 
 ## Future Work
 
-- Train a small learned ranker from collected traces.
-- Add Rerun visualization of candidate paths and selected actions.
+- Replace transparent labels with measured outcome labels from longer Go2 runs.
+- Add DINOv2/V-JEPA-style frozen visual embeddings as an optional scorer feature.
+- Add Rerun visualization for candidate path overlays.
 - Extend the same trace contract to SO-101 / LeRobot manipulation.

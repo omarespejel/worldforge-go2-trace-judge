@@ -1,0 +1,128 @@
+[
+  {
+    "category": "DROP: raw replay / table-chair venue context",
+    "proposed_decision": "drop",
+    "path": "artifacts/media_review/video_thumbs/go2_camera_recording_0.jpg",
+    "reason": "No cube target/action signal. Good source context only, weak public artifact."
+  },
+  {
+    "category": "DROP: raw replay / table-chair venue context",
+    "proposed_decision": "drop",
+    "path": "artifacts/media_review/video_thumbs/go2_camera_recording_1.jpg",
+    "reason": "No cube target/action signal. Good source context only, weak public artifact."
+  },
+  {
+    "category": "DROP: raw replay / table-chair venue context",
+    "proposed_decision": "drop",
+    "path": "artifacts/media_review/video_thumbs/go2_camera_recording_2.jpg",
+    "reason": "No cube target/action signal. Good source context only, weak public artifact."
+  },
+  {
+    "category": "DROP: raw replay / table-chair venue context",
+    "proposed_decision": "drop",
+    "path": "artifacts/live_ciro/direct_camera_after_left_turn.jpg",
+    "reason": "No cube target/action signal. Good source context only, weak public artifact."
+  },
+  {
+    "category": "DROP: raw replay / table-chair venue context",
+    "proposed_decision": "drop",
+    "path": "data/go2_camera_photo.jpg",
+    "reason": "No cube target/action signal. Good source context only, weak public artifact."
+  },
+  {
+    "category": "KEEP: real cube target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_front.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEEP: real cube target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_left.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEEP: real cube target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_right.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEEP: real cube target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_left_annotated.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEEP: real cube target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_red_block_right_floor_aware_annotated.jpg",
+    "reason": "Directly useful for detection, scoring, model card, and demo evidence."
+  },
+  {
+    "category": "KEEP: unsafe-marker / no-target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_unsafe_path.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEEP: unsafe-marker / no-target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_unsafe_path_annotated.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEEP: unsafe-marker / no-target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_no_red.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEEP: unsafe-marker / no-target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_no_red_annotated.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "KEEP: unsafe-marker / no-target frames",
+    "proposed_decision": "keep",
+    "path": "artifacts/live_ciro/direct_camera_final_preflight.jpg",
+    "reason": "Useful negatives and decision-boundary examples."
+  },
+  {
+    "category": "MAYBE: robot movement evidence",
+    "proposed_decision": "maybe",
+    "path": "artifacts/final_rise_move/before.jpg",
+    "reason": "Useful for proving robot control worked, not for training data."
+  },
+  {
+    "category": "MAYBE: robot movement evidence",
+    "proposed_decision": "maybe",
+    "path": "artifacts/final_rise_move/after.jpg",
+    "reason": "Useful for proving robot control worked, not for training data."
+  },
+  {
+    "category": "MAYBE: robot movement evidence",
+    "proposed_decision": "maybe",
+    "path": "artifacts/final_rise_move/before_after.jpg",
+    "reason": "Useful for proving robot control worked, not for training data."
+  },
+  {
+    "category": "REVIEW: real-photo-edit examples",
+    "proposed_decision": "review",
+    "path": "artifacts/real_photo_edit_examples/example_01_red_left_annotated.jpg",
+    "reason": "Good concept, but only keep if visual realism passes."
+  },
+  {
+    "category": "REVIEW: real-photo-edit examples",
+    "proposed_decision": "review",
+    "path": "artifacts/real_photo_edit_examples/example_02_green_blocker_red_left_annotated.jpg",
+    "reason": "Good concept, but only keep if visual realism passes."
+  },
+  {
+    "category": "REVIEW: real-photo-edit examples",
+    "proposed_decision": "review",
+    "path": "artifacts/real_photo_edit_examples/example_03_red_right_far_annotated.jpg",
+    "reason": "Good concept, but only keep if visual realism passes."
+  }
+]

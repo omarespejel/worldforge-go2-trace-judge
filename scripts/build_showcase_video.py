@@ -131,6 +131,47 @@ def score_rows(step_dir: Path) -> list[dict]:
     return sorted(data["scores"], key=lambda row: row["score"], reverse=True)
 
 
+def curated_steps() -> list[dict]:
+    return [
+        {
+            "label": "red target left",
+            "frame": ROOT / "artifacts/live_ciro/direct_camera_red_block_left_annotated.jpg",
+            "step_dir": ROOT / "artifacts/live_ciro_detection/direct-camera-red-block-left/step_01",
+            "summary": "Target is visible left, so turn_left wins.",
+        },
+        {
+            "label": "red target centered",
+            "frame": ROOT / "artifacts/live_ciro/direct_camera_red_block_front.jpg",
+            "step_dir": ROOT / "artifacts/live_ciro_detection/direct-camera-red-block-front/step_01",
+            "summary": "Target is centered, so forward_small is allowed.",
+        },
+        {
+            "label": "red target right",
+            "frame": ROOT / "artifacts/live_ciro/direct_camera_red_block_right_floor_aware_annotated.jpg",
+            "step_dir": ROOT / "artifacts/live_ciro_detection/direct-camera-red-block-right-floor-aware/step_01",
+            "summary": "Target is visible right, so turn_right wins.",
+        },
+        {
+            "label": "unsafe marker in path",
+            "frame": ROOT / "artifacts/live_ciro/direct_camera_unsafe_path_annotated.jpg",
+            "step_dir": ROOT / "artifacts/live_ciro_detection/direct-camera-unsafe-path/step_01",
+            "summary": "Unsafe marker lowers the forward score.",
+        },
+        {
+            "label": "no red target visible",
+            "frame": ROOT / "artifacts/live_ciro/direct_camera_no_red_annotated.jpg",
+            "step_dir": ROOT / "artifacts/live_ciro_detection/direct-camera-no-red/step_01",
+            "summary": "No target visible, so scan/search behavior wins.",
+        },
+        {
+            "label": "real-photo edit: red left",
+            "frame": ROOT / "artifacts/real_photo_edit_examples/example_01_red_left_annotated.jpg",
+            "step_dir": ROOT / "artifacts/real_photo_edit_examples/example_01_red_left",
+            "summary": "Counterfactual real-photo edit keeps labels inspectable.",
+        },
+    ]
+
+
 def draw_scores(draw: ImageDraw.ImageDraw, rows: list[dict], box: tuple[int, int, int, int], title: str) -> None:
     rounded(draw, box, fill=PANEL_2, radius=22)
     x1, y1, x2, y2 = box
@@ -218,7 +259,7 @@ def live_material_slide(t: float) -> Image.Image:
         ("red target left", ROOT / "artifacts/live_ciro/direct_camera_red_block_left_annotated.jpg"),
         ("red target right", ROOT / "artifacts/live_ciro/direct_camera_red_block_right_floor_aware_annotated.jpg"),
         ("unsafe markers", ROOT / "artifacts/live_ciro/direct_camera_unsafe_path_annotated.jpg"),
-        ("raw POV frame", ROOT / "data/go2_camera_photo.jpg"),
+        ("no target visible", ROOT / "artifacts/live_ciro/direct_camera_no_red_annotated.jpg"),
     ]
     boxes = [(84, 220, 912, 530), (1008, 220, 1836, 530), (84, 620, 912, 930), (1008, 620, 1836, 930)]
     for idx, ((label, path), box) in enumerate(zip(paths, boxes)):
@@ -229,23 +270,22 @@ def live_material_slide(t: float) -> Image.Image:
     return img
 
 
-def replay_slide(t: float, summary: dict) -> Image.Image:
-    steps = summary["steps"]
+def replay_slide(t: float) -> Image.Image:
+    steps = curated_steps()
     idx = min(len(steps) - 1, int(t * (len(steps) - 1)))
     step = steps[idx]
-    step_dir = ROOT / step["step_dir"]
+    step_dir = step["step_dir"]
     img = new_canvas()
     draw = ImageDraw.Draw(img)
-    draw_header(draw, "Robot POV Replay", "Each frame becomes observation, candidates, scores, and selected action.")
-    paste_panel_image(img, ROOT / step["annotated_frame"], (72, 204, 1290, 916), crop=False)
+    draw_header(draw, "Curated Robot POV Frames", "Only signal-bearing cube and marker frames are used in the final story.")
+    paste_panel_image(img, step["frame"], (72, 204, 1290, 916), crop=False)
     rows = score_rows(step_dir)
     draw_scores(draw, rows, (1330, 204, 1848, 700), "Candidate Scores")
-    selected = step["selected_candidate_id"].replace("_", " ")
-    target = step["target"]
+    selected = rows[0]["candidate_id"].replace("_", " ")
     rounded(draw, (1330, 730, 1848, 916), fill=PANEL_2, radius=22)
-    text(draw, (1360, 760), f"step {step['frame_index']:02d} / {len(steps)}", F_SMALL, fill=MUTED)
+    text(draw, (1360, 760), f"{step['label']}  {idx + 1}/{len(steps)}", F_SMALL, fill=MUTED)
     text(draw, (1360, 804), f"selected: {selected}", F_H2, fill=GREEN)
-    text(draw, (1360, 864), f"target x={target['center_x']:.2f} conf={target['confidence']:.2f}", F_SMALL, fill=TEXT)
+    wrapped(draw, (1360, 864), step["summary"], F_SMALL, 32, fill=TEXT)
     # Progress line.
     px1, py, px2 = 84, 980, 1836
     draw.line((px1, py, px2, py), fill=LINE, width=8)
@@ -255,14 +295,14 @@ def replay_slide(t: float, summary: dict) -> Image.Image:
 
 def score_explain_slide(t: float, summary: dict) -> Image.Image:
     examples = [
-        ("Target left -> turn left", 1),
-        ("Target centered -> move forward", 38),
-        ("Target right -> turn right", 40),
+        ("Target left -> turn left", curated_steps()[0]),
+        ("Target centered -> move forward", curated_steps()[1]),
+        ("Target right -> turn right", curated_steps()[2]),
     ]
     idx = min(2, int(t * 3))
-    label, step_no = examples[idx]
-    step_dir = ROOT / "artifacts/replay_run/trace" / f"step_{step_no:02d}"
-    frame = ROOT / "artifacts/replay_run/annotated_frames" / f"frame_{step_no:04d}.jpg"
+    label, step = examples[idx]
+    step_dir = step["step_dir"]
+    frame = step["frame"]
     img = new_canvas()
     draw = ImageDraw.Draw(img)
     draw_header(draw, "The Important Part: It Compares Options", "Not just action output; the trace records rejected alternatives.")
@@ -332,28 +372,6 @@ def dataset_slide(t: float) -> Image.Image:
     return img
 
 
-def live_control_slide(t: float) -> Image.Image:
-    img = new_canvas()
-    draw = ImageDraw.Draw(img)
-    draw_header(draw, "Host-Owned Robot Control", "WorldForge judges decisions; DimOS/Unitree host owns physical execution and safety.")
-    paste_panel_image(img, ROOT / "artifacts/final_rise_move/before_after.jpg", (90, 250, 1030, 792), crop=False)
-    rounded(draw, (1090, 250, 1830, 792), fill=PANEL_2, radius=24)
-    lines = [
-        "Stand / recover / balance accepted",
-        "Bounded Move commands accepted",
-        "StopMove and Sit returned status 0",
-        "Closed-loop walking still needs hardening",
-    ]
-    y = 304
-    for i, line in enumerate(lines):
-        color = GREEN if i < 3 else YELLOW
-        draw.ellipse((1128, y + 8, 1154, y + 34), fill=color)
-        text(draw, (1176, y), line, F_BODY, fill=TEXT)
-        y += 96
-    wrapped(draw, (1128, 690), "This framing is honest and production-grade: autonomy evidence without pretending away runtime limits.", F_SMALL, 48, fill=MUTED)
-    return img
-
-
 def closing_slide(t: float) -> Image.Image:
     img = new_canvas()
     draw = ImageDraw.Draw(img)
@@ -377,16 +395,14 @@ def closing_slide(t: float) -> Image.Image:
 
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    summary = load_json(ROOT / "artifacts/replay_run/summary.json")
     builder = VideoBuilder()
     builder.hold(4.0, title_slide)
     builder.hold(8.0, live_material_slide)
-    builder.hold(18.0, lambda t: replay_slide(t, summary))
-    builder.hold(15.0, lambda t: score_explain_slide(t, summary))
+    builder.hold(18.0, replay_slide)
+    builder.hold(15.0, lambda t: score_explain_slide(t, {}))
     builder.hold(10.0, unsafe_slide)
     builder.hold(10.0, evidence_slide)
     builder.hold(8.0, dataset_slide)
-    builder.hold(8.0, live_control_slide)
     builder.hold(6.0, closing_slide)
 
     cmd = [

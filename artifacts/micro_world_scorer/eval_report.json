@@ -1,0 +1,125 @@
+{
+  "alpha": 0.01,
+  "baselines": {
+    "real_seed": {
+      "always_forward_small_accuracy": 0.25,
+      "always_turn_left_accuracy": 0.375,
+      "random_expected_accuracy": 0.25
+    },
+    "test": {
+      "always_forward_small_accuracy": 0.3125,
+      "always_turn_left_accuracy": 0.333333,
+      "random_expected_accuracy": 0.25
+    },
+    "train": {
+      "always_forward_small_accuracy": 0.3125,
+      "always_turn_left_accuracy": 0.327381,
+      "random_expected_accuracy": 0.25
+    },
+    "validation": {
+      "always_forward_small_accuracy": 0.3125,
+      "always_turn_left_accuracy": 0.34375,
+      "random_expected_accuracy": 0.25
+    }
+  },
+  "candidate_ids": [
+    "turn_left",
+    "turn_right",
+    "forward_small",
+    "stop_capture"
+  ],
+  "claim_boundary": "Small scorer head trained on transparent labels from real Go2 frames and label-safe real-photo-edit counterfactuals. Not a Go2 foundation world model.",
+  "dataset_dir": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/hf_dataset",
+  "model_type": "micro_world_scorer_ridge_head",
+  "schema_version": 1,
+  "score_metrics": {
+    "real_seed": {
+      "count": 32,
+      "mae": 0.034413,
+      "r2": 0.891813,
+      "rmse": 0.059774
+    },
+    "test": {
+      "count": 192,
+      "mae": 0.02337,
+      "r2": 0.94378,
+      "rmse": 0.045032
+    },
+    "train": {
+      "count": 1344,
+      "mae": 0.020603,
+      "r2": 0.950362,
+      "rmse": 0.040555
+    },
+    "validation": {
+      "count": 384,
+      "mae": 0.021622,
+      "r2": 0.938781,
+      "rmse": 0.044663
+    }
+  },
+  "selection_metrics": {
+    "real_seed": {
+      "accuracy": 1.0,
+      "groups": 8,
+      "predicted_counts": {
+        "forward_small": 2,
+        "turn_left": 3,
+        "turn_right": 3
+      },
+      "selected_counts": {
+        "forward_small": 2,
+        "turn_left": 3,
+        "turn_right": 3
+      }
+    },
+    "test": {
+      "accuracy": 0.979167,
+      "groups": 48,
+      "predicted_counts": {
+        "forward_small": 16,
+        "turn_left": 15,
+        "turn_right": 17
+      },
+      "selected_counts": {
+        "forward_small": 15,
+        "turn_left": 16,
+        "turn_right": 17
+      }
+    },
+    "train": {
+      "accuracy": 0.985119,
+      "groups": 336,
+      "predicted_counts": {
+        "forward_small": 110,
+        "turn_left": 105,
+        "turn_right": 121
+      },
+      "selected_counts": {
+        "forward_small": 105,
+        "turn_left": 110,
+        "turn_right": 121
+      }
+    },
+    "validation": {
+      "accuracy": 0.979167,
+      "groups": 96,
+      "predicted_counts": {
+        "forward_small": 32,
+        "turn_left": 31,
+        "turn_right": 33
+      },
+      "selected_counts": {
+        "forward_small": 30,
+        "turn_left": 33,
+        "turn_right": 33
+      }
+    }
+  },
+  "splits": {
+    "real_seed_candidate_rows": 32,
+    "test_candidate_rows": 192,
+    "train_candidate_rows": 1344,
+    "validation_candidate_rows": 384
+  }
+}

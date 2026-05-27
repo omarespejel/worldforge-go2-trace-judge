@@ -1,0 +1,236 @@
+[
+  {
+    "annotated_image": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_01_red_left_annotated.jpg",
+    "candidate_scores": [
+      {
+        "candidate_id": "turn_left",
+        "features": {
+          "execution_cost": 0.12,
+          "goal_alignment": 0.94268,
+          "information_gain": 0.9689,
+          "obstacle_risk": 0.04,
+          "progress": 0.3,
+          "stuck_risk": 0.03
+        },
+        "reason": "turns target toward image center",
+        "score": 0.8871
+      },
+      {
+        "candidate_id": "turn_right",
+        "features": {
+          "execution_cost": 0.12,
+          "goal_alignment": 0.2,
+          "information_gain": 0.9689,
+          "obstacle_risk": 0.04,
+          "progress": 0.3,
+          "stuck_risk": 0.03
+        },
+        "reason": "target is not right enough",
+        "score": 0.6791
+      },
+      {
+        "candidate_id": "forward_small",
+        "features": {
+          "execution_cost": 0.08,
+          "goal_alignment": 0.0,
+          "information_gain": 0.34,
+          "obstacle_risk": 0.0,
+          "progress": 0.18,
+          "stuck_risk": 0.08
+        },
+        "reason": "safe forward progress when target is centered",
+        "score": 0.4288
+      },
+      {
+        "candidate_id": "stop_capture",
+        "features": {
+          "execution_cost": 0.2,
+          "goal_alignment": 0.35,
+          "information_gain": 0.18,
+          "obstacle_risk": 0.01,
+          "progress": 0.0,
+          "stuck_risk": 0.01
+        },
+        "reason": "only useful once target is centered and close",
+        "score": 0.4346
+      }
+    ],
+    "candidate_scores_path": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_01_red_left/candidate_scores.json",
+    "image": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_01_red_left.jpg",
+    "name": "example_01_red_left",
+    "note": "real photo plate; same red cube moved left",
+    "score_info": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_01_red_left/score_info.json",
+    "selected_candidate_id": "turn_left",
+    "target": {
+      "area_ratio": 0.00039,
+      "bbox": [
+        234,
+        576,
+        254,
+        595
+      ],
+      "center_x": -0.6189,
+      "center_y": 0.6269,
+      "color": "red",
+      "confidence": 0.0218,
+      "found": true
+    },
+    "unsafe_risk": 0.0
+  },
+  {
+    "annotated_image": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_02_green_blocker_red_left_annotated.jpg",
+    "candidate_scores": [
+      {
+        "candidate_id": "turn_left",
+        "features": {
+          "execution_cost": 0.12,
+          "goal_alignment": 0.7925599999999999,
+          "information_gain": 0.8438,
+          "obstacle_risk": 0.04,
+          "progress": 0.3,
+          "stuck_risk": 0.03
+        },
+        "reason": "turns target toward image center",
+        "score": 0.8112
+      },
+      {
+        "candidate_id": "turn_right",
+        "features": {
+          "execution_cost": 0.12,
+          "goal_alignment": 0.2,
+          "information_gain": 0.8438,
+          "obstacle_risk": 0.04,
+          "progress": 0.3,
+          "stuck_risk": 0.03
+        },
+        "reason": "target is not right enough",
+        "score": 0.6453
+      },
+      {
+        "candidate_id": "forward_small",
+        "features": {
+          "execution_cost": 0.08,
+          "goal_alignment": 0.11115999999999993,
+          "information_gain": 0.34,
+          "obstacle_risk": 0.6839,
+          "progress": 0.18,
+          "stuck_risk": 0.18
+        },
+        "reason": "forward progress penalized by unsafe color near path",
+        "score": 0.3523
+      },
+      {
+        "candidate_id": "stop_capture",
+        "features": {
+          "execution_cost": 0.2,
+          "goal_alignment": 0.35,
+          "information_gain": 0.18,
+          "obstacle_risk": 0.01,
+          "progress": 0.0,
+          "stuck_risk": 0.01
+        },
+        "reason": "only useful once target is centered and close",
+        "score": 0.4346
+      }
+    ],
+    "candidate_scores_path": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_02_green_blocker_red_left/candidate_scores.json",
+    "image": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_02_green_blocker_red_left.jpg",
+    "name": "example_02_green_blocker_red_left",
+    "note": "real photo plate; same red cube left, same green cube blocking forward path",
+    "score_info": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_02_green_blocker_red_left/score_info.json",
+    "selected_candidate_id": "turn_left",
+    "target": {
+      "area_ratio": 0.00035,
+      "bbox": [
+        315,
+        570,
+        333,
+        588
+      ],
+      "center_x": -0.4938,
+      "center_y": 0.6098,
+      "color": "red",
+      "confidence": 0.0192,
+      "found": true
+    },
+    "unsafe_risk": 0.6839
+  },
+  {
+    "annotated_image": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_03_red_right_far_annotated.jpg",
+    "candidate_scores": [
+      {
+        "candidate_id": "turn_left",
+        "features": {
+          "execution_cost": 0.12,
+          "goal_alignment": 0.2,
+          "information_gain": 0.9265,
+          "obstacle_risk": 0.04,
+          "progress": 0.3,
+          "stuck_risk": 0.03
+        },
+        "reason": "target is not left enough",
+        "score": 0.6677
+      },
+      {
+        "candidate_id": "turn_right",
+        "features": {
+          "execution_cost": 0.12,
+          "goal_alignment": 0.8917999999999999,
+          "information_gain": 0.9265,
+          "obstacle_risk": 0.04,
+          "progress": 0.3,
+          "stuck_risk": 0.03
+        },
+        "reason": "turns target toward image center",
+        "score": 0.8614
+      },
+      {
+        "candidate_id": "forward_small",
+        "features": {
+          "execution_cost": 0.08,
+          "goal_alignment": 0.0,
+          "information_gain": 0.34,
+          "obstacle_risk": 0.0,
+          "progress": 0.18,
+          "stuck_risk": 0.08
+        },
+        "reason": "safe forward progress when target is centered",
+        "score": 0.4288
+      },
+      {
+        "candidate_id": "stop_capture",
+        "features": {
+          "execution_cost": 0.2,
+          "goal_alignment": 0.35,
+          "information_gain": 0.18,
+          "obstacle_risk": 0.01,
+          "progress": 0.0,
+          "stuck_risk": 0.01
+        },
+        "reason": "only useful once target is centered and close",
+        "score": 0.4346
+      }
+    ],
+    "candidate_scores_path": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_03_red_right_far/candidate_scores.json",
+    "image": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_03_red_right_far.jpg",
+    "name": "example_03_red_right_far",
+    "note": "real photo plate; same red cube moved right/far",
+    "score_info": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/real_photo_edit_examples/example_03_red_right_far/score_info.json",
+    "selected_candidate_id": "turn_right",
+    "target": {
+      "area_ratio": 0.0003,
+      "bbox": [
+        1000,
+        592,
+        1018,
+        608
+      ],
+      "center_x": 0.5765,
+      "center_y": 0.6654,
+      "color": "red",
+      "confidence": 0.0164,
+      "found": true
+    },
+    "unsafe_risk": 0.0
+  }
+]

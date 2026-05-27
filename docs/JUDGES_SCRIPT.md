@@ -2,17 +2,18 @@
 
 ## Opening
 
-This is WorldForge Go2 Trace Judge: inspectable autonomy for a Unitree Go2.
+This is WorldForge Go2 Trace Judge: an inspectable decision layer for a Unitree Go2.
 
-The important part is not only that the robot moves. The important part is that every
-move has evidence.
+The point is not just that a robot moved. The point is that every possible next
+move becomes visible, scored, and replayable.
 
 ## Demo Beat
 
-The Go2 camera sees the scene. The replay task is to find the target color. In a
-calibrated live block setup, the same loop can also avoid unsafe colored markers.
+We collected real Go2 robot-view frames at the venue. Then we generated label-safe
+counterfactual scenes by moving real cube cutouts inside those real Go2 camera
+frames.
 
-The host runtime proposes four bounded actions:
+For each scene, the robot has four bounded candidate actions:
 
 ```text
 turn_left
@@ -21,47 +22,52 @@ forward_small
 stop_capture
 ```
 
-For each frame, the trace judge scores each possible next move. It logs:
+The scorer receives:
 
 ```text
-observation_summary
-candidate actions
-score_info
-candidate_scores
-selected_action
-outcome_after_execution
+observation + goal + candidate action
 ```
 
-Then the host runtime executes only the selected safe action. In replay mode, no robot
-command is executed; the same evidence files are still produced from real Go2 camera
-video.
+and returns a candidate score. The demo writes:
+
+```text
+score_info.json
+candidate_scores.json
+selected_action.json
+outcome_after_execution.json
+```
+
+So the robot decision is not a black box. You can inspect why `turn_left` won and
+why `forward_small` was rejected when an unsafe marker was in the path.
 
 ## Core Claim
 
-WorldForge is not the motor controller. DimOS or the host robot runtime owns the
-hardware and safety boundary.
+WorldForge is not the motor controller. The host runtime owns robot execution and
+safety.
 
-WorldForge is the decision evidence layer. It makes the autonomy inspectable,
-replayable, and swappable.
-
-Today the scorer is transparent. Tomorrow the same trace dataset can train a learned
-world-model scorer.
-
-## One-Sentence Close
-
-We are turning robot behavior from a black box into a replayable decision trace.
-
-## If Asked About Training
-
-We did not train a Go2 foundation world model during the hackathon. That would be the
-wrong claim.
-
-What we built is the data contract a learned scorer needs:
+WorldForge-style traces provide the scoring/evidence boundary:
 
 ```text
-observation + goal + candidate action -> score + measured outcome
+what did the robot see?
+what could it do?
+which action leads to the better future?
+what evidence was saved?
 ```
 
-The included tiny ranker is a smoke test that proves the traces can be consumed by a
-model. It distills the transparent scorer today; it can be replaced with outcome labels
-after more live robot runs.
+## Model Claim
+
+We did not train a Go2 foundation world model during the hackathon.
+
+What we trained is a small micro world scorer: a learned score head over real Go2
+frames and counterfactual decision traces.
+
+That is the honest useful step. It shows how robot decisions can move from hidden
+policy output to inspectable candidate scoring.
+
+## Close
+
+We are turning robot behavior from a black box into a replayable decision trace:
+
+```text
+observation + goal + candidate action -> score -> selected action -> evidence
+```

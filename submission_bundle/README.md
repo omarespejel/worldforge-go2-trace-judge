@@ -2,16 +2,19 @@
 
 ## Main Demo
 
-- `demo_video.mp4`: annotated replay from real Unitree Go2 camera video.
-- `demo_report.html`: browser report with selected action distribution and evidence links.
+- `final_hackathon_video.mp4`: 78-second final judge video.
+- `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
+- `micro_world_annotated.jpg`: annotated frame with candidate scores.
 
 ## Evidence
 
-- `step_01_score_info.json`
-- `step_01_candidate_scores.json`
-- `step_01_selected_action.json`
+- `score_info.json`
+- `candidate_scores.json`
+- `selected_action.json`
+- `outcome_after_execution.json`
+- `run_manifest.json`
 
-These show the WorldForge-shaped boundary:
+These show the WorldForge-style boundary:
 
 ```text
 observation_summary + task + candidate actions
@@ -22,14 +25,21 @@ observation_summary + task + candidate actions
 
 ## Dataset
 
-- `trace_dataset.jsonl`: candidate-level trace rows.
-- `reviewed_dataset.jsonl`: same rows with audit fields.
-- `audit_report.html`: human/audit view of label quality.
+- `hf_dataset_data/*.jsonl`
+- `hf_dataset_summary.json`
+- `hf_dataset_card.md`
+- `real_photo_edit_contact_sheet.jpg`
 
-Current labels are transparent-scorer labels. They are not measured outcome labels yet.
+Rows are built from curated real Go2 seed frames and label-safe real-photo-edit
+counterfactuals. The labels are transparent scorer labels, not measured long-horizon
+outcome labels.
 
-## Model Smoke Test
+## Model
 
-- `ranker_model.json`: tiny ranker that distills the transparent scorer.
+- `micro_world_model.json`
+- `micro_world_eval.json`
+- `micro_world_predictions.json`
+- `hf_model/README.md`
 
-This is a smoke test proving the trace can feed a model, not a new Go2 foundation world model.
+This is a small micro world scorer head. It is not a Go2 foundation model and not a
+trained V-JEPA model.

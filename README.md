@@ -1,261 +1,241 @@
 # WorldForge Go2 Trace Judge
 
-Inspectable decision traces for a Unitree Go2. The robot remains host-controlled;
-this repo records what the robot saw, which candidate moves were considered, why one
-was selected, and what evidence was left behind.
+Inspectable candidate scoring for a Unitree Go2 hackathon demo.
 
-This is a hackathon prototype, not a claim of solved Go2 autonomy. The useful
-contribution is the trace/evidence contract around robot decisions.
-
-## Thesis
-
-One prompt should become an inspectable robot loop:
+This repo turns real robot-view material into:
 
 ```text
-camera observation
--> visual target/distractor detector
--> candidate robot moves
--> transparent score/evidence trail
--> optional host-owned robot execution
+real Go2 camera frames
+-> label-safe real-photo-edit counterfactual dataset
+-> small micro world scorer
+-> WorldForge-style decision evidence
+-> final judge video
 ```
 
-WorldForge does not own physical control or safety. The host runtime owns the Go2 connection,
-velocity limits, operator supervision, and emergency stop path.
+It is not a claim of solved Go2 autonomy. The contribution is the decision/evidence
+layer around robot actions: what the robot saw, which candidate moves were scored,
+why one won, and what artifacts were saved for replay or later training.
 
-## What Is In This Repo
+## Final Artifacts
+
+- `artifacts/showcase/final_hackathon_video.mp4`
+  - 78-second final video.
+- `artifacts/micro_world_demo/latest/micro_world_trace.mp4`
+  - One-command scorer trace from a real Go2 frame.
+- `artifacts/micro_world_demo/latest/`
+  - `score_info.json`, `candidate_scores.json`, `selected_action.json`,
+    `outcome_after_execution.json`, `run_manifest.json`, `annotated_image.jpg`.
+- `artifacts/real_photo_edit_dataset/`
+  - Regenerable intermediate build metadata/contact sheet for 480 accepted examples.
+- `hf_dataset/`
+  - Hugging Face-ready dataset package with the compact image/mask copy.
+- `artifacts/micro_world_scorer/` and `hf_model/`
+  - Small scorer model, eval report, model card.
+- `submission_bundle/`
+  - Copy-ready hackathon bundle.
+
+## Claim Boundary
+
+Accurate wording:
+
+- micro world scorer
+- latent action scorer
+- WorldForge-style decision trace evidence
+- host-owned robot execution boundary
+
+Avoid claiming:
+
+- trained Go2 foundation world model
+- trained V-JEPA
+- solved autonomous Go2 navigation
+- safety-certified robot controller
+
+The model is a small pure-NumPy scorer head trained on transparent labels from real
+Go2 frames and label-safe counterfactual edits.
+
+## Core Idea
+
+The robot should not just output an action. The useful interface is:
+
+```text
+observation_summary + task + candidate actions
+-> score_info
+-> candidate_scores
+-> selected_action
+-> outcome_after_execution
+```
+
+WorldForge does not directly drive the Go2. The host runtime owns robot connection,
+velocity limits, operator supervision, and emergency stop. The trace judge owns
+scoring, evidence, and replayability.
+
+## Scripts
 
 - `scripts/go2_shared_runtime.py`
-  - Lightweight DimOS host runtime: MCP server + safe direct Go2 skills + local `humancli` router.
+  - Lightweight DimOS/MCP host runtime used during robot access.
 - `scripts/go2_find_colored_target.py`
-  - Live or single-frame target loop. Uses MCP for camera/motion only when not in dry-run mode.
+  - Live or single-frame colored-target scorer loop.
+- `scripts/build_real_photo_edit_dataset.py`
+  - Generates label-safe counterfactuals from real Go2 plates and real cube cutouts.
+- `scripts/build_hf_decision_trace_dataset.py`
+  - Builds the HF-ready dataset with real seed and real-photo-edit splits.
+- `scripts/train_micro_world_scorer.py`
+  - Trains the small NumPy scorer head.
+- `scripts/run_micro_world_scorer_demo.py`
+  - Runs one real frame through the model and writes trace artifacts plus MP4.
+- `scripts/build_final_showcase_video.py`
+  - Renders the final 78-second hackathon video.
+- `scripts/build_submission_bundle.py`
+  - Packages the key video, dataset, model, and evidence files.
+
+Older replay/audit scripts are still kept for provenance:
+
 - `scripts/go2_trace_replay.py`
-  - Offline replay builder from Go2 camera video. Produces annotated video and per-frame evidence.
+- `scripts/build_replay_report.py`
 - `scripts/build_human_review_pack.py`
-  - Contact sheet + CSV template for human review of selected-action labels.
 - `scripts/collect_trace_dataset.py`
-  - Flattens per-step artifacts into candidate-level JSONL rows for later scorer training.
 - `scripts/audit_trace_dataset.py`
-  - Adds human/auto audit fields and writes a reviewed dataset.
 - `scripts/train_tiny_ranker.py`
-  - Trains a tiny scorer-distillation smoke test from the flattened trace dataset.
-- `artifacts/replay_run/worldforge_trace_replay.mp4`
-  - Current fallback demo video from the supplied Go2 camera recording.
-- `artifacts/replay_run/report.html`
-  - Browser-openable report with replay video, decision distribution, and evidence links.
-- `artifacts/replay_run/trace/`
-  - Per-frame `score_info.json`, `candidate_scores.json`, `selected_action.json`,
-    `outcome_after_execution.json`, and `venue_input.json`.
-- `data/go2_camera_recording.mp4`
-  - Raw Go2 camera recording used by the offline replay.
 
-## What Worked / What Did Not
-
-Worked:
-
-- Real Go2 camera frames were captured from the robot perspective.
-- The prototype detected target-colored blocks and unsafe-marker colors in selected frames.
-- It generated WorldForge-shaped decision traces for each scored candidate action.
-- It sent bounded stand, turn, move, stop, and sit Sport commands to the Go2.
-
-Did not fully work:
-
-- Reliable closed-loop walking to a colored block was not completed during the robot battery window.
-- Live WebRTC camera capture became unstable under repeated reconnects and rate limits.
-- The included ranker is a scorer-distillation smoke test, not a trained Go2 world model.
-
-## Replay Demo
-
-Use this when the robot is unavailable or battery/network access is unstable.
+## Rebuild Everything Important
 
 ```bash
-python3 scripts/go2_trace_replay.py \
-  --input-video data/go2_camera_recording.mp4 \
-  --output-dir artifacts/replay_run \
-  --run-id go2-camera-replay \
-  --target green \
-  --unsafe-colors "" \
-  --fps 2 \
-  --width 960
+make hackathon-final
+```
+
+Equivalent explicit commands:
+
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/build_real_photo_edit_dataset.py --count 480 --clean
+python3 scripts/build_hf_decision_trace_dataset.py --clean
+python3 scripts/train_micro_world_scorer.py --dataset-dir hf_dataset --output-dir artifacts/micro_world_scorer
+python3 scripts/run_micro_world_scorer_demo.py \
+  --image artifacts/live_ciro/direct_camera_unsafe_path.jpg \
+  --model artifacts/micro_world_scorer/model.json \
+  --run-id latest \
+  --clean
+python3 scripts/build_final_showcase_video.py
+python3 scripts/build_submission_bundle.py
+```
+
+## Dataset
+
+Build:
+
+```bash
+make real-photo-edit
+make hf-dataset
+```
+
+Current split counts:
+
+```text
+train: 336
+validation: 96
+test: 48
+real_seed: 8
+```
+
+Dataset rows include:
+
+```text
+image
+mask/bbox
+target_color
+unsafe_colors
+observation_summary
+action_candidates
+candidate_scores
+selected_candidate_id
+score_info
+limitations
+```
+
+`real_photo_edit` rows are real Go2 camera plates with real cube cutouts moved to
+new positions. They are useful for counterfactual scoring, not as measured robot
+outcome labels.
+
+## Model
+
+Train:
+
+```bash
+make micro-world-scorer
 ```
 
 Output:
 
 ```text
-artifacts/replay_run/worldforge_trace_replay.mp4
-artifacts/replay_run/report.html
-artifacts/replay_run/summary.json
-artifacts/replay_run/trace/step_*/score_info.json
-artifacts/replay_run/trace/step_*/candidate_scores.json
-artifacts/replay_run/trace/step_*/selected_action.json
+artifacts/micro_world_scorer/model.json
+artifacts/micro_world_scorer/eval_report.json
+artifacts/micro_world_scorer/predictions_sample.json
+hf_model/
 ```
 
-Build the static report:
-
-```bash
-python3 scripts/build_replay_report.py --replay-dir artifacts/replay_run
-```
-
-Or run the full offline pipeline:
-
-```bash
-make all
-```
-
-That checks scripts, rebuilds replay artifacts, writes the static report, creates the
-human review pack, flattens the trace dataset, trains the tiny ranker smoke test, and
-refreshes the zip package.
-
-## Human Label Review
-
-Use this before trusting the replay dataset:
-
-```bash
-make review
-open artifacts/human_review/human_review.html
-```
-
-Outputs:
+Current local evaluation against transparent labels:
 
 ```text
-artifacts/human_review/contact_sheet.jpg
-artifacts/human_review/human_review.html
-artifacts/human_review/human_labels_template.csv
+test selection accuracy: 97.9%
+test MAE: 0.0234
+test R2: 0.944
+random baseline: 25%
+always-forward baseline: 31.2%
 ```
 
-Mark each sampled frame as `correct`, `wrong`, or `unsure`. This is the right
-human-in-the-loop step because the current labels come from the transparent scorer,
-not measured execution outcomes. For replay video, keep `UNSAFE_COLORS` empty unless
-the unsafe markers were actually calibrated in that video; otherwise colored lighting
-can create false unsafe detections.
+These metrics show the small model learned the trace scoring boundary. They do not
+prove real-world long-horizon navigation success.
 
-Audit the dataset after review:
+## One-Command Demo
 
 ```bash
-make audit
-open artifacts/dataset_audit/audit_report.html
-```
-
-The reviewed JSONL is:
-
-```text
-artifacts/dataset_audit/go2_trace_candidates_reviewed.jsonl
-```
-
-## Trace Dataset And Tiny Ranker
-
-Flatten replay/live traces:
-
-```bash
-make dataset
+make micro-world-demo
 ```
 
 Output:
 
 ```text
-dataset/go2_trace_candidates.jsonl
-dataset/go2_trace_dataset_summary.json
+artifacts/micro_world_demo/latest/annotated_image.jpg
+artifacts/micro_world_demo/latest/micro_world_trace.mp4
+artifacts/micro_world_demo/latest/score_info.json
+artifacts/micro_world_demo/latest/candidate_scores.json
+artifacts/micro_world_demo/latest/selected_action.json
+artifacts/micro_world_demo/latest/outcome_after_execution.json
 ```
 
-Train the smoke-test ranker:
+## Final Video
 
 ```bash
-make ranker
+make final-video
 ```
 
 Output:
 
 ```text
-artifacts/ranker_smoke/model.json
-artifacts/ranker_smoke/predictions_sample.json
+artifacts/showcase/final_hackathon_video.mp4
 ```
 
-This is not a new Go2 world model. It is a production sanity check that the evidence
-contract can feed a learned scorer later. Current labels are `transparent_score_label`;
-future labels should come from measured outcomes after execution.
+Video arc:
 
-## Hugging Face Dataset Package
+1. Real Go2 material from the venue.
+2. Curated robot POV frames with target and unsafe-marker examples.
+3. Label-safe counterfactual dataset from real photos.
+4. Micro world scorer metrics and claim boundary.
+5. One-command scorer demo.
+6. Evidence trail and package.
 
-Build a Hugging Face-ready decision-trace dataset:
+## Live Robot Notes
 
-```bash
-python3 scripts/build_hf_decision_trace_dataset.py --clean --synthetic-count 180
-```
+The live robot path was used during the hackathon, but the final build is designed
+to run offline after battery/network access is gone.
 
-Output:
-
-```text
-hf_dataset/README.md
-hf_dataset/data/train.jsonl
-hf_dataset/data/validation.jsonl
-hf_dataset/data/test.jsonl
-hf_dataset/data/real_seed.jsonl
-hf_dataset/images/
-hf_dataset/dataset_summary.json
-```
-
-The synthetic splits are procedural color-block scenes. The `real_seed` split is built
-from the hackathon Go2 camera/replay traces and is marked `privacy_review_required`.
-This package is intended for scorer/data-pipeline research, not policy imitation.
-
-## Live Demo
-
-Run this only with robot on floor, operator supervision, and emergency stop ready.
-
-On the venue/operator host:
-
-```bash
-cd warehouse_inspect_dimos
-
-ROBOT_IP=192.168.12.1 \
-nohup ./.venv/bin/python go2_shared_runtime.py > go2_shared_runtime.log 2>&1 &
-echo $! > go2_shared_runtime.pid
-```
-
-Check tools:
-
-```bash
-./.venv/bin/python - <<'PY'
-from dimos.agents.mcp.mcp_adapter import McpAdapter
-a = McpAdapter("http://localhost:9990/mcp")
-print("READY", a.wait_for_ready(timeout=8))
-print([tool["name"] for tool in a.list_tools()])
-PY
-```
-
-Dry run with a saved frame:
-
-```bash
-./.venv/bin/python go2_find_colored_target.py \
-  --target red \
-  --unsafe-colors green,yellow \
-  --dry-run-frame fixtures/red_center.jpg \
-  --max-steps 1
-```
-
-Live autonomous run:
-
-```bash
-./.venv/bin/python go2_find_colored_target.py \
-  --target red \
-  --unsafe-colors green,yellow \
-  --max-steps 8 \
-  --execute \
-  --balance-first \
-  --celebrate \
-  --run-id live-red-block-01
-```
+Only run live commands with the Go2 on the floor, operator supervision, and emergency
+stop ready. The host runtime executes robot commands; this repo does not remove the
+human safety boundary.
 
 ## Pitch
 
-> We built an inspectable robot decision layer. The Go2 sees a target, compares possible
-> next moves, rejects risky or low-value actions, selects a bounded action, and leaves a
-> replayable evidence trail. The same trace shape can later train or swap in a learned
-> world-model scorer.
-
-## Useful Docs
-
-- `docs/RUNBOOK.md`: robot-time commands and fallback path.
-- `docs/JUDGES_SCRIPT.md`: 90-second narration.
-- `docs/TRACE_SCHEMA.md`: artifact contract and dataset shape.
-- `docs/TRAINING_RESEARCH.md`: why the model-training claim stays honest.
-- `docs/SUBMISSION.md`: project copy for submission.
+> We used real Unitree Go2 robot-view data, generated label-preserving
+> counterfactual scenes, trained a small action scorer, and wrapped every decision
+> in a WorldForge-style evidence trail. It is not a black-box robot demo; it is an
+> inspectable decision layer for embodied AI.

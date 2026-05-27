@@ -1,19 +1,25 @@
 {
   "artifacts": [
     "README.md",
-    "audit_report.html",
-    "audit_summary.json",
-    "contact_sheet.jpg",
-    "demo_report.html",
-    "demo_video.mp4",
-    "human_review.html",
-    "ranker_model.json",
-    "reviewed_dataset.jsonl",
-    "step_01_candidate_scores.json",
-    "step_01_score_info.json",
-    "step_01_selected_action.json",
-    "trace_dataset.jsonl"
+    "candidate_scores.json",
+    "final_hackathon_video.mp4",
+    "hf_dataset_card.md",
+    "hf_dataset_data",
+    "hf_dataset_summary.json",
+    "hf_model",
+    "media_review_contact_sheet.jpg",
+    "micro_world_annotated.jpg",
+    "micro_world_eval.json",
+    "micro_world_model.json",
+    "micro_world_predictions.json",
+    "micro_world_trace.mp4",
+    "outcome_after_execution.json",
+    "real_photo_edit_contact_sheet.jpg",
+    "run_manifest.json",
+    "score_info.json",
+    "selected_action.json"
   ],
   "bundle_dir": "submission_bundle",
+  "claim_boundary": "Small micro world scorer over real Go2 frames and label-safe counterfactual traces. Not a Go2 foundation model.",
   "schema_version": 1
 }
