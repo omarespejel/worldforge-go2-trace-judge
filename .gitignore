@@ -28,3 +28,7 @@ env/
 # Local transfer/backups.
 ciro_backups/
 warehouse_inspect_dimos/
+
+# Showcase video scratch frames.
+artifacts/showcase/frames/
+artifacts/showcase/qc/thumb_*.jpg
