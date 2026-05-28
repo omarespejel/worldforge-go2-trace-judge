@@ -113,6 +113,9 @@ scoring, evidence, and replayability.
 - `scripts/dimos_simulation_probe.py`
   - Safely inspects local DimOS replay/simulation readiness and writes the next
     no-hardware commands without starting MuJoCo or moving a robot.
+- `scripts/dimos_smoke.py`
+  - Runs bounded no-robot DimOS CLI/replay/simulation checks with process-group
+    cleanup and artifact logging.
 - `scripts/upload_hf_artifacts.py`
   - Uploads the HF-ready replay dataset/model folders using `HF_TOKEN`.
 - `scripts/audit_model_honesty.py`
@@ -345,6 +348,39 @@ artifacts/dimos_simulation_probe/next_commands.sh
 This does not start simulation. It checks the local DimOS checkout, Go2
 blueprints, simulation/replay docs, and optional CLI availability. The detailed
 research and execution path is in `docs/DIMOS_SIMULATION_WORLD_MODEL_ROADMAP.md`.
+
+After the probe, run bounded no-robot smoke checks:
+
+```bash
+make dimos-cli-smoke
+make dimos-replay-smoke
+make dimos-replay-smoke-bypass
+make dimos-sim-smoke
+```
+
+Output:
+
+```text
+artifacts/dimos_simulation_smoke/smoke_report.json
+artifacts/dimos_simulation_smoke/smoke_summary.json
+```
+
+The replay/sim smoke checks run in the foreground and are killed at timeout, so
+they are safe to use while iterating on DimOS dependencies.
+
+On macOS, DimOS may require sudo host prep before replay/simulation can run:
+
+```bash
+sudo route delete -net 224.0.0.0/4 || true
+sudo route add -net 224.0.0.0/4 -interface lo0
+sudo sysctl -w kern.ipc.maxsockbuf=67108864
+sudo sysctl -w net.inet.udp.recvspace=67108864
+sudo sysctl -w net.inet.udp.maxdgram=67108864
+```
+
+`make dimos-replay-smoke-bypass` skips DimOS host configurators only for
+structural debugging. Do not use that bypass as evidence that a real DimOS run is
+properly configured.
 
 ## One-Command Demo
 

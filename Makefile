@@ -15,7 +15,7 @@ DIMOS_REPLAY_LATENT_MODEL ?= artifacts/dimos_replay_latent_dynamics
 DIMOS_REPLAY_SOURCE_DATASETS ?= go2_short,markers_go2,go2_bigoffice,go2_hongkong_office,go2_slamabuse1,go2_slamabuse2,go2_china_office
 DIMOS_REPLAY_MAX_PAIRS_PER_SOURCE ?= 500
 
-.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo dimos-replay-stretch dimos-sim-probe ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo dimos-replay-stretch dimos-sim-probe dimos-cli-smoke dimos-replay-smoke dimos-replay-smoke-bypass dimos-sim-smoke ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
 
 all: hackathon-final
 
@@ -146,6 +146,25 @@ dimos-replay-stretch: check dimos-replay-dataset dimos-replay-latent-dynamics re
 
 dimos-sim-probe:
 	$(PYTHON) scripts/dimos_simulation_probe.py
+
+dimos-cli-smoke:
+	$(PYTHON) scripts/dimos_smoke.py
+
+dimos-replay-smoke:
+	$(PYTHON) scripts/dimos_smoke.py \
+		--mode replay-go2 \
+		--timeout-s 120
+
+dimos-replay-smoke-bypass:
+	$(PYTHON) scripts/dimos_smoke.py \
+		--mode replay-go2 \
+		--timeout-s 120 \
+		--bypass-system-config
+
+dimos-sim-smoke:
+	$(PYTHON) scripts/dimos_smoke.py \
+		--mode simulation-go2 \
+		--timeout-s 120
 
 final-video:
 	$(PYTHON) scripts/build_final_showcase_video.py

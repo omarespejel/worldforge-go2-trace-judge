@@ -259,6 +259,29 @@ uv pip install 'dimos[base,unitree,sim]'
 dimos --simulation --viewer none run unitree-go2
 ```
 
+Current local status on this Mac:
+
+```text
+DimOS CLI/list/config: passes
+Go2 replay smoke: blocked before runtime by missing sudo LCM host prep
+Go2 MuJoCo smoke: blocked before runtime by the same sudo LCM host prep
+```
+
+The specific required host-prep commands are:
+
+```bash
+sudo route delete -net 224.0.0.0/4 || true
+sudo route add -net 224.0.0.0/4 -interface lo0
+sudo sysctl -w kern.ipc.maxsockbuf=67108864
+sudo sysctl -w net.inet.udp.recvspace=67108864
+sudo sysctl -w net.inet.udp.maxdgram=67108864
+```
+
+The `scripts/dimos_smoke.py --bypass-system-config` mode confirms this is a real
+LCM boundary: skipping DimOS host configurators lets startup go farther, but LCM
+subscription setup fails. So the next real execution step is host prep, not model
+work.
+
 If that works, run the agentic simulation:
 
 ```bash

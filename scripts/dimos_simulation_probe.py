@@ -63,6 +63,17 @@ def run_cmd(args: list[str], timeout_s: float) -> dict[str, Any]:
     }
 
 
+def find_dimos_binary(dimos_repo: Path) -> str | None:
+    candidates = [
+        shutil.which("dimos"),
+        str(dimos_repo / ".venv" / "bin" / "dimos"),
+    ]
+    for candidate in candidates:
+        if candidate and Path(candidate).exists():
+            return candidate
+    return None
+
+
 def extract_blueprints(dimos_repo: Path) -> list[str]:
     source = read_text(dimos_repo / "dimos" / "robot" / "all_blueprints.py")
     blueprints = sorted(set(re.findall(r'"(unitree-go2[^"]*)"', source)))
@@ -169,7 +180,7 @@ def main() -> int:
     output_dir = args.output_dir.expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    dimos_binary = shutil.which("dimos")
+    dimos_binary = find_dimos_binary(dimos_repo)
     cli_help = None
     if dimos_binary and not args.skip_cli_help:
         cli_help = run_cmd([dimos_binary, "--help"], timeout_s=8.0)
