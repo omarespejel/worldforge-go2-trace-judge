@@ -16,6 +16,7 @@ FRAME_DIR = OUT_DIR / "final_frames"
 VIDEO_FRAMES = OUT_DIR / "robot_video_frames"
 OUT_VIDEO = OUT_DIR / "final_hackathon_video.mp4"
 SOURCE_ROBOT_VIDEO = Path("/Users/espejelomar/Downloads/output.mp4")
+DIMOS_MEDIA_PREVIEW = ROOT / "artifacts" / "third_party" / "dimos_media" / "preview"
 FPS = 24
 WIDTH = 1920
 HEIGHT = 1080
@@ -255,6 +256,37 @@ def robot_proof_slide(paths: list[Path]) -> Image.Image:
     return img
 
 
+def dimos_context_slide(_: float) -> Image.Image:
+    img = canvas()
+    draw = ImageDraw.Draw(img)
+    header(draw, "DimOS Base Layer", "Public DimOS media shows the robot OS substrate; our work is the decision trace layer above it.")
+    examples = [
+        ("navigation + mapping", DIMOS_MEDIA_PREVIEW / "navigation.jpg"),
+        ("agentic control + MCP", DIMOS_MEDIA_PREVIEW / "agentic_control.jpg"),
+        ("spatial memory", DIMOS_MEDIA_PREVIEW / "spatial_memory.jpg"),
+    ]
+    boxes = [(82, 238, 626, 628), (688, 238, 1232, 628), (1294, 238, 1838, 628)]
+    for (label, path), box in zip(examples, boxes):
+        if path.is_file():
+            image_panel(img, path, box, crop=True)
+        else:
+            rounded(draw, box, fill=(6, 9, 14), radius=22)
+        draw.rounded_rectangle((box[0] + 22, box[1] + 22, box[0] + 372, box[1] + 72), radius=18, fill=(0, 0, 0))
+        text(draw, (box[0] + 42, box[1] + 35), label, F_SMALL)
+
+    rounded(draw, (164, 738, 1756, 922), fill=PANEL_2, radius=24)
+    wrapped(
+        draw,
+        (206, 778),
+        "DimOS gives us robot IO, skills, replay, mapping, and MCP. WorldForge-style scoring asks a narrower question before execution: given this observation, goal, and candidate actions, which action has the best expected outcome?",
+        F_BODY,
+        92,
+        fill=TEXT,
+    )
+    text(draw, (206, 888), "DimOS media from dimensionalOS/dimos; used as platform context, not as our own robot footage.", F_TINY, fill=MUTED)
+    return img
+
+
 def observation_slide(_: float) -> Image.Image:
     img = canvas()
     draw = ImageDraw.Draw(img)
@@ -479,16 +511,17 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     robot_frames = extract_robot_video_frames()
     builder = Builder()
-    builder.hold(4.0, title_slide)
-    builder.hold(8.0, lambda _t: robot_proof_slide(robot_frames))
-    builder.hold(9.0, observation_slide)
+    builder.hold(3.5, title_slide)
+    builder.hold(7.0, lambda _t: robot_proof_slide(robot_frames))
+    builder.hold(6.5, dimos_context_slide)
+    builder.hold(8.0, observation_slide)
     builder.hold(11.0, dataset_slide)
     builder.hold(10.0, metrics_slide)
     builder.hold(10.0, audit_slide)
     builder.hold(12.0, demo_slide)
     builder.hold(10.0, evidence_slide)
-    builder.hold(8.0, package_slide)
-    builder.hold(6.0, closing_slide)
+    builder.hold(5.0, package_slide)
+    builder.hold(5.0, closing_slide)
     cmd = [
         "ffmpeg",
         "-y",

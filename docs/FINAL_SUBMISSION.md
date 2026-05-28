@@ -40,7 +40,8 @@ comparison, and replay layer around robot actions.
 - Frozen-DINOv2 hybrid scorer ablation.
 - Model honesty audit with shuffled-label and plate-holdout controls.
 - One-command scorer demo that writes MP4 + JSON evidence.
-- 88-second final judge video.
+- 88-second final judge video, with a short attributed DimOS platform-context
+  slide sourced from public `dimensionalOS/dimos` media.
 
 ## Key Results
 
@@ -56,6 +57,10 @@ plate-holdout minimum selection accuracy: 92.9%
 
 This is **not** a trained Go2 foundation world model, trained V-JEPA model, or
 safety-certified autonomous controller.
+
+The DimOS media in the final video is used only to show the underlying robot OS
+context. It is not presented as our robot run, training data, or proof of our
+model behavior.
 
 The honest claim is stronger for a hackathon:
 

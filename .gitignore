@@ -39,6 +39,12 @@ artifacts/showcase/qc/thumb_*.jpg
 artifacts/micro_world_demo/*/video_frames/
 artifacts/micro_jepa_demo/*/video_frames/
 
+# Third-party source media can be large; keep compact attributed previews only.
+artifacts/third_party/dimos_media/*.gif
+artifacts/third_party/dimos_media/*.mp4
+artifacts/third_party/dimos_media/*.mov
+artifacts/third_party/dimos_media/*.webm
+
 # Regenerable intermediate dataset build output. The compact HF-ready package is
 # kept in hf_dataset/.
 artifacts/real_photo_edit_dataset/images/
