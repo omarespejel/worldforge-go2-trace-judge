@@ -1,0 +1,434 @@
+[
+  {
+    "row_id": "go2_short_world_pair_000153",
+    "scores": [
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.69961,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.699039,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.698785,
+        "selected": true
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.69878,
+        "selected": false
+      },
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.698758,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.698754,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000154",
+    "scores": [
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.783576,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.783277,
+        "selected": true
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.782311,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.782135,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.781809,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.781646,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000155",
+    "scores": [
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.757518,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.75669,
+        "selected": true
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.753681,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.753561,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.753099,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.752506,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000156",
+    "scores": [
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.751044,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.75092,
+        "selected": true
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.748276,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.748268,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.748205,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.748198,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000157",
+    "scores": [
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.732842,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.732547,
+        "selected": true
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.727664,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.727659,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.727526,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.727327,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000158",
+    "scores": [
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.632088,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.629815,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.629723,
+        "selected": true
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.629241,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.628746,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.628058,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000159",
+    "scores": [
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.608648,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.607757,
+        "selected": true
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.60342,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.602541,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.602412,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.60202,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000160",
+    "scores": [
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.40792,
+        "selected": false
+      },
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.40568,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.40561,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.40493,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.404532,
+        "selected": false
+      },
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.401248,
+        "selected": true
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000161",
+    "scores": [
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.46866,
+        "selected": true
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.467754,
+        "selected": false
+      },
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.467113,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.466384,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.466131,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.463711,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000162",
+    "scores": [
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.57218,
+        "selected": true
+      },
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.569695,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.566333,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.563343,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.563166,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.562373,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000163",
+    "scores": [
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.562791,
+        "selected": true
+      },
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.558806,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.556204,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.552624,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.552559,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.552482,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  },
+  {
+    "row_id": "go2_short_world_pair_000164",
+    "scores": [
+      {
+        "candidate_id": "actual_egomotion",
+        "score": 0.660677,
+        "selected": true
+      },
+      {
+        "candidate_id": "rotate_right",
+        "score": 0.656736,
+        "selected": false
+      },
+      {
+        "candidate_id": "forward_same_distance",
+        "score": 0.656528,
+        "selected": false
+      },
+      {
+        "candidate_id": "zero_motion",
+        "score": 0.652929,
+        "selected": false
+      },
+      {
+        "candidate_id": "rotate_left",
+        "score": 0.652403,
+        "selected": false
+      },
+      {
+        "candidate_id": "reverse_actual",
+        "score": 0.651529,
+        "selected": false
+      }
+    ],
+    "split": "test"
+  }
+]

@@ -51,3 +51,12 @@ artifacts/real_photo_edit_dataset/images/
 artifacts/real_photo_edit_dataset/masks/
 artifacts/real_photo_edit_dataset/annotated/
 artifacts/real_photo_edit_dataset/traces/
+
+# Downloaded DimOS replay source DB/cache. The derived HF-ready dataset is kept.
+artifacts/dimos_replay_lfs_cache/
+
+# Published on Hugging Face; keep the card/summary/provenance in GitHub only.
+hf_dataset_dimos_replay/data/
+hf_dataset_dimos_replay/images/
+hf_dataset_dimos_replay/imagefolder/
+hf_dataset_dimos_replay/metadata.jsonl

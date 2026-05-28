@@ -1,0 +1,58 @@
+{
+  "dataset_name": "worldforge-go2-dimos-replay-world-pairs",
+  "frame_count_in_source": 6478,
+  "horizon_s_requested": 3.0,
+  "limitations": [
+    "Small public replay subset, not broad Go2 coverage.",
+    "Actions are derived from pose deltas between frames, not joystick command logs.",
+    "No safety claims; intended for research demos and WorldForge score-interface experiments."
+  ],
+  "max_image_width": 480,
+  "max_pairs_per_source": 180,
+  "pair_count": 540,
+  "pair_counts_by_source": {
+    "go2_bigoffice": 180,
+    "go2_china_office": 0,
+    "go2_short": 180,
+    "markers_go2": 180
+  },
+  "sample_stride": 4,
+  "schema_version": 1,
+  "skipped_sources": {
+    "go2_china_office": "not enough image rows with usable pose fields in artifacts/dimos_replay_lfs_cache/extracted/go2_china_office.db: 0"
+  },
+  "source_dataset": "go2_short,go2_china_office,markers_go2,go2_bigoffice",
+  "source_datasets": [
+    "go2_short",
+    "go2_china_office",
+    "markers_go2",
+    "go2_bigoffice"
+  ],
+  "source_frame_counts": {
+    "go2_bigoffice": 4164,
+    "go2_china_office": 0,
+    "go2_short": 855,
+    "markers_go2": 1459
+  },
+  "source_lfs_oids": {
+    "go2_bigoffice": "e66f5472e72f370446d8dcd802f70f3c3c07e4e083c5d6a394873877dec4c88d",
+    "go2_china_office": "834539871fd325b15f3079a3490b278c54e78d0d40bfa1342dbdc983f6a3ee02",
+    "go2_short": "8a19846a0adf5755815fd039492c0255e0bc282e9df75a06648d7585cae8d2d2",
+    "markers_go2": "5a43529f8dbc2aedcccca6ae89747235826123c2bc066e0dc8b87c2042219dae"
+  },
+  "source_lfs_paths": {
+    "go2_bigoffice": "data/.lfs/go2_bigoffice.db.tar.gz",
+    "go2_china_office": "data/.lfs/go2_china_office.db.tar.gz",
+    "go2_short": "data/.lfs/go2_short.db.tar.gz",
+    "markers_go2": "data/.lfs/markers_go2.db.tar.gz"
+  },
+  "source_license": "Apache-2.0 per dimensionalOS/dimos LICENSE",
+  "source_repo": "https://github.com/dimensionalOS/dimos",
+  "split_counts": {
+    "test": 81,
+    "train": 378,
+    "validation": 81
+  },
+  "task": "egomotion-conditioned future visual latent prediction and candidate scoring",
+  "unique_exported_frames": 1071
+}

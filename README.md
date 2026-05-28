@@ -37,8 +37,17 @@ why one won, and what artifacts were saved for replay or later training.
   - Frozen-DINOv2 hybrid scorer ablation.
 - `artifacts/model_audit/` and `docs/MODEL_AUDIT.md`
   - Honesty audit: shuffled labels, plate holdout, and model comparison.
+- `hf_dataset_dimos_replay/` and `hf_model_dimos_replay_latent/`
+  - Hugging Face card/summary/provenance plus a frozen-DINOv2 residual dynamics
+    model package. The full replay-derived image/jsonl dataset is published on
+    Hugging Face, not duplicated in GitHub. See `docs/DIMOS_REPLAY_WORLD_MODEL.md`.
 - `submission_bundle/`
   - Copy-ready hackathon bundle.
+
+Published HF artifacts:
+
+- Dataset: https://huggingface.co/datasets/espejelomar/worldforge-go2-dimos-replay-world-pairs
+- Model: https://huggingface.co/espejelomar/go2-dimos-replay-latent-dynamics
 
 ## Claim Boundary
 
@@ -91,6 +100,12 @@ scoring, evidence, and replayability.
   - Trains a small JEPA-style latent predictor.
 - `scripts/train_dinov2_scorer.py`
   - Trains a frozen-DINOv2 hybrid scorer head.
+- `scripts/build_dimos_replay_world_dataset.py`
+  - Builds action-conditioned future-frame pairs from public DimOS Go2 replay DBs.
+- `scripts/train_dimos_replay_latent_dynamics.py`
+  - Trains a frozen-DINOv2 residual latent dynamics head on the replay pairs.
+- `scripts/upload_hf_artifacts.py`
+  - Uploads the HF-ready replay dataset/model folders using `HF_TOKEN`.
 - `scripts/audit_model_honesty.py`
   - Runs shuffled-label and plate-holdout controls.
 - `scripts/run_micro_world_scorer_demo.py`
@@ -229,6 +244,48 @@ Interpretation: the JEPA-style latent scorer is architecturally cleaner, but all
 models are still distilling transparent labels. The frozen-DINOv2 ablation is a
 useful negative/neutral result: visual foundation features do not materially
 improve labels that were generated from geometry/risk traces.
+
+## DimOS Replay World-Model Stretch
+
+Run:
+
+```bash
+make dimos-replay-stretch
+```
+
+This pulls public DimOS Unitree Go2 replay archives into an ignored raw cache and
+exports a Hugging Face-ready dataset. The full image/jsonl payload is ignored in
+GitHub because it is published on Hugging Face:
+
+```text
+hf_dataset_dimos_replay/
+  data/{train,validation,test}.jsonl
+  imagefolder/{train,validation,test}/metadata.jsonl
+  images/frames/
+  images/pair_previews/
+```
+
+Current derived replay dataset:
+
+```text
+pairs: 540
+train/validation/test: 378 / 81 / 81
+usable source frames: 6478
+usable replays: go2_short, markers_go2, go2_bigoffice
+skipped replay: go2_china_office, missing usable pose fields
+```
+
+Current frozen-DINOv2 residual dynamics head:
+
+```text
+validation lift vs no-motion baseline: +0.013276 cosine
+test lift vs no-motion baseline: +0.006392 cosine
+validation candidate-ranking accuracy: 44.4%
+test candidate-ranking accuracy: 32.1%
+```
+
+This is deliberately framed as a small action-conditioned world-model head, not a
+trained Go2 foundation model or V-JEPA model.
 
 ## One-Command Demo
 

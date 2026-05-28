@@ -10,8 +10,11 @@ REAL_PHOTO_EDIT_COUNT ?= 480
 MICRO_WORLD_MODEL ?= artifacts/micro_world_scorer/model.json
 MICRO_JEPA_MODEL ?= artifacts/micro_jepa_scorer/model.json
 MICRO_WORLD_IMAGE ?= artifacts/live_ciro/direct_camera_unsafe_path.jpg
+DIMOS_REPLAY_DATASET ?= hf_dataset_dimos_replay
+DIMOS_REPLAY_LATENT_MODEL ?= artifacts/dimos_replay_latent_dynamics
+DIMOS_REPLAY_SOURCE_DATASETS ?= go2_short,go2_china_office,markers_go2,go2_bigoffice
 
-.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics dimos-replay-stretch ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
 
 all: hackathon-final
 
@@ -112,6 +115,25 @@ dinov2-scorer:
 	cp artifacts/dinov2_scorer/predictions_sample.json hf_model_dinov2/predictions_sample.json
 
 ml-stretch: check jepa-stretch model-honesty-audit dinov2-scorer
+
+dimos-replay-dataset:
+	$(PYTHON) scripts/build_dimos_replay_world_dataset.py \
+		--datasets "$(DIMOS_REPLAY_SOURCE_DATASETS)" \
+		--output-dir "$(DIMOS_REPLAY_DATASET)" \
+		--clean
+
+dimos-replay-latent-dynamics:
+	$(PYTHON) scripts/train_dimos_replay_latent_dynamics.py \
+		--dataset-dir "$(DIMOS_REPLAY_DATASET)" \
+		--output-dir "$(DIMOS_REPLAY_LATENT_MODEL)" \
+		--alpha 1000
+	mkdir -p hf_model_dimos_replay_latent
+	cp "$(DIMOS_REPLAY_LATENT_MODEL)/model.json" hf_model_dimos_replay_latent/model.json
+	cp "$(DIMOS_REPLAY_LATENT_MODEL)/eval_report.json" hf_model_dimos_replay_latent/eval_report.json
+	cp "$(DIMOS_REPLAY_LATENT_MODEL)/candidate_scores_sample.json" hf_model_dimos_replay_latent/candidate_scores_sample.json
+	cp "$(DIMOS_REPLAY_LATENT_MODEL)/README.md" hf_model_dimos_replay_latent/README.md
+
+dimos-replay-stretch: check dimos-replay-dataset dimos-replay-latent-dynamics
 
 final-video:
 	$(PYTHON) scripts/build_final_showcase_video.py

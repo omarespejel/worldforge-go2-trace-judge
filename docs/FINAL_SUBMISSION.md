@@ -13,8 +13,10 @@ counterfactual candidate scenes, small learned scorers, and replayable evidence.
 
 - GitHub repo: https://github.com/omarespejel/worldforge-go2-trace-judge
 - Release: https://github.com/omarespejel/worldforge-go2-trace-judge/releases/tag/v0.1-hackathon-2026-05-28
-- Final video: https://github.com/omarespejel/worldforge-go2-trace-judge/releases/download/v0.1-hackathon-2026-05-28/final_hackathon_video.mp4
+- Final voiced video: pending final voiceover upload.
 - Source/artifact archive: https://github.com/omarespejel/worldforge-go2-trace-judge/releases/download/v0.1-hackathon-2026-05-28/worldforge-go2-trace-judge.zip
+- HF replay dataset: https://huggingface.co/datasets/espejelomar/worldforge-go2-dimos-replay-world-pairs
+- HF replay model: https://huggingface.co/espejelomar/go2-dimos-replay-latent-dynamics
 
 ## What It Does
 
@@ -38,10 +40,12 @@ comparison, and replay layer around robot actions.
 - Micro world scorer trained on decision traces.
 - Micro JEPA-style latent scorer: predicts action-outcome latent, then scores.
 - Frozen-DINOv2 hybrid scorer ablation.
+- Public DimOS replay-derived world-model dataset: 540 action-conditioned
+  current/future Go2 frame pairs from three usable replay DBs.
+- Frozen-DINOv2 residual dynamics head trained on those replay pairs.
 - Model honesty audit with shuffled-label and plate-holdout controls.
 - One-command scorer demo that writes MP4 + JSON evidence.
-- 88-second final judge video, with a short attributed DimOS platform-context
-  slide sourced from public `dimensionalOS/dimos` media.
+- 60-second final judge video, designed for external voiceover and final upload.
 
 ## Key Results
 
@@ -51,12 +55,19 @@ micro JEPA-style scorer: 97.9% selection accuracy, R2 0.9514
 frozen-DINOv2 hybrid scorer: 97.9% selection accuracy, R2 0.9443
 shuffled-label control: 21.8% mean selection accuracy, R2 -0.0119
 plate-holdout minimum selection accuracy: 92.9%
+DimOS replay latent head validation lift vs no-motion: +0.0133 cosine
+DimOS replay latent head test lift vs no-motion: +0.0064 cosine
+DimOS replay candidate ranking accuracy: 44.4% validation, 32.1% test
 ```
 
 ## Claim Boundary
 
 This is **not** a trained Go2 foundation world model, trained V-JEPA model, or
 safety-certified autonomous controller.
+
+The DimOS replay stretch trains only a small residual head on top of frozen
+DINOv2 features. It is included as an honest world-model-data contribution, not
+as a claim of robust learned Go2 control.
 
 The DimOS media in the final video is used only to show the underlying robot OS
 context. It is not presented as our robot run, training data, or proof of our
