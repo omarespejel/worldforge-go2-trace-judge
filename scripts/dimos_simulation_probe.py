@@ -14,7 +14,6 @@ import os
 import re
 import shutil
 import subprocess
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -178,7 +177,7 @@ def main() -> int:
     commands = build_next_commands()
     report = {
         "schema_version": 1,
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "generated_by": "scripts/dimos_simulation_probe.py",
         "project_root": str(ROOT),
         "dimos_repo": str(dimos_repo),
         "dimos_repo_exists": dimos_repo.exists(),
