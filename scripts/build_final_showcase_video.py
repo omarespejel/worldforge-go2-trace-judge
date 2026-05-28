@@ -257,10 +257,11 @@ def slide_open_artifacts(_: float) -> Image.Image:
     img = canvas()
     draw = ImageDraw.Draw(img)
     summary = load_json(ROOT / "hf_dataset_dimos_replay/dataset_summary.json")
-    eval_report = load_json(ROOT / "artifacts/dimos_replay_latent_dynamics/eval_report.json")
+    eval_report = load_json(ROOT / "hf_model_dimos_replay_latent/eval_report.json")
+    usable_replay_count = sum(1 for count in summary["pair_counts_by_source"].values() if count > 0)
     header(draw, "the contribution", "One of the first open Go2 world-model-scoring datasets on HF.")
     metric(draw, (110, 248), str(summary["pair_count"]), "Go2 replay pairs", GREEN)
-    metric(draw, (520, 248), "3", "usable DimOS replay sources", GREEN)
+    metric(draw, (520, 248), str(usable_replay_count), "usable DimOS replay sources", GREEN)
     metric(draw, (930, 248), f"+{eval_report['latent_prediction_metrics']['validation']['cosine_lift_vs_no_motion']:.4f}", "validation latent lift", GREEN)
     image_paths = [
         ROOT / "hf_dataset_dimos_replay/images/pair_previews/go2_short_world_pair_000130.jpg",

@@ -110,6 +110,9 @@ scoring, evidence, and replayability.
 - `scripts/run_replay_mpc_demo.py`
   - Runs replay-time candidate scoring without robot access and writes MP4 plus
     WorldForge-style trace JSON.
+- `scripts/dimos_simulation_probe.py`
+  - Safely inspects local DimOS replay/simulation readiness and writes the next
+    no-hardware commands without starting MuJoCo or moving a robot.
 - `scripts/upload_hf_artifacts.py`
   - Uploads the HF-ready replay dataset/model folders using `HF_TOKEN`.
 - `scripts/audit_model_honesty.py`
@@ -323,6 +326,25 @@ artifacts/replay_mpc_demo/candidate_scores.json
 artifacts/replay_mpc_demo/selected_action.json
 artifacts/replay_mpc_demo/outcome_after_execution.json
 ```
+
+## DimOS Simulation Roadmap
+
+Run the safe probe first:
+
+```bash
+make dimos-sim-probe
+```
+
+Output:
+
+```text
+artifacts/dimos_simulation_probe/probe.json
+artifacts/dimos_simulation_probe/next_commands.sh
+```
+
+This does not start simulation. It checks the local DimOS checkout, Go2
+blueprints, simulation/replay docs, and optional CLI availability. The detailed
+research and execution path is in `docs/DIMOS_SIMULATION_WORLD_MODEL_ROADMAP.md`.
 
 ## One-Command Demo
 

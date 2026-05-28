@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-05-28T12:12:17.621972+00:00",
+  "project_root": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge",
+  "dimos_repo": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge",
+  "dimos_repo_exists": true,
+  "dimos_binary": null,
+  "dimos_cli_help": null,
+  "go2_blueprints": [
+    "unitree-go2",
+    "unitree-go2-agentic",
+    "unitree-go2-agentic-huggingface",
+    "unitree-go2-agentic-ollama",
+    "unitree-go2-basic",
+    "unitree-go2-coordinator",
+    "unitree-go2-detection",
+    "unitree-go2-fleet",
+    "unitree-go2-keyboard-teleop",
+    "unitree-go2-markers",
+    "unitree-go2-memory",
+    "unitree-go2-relocalization",
+    "unitree-go2-ros",
+    "unitree-go2-security",
+    "unitree-go2-spatial",
+    "unitree-go2-temporal-memory",
+    "unitree-go2-vlm-stream-test",
+    "unitree-go2-webrtc-keyboard-teleop",
+    "unitree-go2-webrtc-rage-keyboard-teleop"
+  ],
+  "doc_commands": [
+    "dimos --replay run unitree-go2",
+    "dimos --rerun-open both run unitree-go2",
+    "dimos --rerun-open native run unitree-go2",
+    "dimos --rerun-open none run unitree-go2",
+    "dimos --rerun-open web run unitree-go2",
+    "dimos --rerun-web --rerun-open native run unitree-go2",
+    "dimos --simulation run unitree-go2",
+    "dimos --viewer none run unitree-go2",
+    "dimos --viewer rerun run unitree-go2",
+    "dimos run unitree-go2",
+    "dimos run unitree-go2-agentic",
+    "dimos run unitree-go2-agentic --daemon   # background",
+    "uv pip install 'dimos[base,unitree,sim]'"
+  ],
+  "source_status": {
+    "go2_guide": {
+      "path": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/docs/platforms/quadruped/go2/index.md",
+      "exists": true
+    },
+    "quickstart": {
+      "path": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/docs/quickstart.mdx",
+      "exists": true
+    },
+    "visualization": {
+      "path": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/docs/usage/visualization.md",
+      "exists": true
+    },
+    "nav_stack": {
+      "path": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/docs/capabilities/navigation/nav_stack.md",
+      "exists": true
+    },
+    "go2_connection": {
+      "path": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/dimos/robot/unitree/go2/connection.py",
+      "exists": true
+    },
+    "mujoco_process": {
+      "path": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/dimos/simulation/mujoco/mujoco_process.py",
+      "exists": true
+    }
+  },
+  "recommended_next_commands": [
+    {
+      "name": "install_sim_extra",
+      "purpose": "Install DimOS simulation dependencies when ready.",
+      "command": "uv pip install 'dimos[base,unitree,sim]'"
+    },
+    {
+      "name": "replay_no_hardware",
+      "purpose": "Replay Go2 navigation without robot hardware.",
+      "command": "dimos --replay --viewer none run unitree-go2"
+    },
+    {
+      "name": "mujoco_smoke",
+      "purpose": "Run Go2 navigation stack in MuJoCo without opening a viewer.",
+      "command": "dimos --simulation --viewer none run unitree-go2"
+    },
+    {
+      "name": "agentic_mujoco_daemon",
+      "purpose": "Start agentic Go2 simulation so MCP tools can be inspected.",
+      "command": "dimos --simulation --viewer none run unitree-go2-agentic --daemon"
+    },
+    {
+      "name": "mcp_tools",
+      "purpose": "Confirm tool surface before any execution wrapper is added.",
+      "command": "dimos mcp list-tools"
+    },
+    {
+      "name": "local_replay_mpc_demo",
+      "purpose": "Regenerate the no-robot WorldForge replay-MPC trace.",
+      "command": "make replay-mpc-demo"
+    }
+  ],
+  "safety_boundary": [
+    "probe only; does not start simulation",
+    "probe only; does not connect to robot",
+    "probe only; does not call MCP tools"
+  ]
+}
