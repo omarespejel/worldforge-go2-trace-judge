@@ -270,11 +270,7 @@ Go2 MuJoCo smoke: blocked before runtime by the same sudo LCM host prep
 The specific required host-prep commands are:
 
 ```bash
-sudo route delete -net 224.0.0.0/4 || true
-sudo route add -net 224.0.0.0/4 -interface lo0
-sudo sysctl -w kern.ipc.maxsockbuf=67108864
-sudo sysctl -w net.inet.udp.recvspace=67108864
-sudo sysctl -w net.inet.udp.maxdgram=67108864
+make dimos-macos-host-prep
 ```
 
 The `scripts/dimos_smoke.py --bypass-system-config` mode confirms this is a real

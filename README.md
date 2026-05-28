@@ -371,11 +371,7 @@ they are safe to use while iterating on DimOS dependencies.
 On macOS, DimOS may require sudo host prep before replay/simulation can run:
 
 ```bash
-sudo route delete -net 224.0.0.0/4 || true
-sudo route add -net 224.0.0.0/4 -interface lo0
-sudo sysctl -w kern.ipc.maxsockbuf=67108864
-sudo sysctl -w net.inet.udp.recvspace=67108864
-sudo sysctl -w net.inet.udp.maxdgram=67108864
+make dimos-macos-host-prep
 ```
 
 `make dimos-replay-smoke-bypass` skips DimOS host configurators only for
