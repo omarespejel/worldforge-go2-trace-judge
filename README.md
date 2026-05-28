@@ -44,6 +44,10 @@ why one won, and what artifacts were saved for replay or later training.
 - `artifacts/replay_mpc_demo/`
   - No-robot replay-MPC demo: real DimOS Go2 replay frame, six candidate
     egomotion actions, latent future scoring, selected action, and JSON trace.
+- `artifacts/dimos_mcp_bridge_plan/`
+  - Dry-run DimOS MCP command proposal generated from the replay-MPC selected
+    action. This is the bridge between WorldForge scoring evidence and a
+    DimOS `relative_move` / `wait` tool call.
 - `submission_bundle/`
   - Copy-ready hackathon bundle.
 
@@ -110,6 +114,10 @@ scoring, evidence, and replayability.
 - `scripts/run_replay_mpc_demo.py`
   - Runs replay-time candidate scoring without robot access and writes MP4 plus
     WorldForge-style trace JSON.
+- `scripts/dimos_mcp_bridge_plan.py`
+  - Converts replay-MPC `selected_action.json` into a conservative DimOS MCP
+    command plan. Execution is disabled by default and requires an explicit
+    confirmation string plus `WORLDFORGE_DIMOS_ENABLE_EXECUTE=1`.
 - `scripts/dimos_simulation_probe.py`
   - Safely inspects local DimOS replay/simulation readiness and writes the next
     no-hardware commands without starting MuJoCo or moving a robot.
@@ -160,6 +168,7 @@ python3 scripts/run_replay_mpc_demo.py \
   --model-dir hf_model_dimos_replay_latent \
   --output-dir artifacts/replay_mpc_demo \
   --clean
+python3 scripts/dimos_mcp_bridge_plan.py --clean
 python3 scripts/build_submission_bundle.py
 ```
 
@@ -329,6 +338,35 @@ artifacts/replay_mpc_demo/candidate_scores.json
 artifacts/replay_mpc_demo/selected_action.json
 artifacts/replay_mpc_demo/outcome_after_execution.json
 ```
+
+Build the DimOS MCP bridge proposal from that trace:
+
+```bash
+make dimos-mcp-bridge-plan
+```
+
+Output:
+
+```text
+artifacts/dimos_mcp_bridge_plan/bridge_plan.json
+artifacts/dimos_mcp_bridge_plan/selected_mcp_command.sh
+artifacts/dimos_mcp_bridge_plan/run_plan.sh
+```
+
+This is dry-run only by default. To execute against a running MCP-enabled DimOS
+blueprint, start `unitree-go2-agentic`, confirm `dimos mcp list-tools`, then run:
+
+```bash
+WORLDFORGE_DIMOS_ENABLE_EXECUTE=1 \
+python3 scripts/dimos_mcp_bridge_plan.py \
+  --execute \
+  --confirm LIVE_DIMOS_MCP_EXECUTE \
+  --allow-pose-derived-replay-command
+```
+
+The extra flag is required when the chosen candidate came from replay pose
+deltas, because those deltas are evidence for planning, not raw live velocity
+commands. Use it in simulation first.
 
 ## DimOS Simulation Roadmap
 

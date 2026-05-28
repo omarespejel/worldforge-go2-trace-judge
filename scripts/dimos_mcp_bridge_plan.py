@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+"""Convert a WorldForge replay-MPC decision into a DimOS MCP command plan.
+
+This script is intentionally dry-run-first. It reads the JSON artifacts emitted
+by ``run_replay_mpc_demo.py`` and writes a conservative DimOS MCP command
+proposal. Live execution is opt-in and requires both a confirmation string and
+an environment variable.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_TRACE_DIR = ROOT / "artifacts" / "replay_mpc_demo"
+DEFAULT_OUTPUT_DIR = ROOT / "artifacts" / "dimos_mcp_bridge_plan"
+DEFAULT_DIMOS_REPO = Path(
+    os.environ.get(
+        "DIMOS_REPO",
+        "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge",
+    )
+)
+EXECUTE_ENV = "WORLDFORGE_DIMOS_ENABLE_EXECUTE"
+CONFIRM_TEXT = "LIVE_DIMOS_MCP_EXECUTE"
+POSE_DERIVED_CANDIDATES = {"actual_egomotion", "reverse_actual"}
+
+JSON = dict[str, Any]
+
+
+def read_json(path: Path) -> JSON:
+    if not path.exists():
+        raise FileNotFoundError(f"Missing required artifact: {path}")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def clamp(value: float, lower: float, upper: float) -> float:
+    return max(lower, min(upper, value))
+
+
+def rounded(value: float) -> float:
+    return round(float(value), 4)
+
+
+def find_dimos_binary(dimos_repo: Path) -> str:
+    candidates = [
+        os.environ.get("DIMOS_BIN"),
+        shutil.which("dimos"),
+        str(dimos_repo / ".venv" / "bin" / "dimos"),
+    ]
+    for candidate in candidates:
+        if candidate and Path(candidate).exists():
+            return str(Path(candidate).expanduser())
+    return "dimos"
+
+
+def command_for_candidate(
+    candidate_id: str,
+    action_vector: list[float],
+    *,
+    max_forward_m: float,
+    max_left_m: float,
+    max_rotation_deg: float,
+) -> tuple[str, JSON, str]:
+    """Map replay-MPC candidate IDs to conservative DimOS MCP tool calls."""
+    if candidate_id == "zero_motion":
+        return "wait", {"seconds": 1.0}, "Zero-motion candidate maps to the Unitree wait skill."
+
+    if candidate_id == "rotate_left":
+        return (
+            "relative_move",
+            {"forward": 0.0, "left": 0.0, "degrees": rounded(max_rotation_deg)},
+            "Counterfactual rotate-left candidate maps to an in-place left turn.",
+        )
+
+    if candidate_id == "rotate_right":
+        return (
+            "relative_move",
+            {"forward": 0.0, "left": 0.0, "degrees": rounded(-max_rotation_deg)},
+            "Counterfactual rotate-right candidate maps to an in-place right turn.",
+        )
+
+    if candidate_id == "forward_same_distance":
+        distance = abs(action_vector[4]) if len(action_vector) > 4 else max_forward_m
+        return (
+            "relative_move",
+            {"forward": rounded(clamp(distance, 0.05, max_forward_m)), "left": 0.0, "degrees": 0.0},
+            "Forward-distance candidate maps to a bounded straight relative_move.",
+        )
+
+    if candidate_id == "reverse_actual":
+        distance = abs(action_vector[4]) if len(action_vector) > 4 else max_forward_m
+        return (
+            "relative_move",
+            {"forward": rounded(-clamp(distance, 0.05, max_forward_m)), "left": 0.0, "degrees": 0.0},
+            "Reverse candidate maps to a bounded backward relative_move.",
+        )
+
+    if candidate_id == "actual_egomotion":
+        forward = action_vector[0] if len(action_vector) > 0 else 0.0
+        left = action_vector[1] if len(action_vector) > 1 else 0.0
+        yaw_like = action_vector[2] if len(action_vector) > 2 else 0.0
+        degrees = yaw_like * 57.29577951308232
+        return (
+            "relative_move",
+            {
+                "forward": rounded(clamp(forward, -max_forward_m, max_forward_m)),
+                "left": rounded(clamp(left, -max_left_m, max_left_m)),
+                "degrees": rounded(clamp(degrees, -max_rotation_deg, max_rotation_deg)),
+            },
+            (
+                "Observed replay egomotion maps to a bounded relative_move. "
+                "The vector is pose-derived replay evidence, so the live command is deliberately clamped."
+            ),
+        )
+
+    return (
+        "wait",
+        {"seconds": 1.0},
+        f"Unknown candidate {candidate_id!r}; safe fallback is wait.",
+    )
+
+
+def build_mcp_command(dimos_bin: str, tool: str, params: JSON) -> list[str]:
+    return [dimos_bin, "mcp", "call", tool, "--json-args", json.dumps(params, sort_keys=True)]
+
+
+def shell_quote(value: str) -> str:
+    return "'" + value.replace("'", "'\"'\"'") + "'"
+
+
+def command_to_shell(cmd: list[str]) -> str:
+    return " ".join(shell_quote(part) for part in cmd)
+
+
+def write_shell_plan(path: Path, plan: JSON) -> None:
+    lines = [
+        "#!/usr/bin/env bash",
+        "set -euo pipefail",
+        "",
+        "# Generated by scripts/dimos_mcp_bridge_plan.py.",
+        "# Start an MCP-enabled DimOS blueprint first, for example:",
+        "#   dimos --simulation mujoco --viewer none --rerun-open none run unitree-go2-agentic --daemon",
+        "# Then inspect tools:",
+        "#   dimos mcp list-tools",
+        "",
+        "# Dry-run command proposal:",
+        f"echo {shell_quote(plan['mcp_shell_command'])}",
+        "",
+        "# Live execution remains gated in the Python script:",
+        "#   WORLDFORGE_DIMOS_ENABLE_EXECUTE=1 python3 scripts/dimos_mcp_bridge_plan.py --execute --confirm LIVE_DIMOS_MCP_EXECUTE",
+        "",
+    ]
+    path.write_text("\n".join(lines), encoding="utf-8")
+    path.chmod(0o755)
+
+
+def maybe_execute(args: argparse.Namespace, plan: JSON) -> JSON:
+    if not args.execute:
+        return {"executed": False, "reason": "dry_run_default"}
+
+    if args.confirm != CONFIRM_TEXT:
+        raise RuntimeError(f"Execution requires --confirm {CONFIRM_TEXT}")
+    if os.environ.get(EXECUTE_ENV) != "1":
+        raise RuntimeError(f"Execution requires {EXECUTE_ENV}=1")
+    candidate_id = plan["selected_worldforge_candidate"]["candidate_id"]
+    if candidate_id in POSE_DERIVED_CANDIDATES and not args.allow_pose_derived_replay_command:
+        raise RuntimeError(
+            f"Execution of pose-derived replay candidate {candidate_id!r} requires "
+            "--allow-pose-derived-replay-command. Prefer simulation first."
+        )
+
+    proc = subprocess.run(
+        plan["mcp_command"],
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=args.execute_timeout_s,
+    )
+    return {
+        "executed": True,
+        "returncode": proc.returncode,
+        "stdout": proc.stdout,
+        "stderr": proc.stderr,
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--trace-dir", type=Path, default=DEFAULT_TRACE_DIR)
+    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument("--dimos-repo", type=Path, default=DEFAULT_DIMOS_REPO)
+    parser.add_argument("--dimos-bin", default="")
+    parser.add_argument("--max-forward-m", type=float, default=0.5)
+    parser.add_argument("--max-left-m", type=float, default=0.3)
+    parser.add_argument("--max-rotation-deg", type=float, default=30.0)
+    parser.add_argument("--clean", action="store_true")
+    parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--confirm", default="")
+    parser.add_argument(
+        "--allow-pose-derived-replay-command",
+        action="store_true",
+        help=(
+            "Allow live execution when the selected candidate came from replay pose deltas. "
+            "Use only in simulation or under direct operator supervision."
+        ),
+    )
+    parser.add_argument("--execute-timeout-s", type=float, default=120.0)
+    args = parser.parse_args()
+
+    trace_dir = args.trace_dir.expanduser().resolve()
+    output_dir = args.output_dir.expanduser().resolve()
+    dimos_repo = args.dimos_repo.expanduser().resolve()
+
+    if args.clean and output_dir.exists():
+        shutil.rmtree(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    score_info = read_json(trace_dir / "score_info.json")
+    candidate_scores = read_json(trace_dir / "candidate_scores.json")
+    selected_action = read_json(trace_dir / "selected_action.json")
+    selected = selected_action["selected"]
+    candidate_id = selected["candidate_id"]
+    action_vector = [float(value) for value in selected.get("action_vector", [])]
+    tool, params, mapping_note = command_for_candidate(
+        candidate_id,
+        action_vector,
+        max_forward_m=args.max_forward_m,
+        max_left_m=args.max_left_m,
+        max_rotation_deg=args.max_rotation_deg,
+    )
+
+    dimos_bin = args.dimos_bin or find_dimos_binary(dimos_repo)
+    mcp_command = build_mcp_command(dimos_bin, tool, params)
+    plan = {
+        "schema_version": 1,
+        "run_id": "dimos-mcp-bridge-plan",
+        "source_trace_dir": str(trace_dir),
+        "dimos_repo": str(dimos_repo),
+        "dimos_bin": dimos_bin,
+        "selected_worldforge_candidate": selected,
+        "score_info_summary": {
+            "demo_type": score_info.get("demo_type"),
+            "world_model": score_info.get("world_model"),
+            "score_contract": score_info.get("score_contract"),
+        },
+        "candidate_score_order": [
+            {"candidate_id": item["candidate_id"], "score": item["score"]}
+            for item in candidate_scores.get("scores", [])
+        ],
+        "mcp_tool": tool,
+        "mcp_params": params,
+        "mcp_command": mcp_command,
+        "mcp_shell_command": command_to_shell(mcp_command),
+        "mapping_note": mapping_note,
+        "safety": {
+            "dry_run_by_default": True,
+            "execute_requires_confirm": CONFIRM_TEXT,
+            "execute_requires_env": f"{EXECUTE_ENV}=1",
+            "pose_derived_replay_candidates_require_extra_flag": sorted(POSE_DERIVED_CANDIDATES),
+            "motion_limits": {
+                "max_forward_m": args.max_forward_m,
+                "max_left_m": args.max_left_m,
+                "max_rotation_deg": args.max_rotation_deg,
+            },
+            "host_boundary": "DimOS owns robot/sim execution and safety; this script only proposes or explicitly invokes MCP tools.",
+        },
+        "references": {
+            "dimos_skill_source": "dimos/robot/unitree/unitree_skill_container.py::relative_move,wait",
+            "dimos_cli_source": "docs/usage/cli.md::dimos mcp call",
+        },
+    }
+    execution = maybe_execute(args, plan)
+    plan["execution"] = execution
+
+    (output_dir / "bridge_plan.json").write_text(json.dumps(plan, indent=2, sort_keys=True) + "\n")
+    (output_dir / "selected_mcp_command.sh").write_text(plan["mcp_shell_command"] + "\n", encoding="utf-8")
+    write_shell_plan(output_dir / "run_plan.sh", plan)
+
+    print(json.dumps({"artifacts": {"bridge_plan": str(output_dir / "bridge_plan.json")}}, indent=2))
+    if execution.get("executed") and execution.get("returncode") != 0:
+        return int(execution.get("returncode") or 1)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

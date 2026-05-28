@@ -288,29 +288,49 @@ dimos mcp list-tools
 
 ### Step 4 - Closed-Loop Sim Bridge
 
-Build a small bridge:
+The first executable bridge layer is now a dry-run MCP command plan:
 
 ```text
-DimOS simulated observation
--> six candidate relative moves
--> replay latent dynamics scorer
--> selected candidate
--> DimOS MCP `relative_move`
--> WorldForge trace artifacts
+WorldForge replay-MPC trace
+-> selected candidate action
+-> conservative DimOS MCP command proposal
+-> `relative_move` or `wait`
+-> execution gate remains host-owned
 ```
 
-Start in dry-run mode:
+Regenerate the replay-MPC trace and build the bridge proposal:
 
 ```bash
-python3 scripts/run_replay_mpc_demo.py \
-  --dataset-dir hf_dataset_dimos_replay \
-  --model-dir hf_model_dimos_replay_latent \
-  --output-dir artifacts/replay_mpc_demo \
-  --clean
+make replay-mpc-demo
+make dimos-mcp-bridge-plan
 ```
 
-Then add a DimOS-specific execution wrapper only after MCP tools are visible in
-simulation.
+This writes:
+
+```text
+artifacts/dimos_mcp_bridge_plan/bridge_plan.json
+artifacts/dimos_mcp_bridge_plan/selected_mcp_command.sh
+artifacts/dimos_mcp_bridge_plan/run_plan.sh
+```
+
+The command is deliberately clamped because replay egomotion is pose-derived
+evidence, not a raw live velocity command. Live execution is disabled by default.
+After host prep succeeds and an MCP-enabled blueprint is running:
+
+```bash
+dimos --simulation mujoco --viewer none --rerun-open none run unitree-go2-agentic --daemon
+dimos mcp list-tools
+WORLDFORGE_DIMOS_ENABLE_EXECUTE=1 \
+python3 scripts/dimos_mcp_bridge_plan.py \
+  --execute \
+  --confirm LIVE_DIMOS_MCP_EXECUTE \
+  --allow-pose-derived-replay-command
+```
+
+The final flag is intentionally verbose. It acknowledges that the current
+replay-MPC candidates are pose-derived evidence. The long-term version should
+score candidate actions produced directly in the DimOS `relative_move` action
+space, which removes this extra review gate.
 
 ### Step 5 - Stronger Model Experiments
 
