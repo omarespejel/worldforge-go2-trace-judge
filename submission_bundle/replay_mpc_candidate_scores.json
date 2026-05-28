@@ -1,0 +1,84 @@
+{
+  "run_id": "replay-mpc-demo",
+  "schema_version": 1,
+  "scores": [
+    {
+      "action_vector": [
+        -1.408464,
+        0.583769,
+        0.852452,
+        -0.477194,
+        1.52465,
+        3.01591
+      ],
+      "candidate_id": "actual_egomotion",
+      "score": 0.521666,
+      "selected_in_replay": true
+    },
+    {
+      "action_vector": [
+        0.0,
+        0.0,
+        0.852452,
+        -0.477194,
+        0.0,
+        3.01591
+      ],
+      "candidate_id": "rotate_left",
+      "score": 0.504633,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        1.408464,
+        -0.583769,
+        -0.852452,
+        -0.477194,
+        1.52465,
+        3.01591
+      ],
+      "candidate_id": "reverse_actual",
+      "score": 0.503844,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        1.52465,
+        0.0,
+        0.0,
+        0.0,
+        1.52465,
+        3.01591
+      ],
+      "candidate_id": "forward_same_distance",
+      "score": 0.503444,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.01591
+      ],
+      "candidate_id": "zero_motion",
+      "score": 0.500955,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        0.0,
+        0.0,
+        -0.852452,
+        -0.477194,
+        0.0,
+        3.01591
+      ],
+      "candidate_id": "rotate_right",
+      "score": 0.500205,
+      "selected_in_replay": false
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import argparse
 import json
 import math
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import numpy as np
 from PIL import Image
@@ -79,6 +79,10 @@ def _ridge_multi(x: np.ndarray, y: np.ndarray, alpha: float) -> np.ndarray:
     reg = np.eye(xtx.shape[0]) * alpha
     reg[-1, -1] = 0.0  # Do not regularize bias.
     return np.linalg.solve(xtx + reg, x.T @ y)
+
+
+def _gelu(x: np.ndarray) -> np.ndarray:
+    return 0.5 * x * (1.0 + np.tanh(np.sqrt(2.0 / np.pi) * (x + 0.044715 * np.power(x, 3))))
 
 
 def _cosine(a: np.ndarray, b: np.ndarray) -> np.ndarray:
@@ -177,7 +181,12 @@ def feature_matrix(rows: list[JSON], embeddings: dict[str, list[float]], dataset
     )
 
 
-def evaluate_selection(rows: list[JSON], embeddings: dict[str, list[float]], dataset_dir: Path, weights: np.ndarray, mean: np.ndarray, std: np.ndarray) -> JSON:
+def evaluate_selection(
+    rows: list[JSON],
+    embeddings: dict[str, list[float]],
+    dataset_dir: Path,
+    predict_residual: Callable[[np.ndarray], np.ndarray],
+) -> JSON:
     if not rows:
         return {"groups": 0, "accuracy": 0.0}
     correct = 0
@@ -191,9 +200,7 @@ def evaluate_selection(rows: list[JSON], embeddings: dict[str, list[float]], dat
         scored: list[tuple[str, float, bool]] = []
         for candidate in candidate_actions(row):
             raw = np.asarray([current + candidate["action_vector"]], dtype=float)
-            x_norm = (raw - mean) / std
-            x_aug = np.concatenate([x_norm, np.ones((1, 1))], axis=1)
-            pred = current_latent + x_aug @ weights
+            pred = current_latent + predict_residual(raw)
             score = float(_cosine(pred, goal.reshape(1, -1))[0])
             scored.append((candidate["candidate_id"], score, bool(candidate["selected"])))
         scored_sorted = sorted(scored, key=lambda item: item[1], reverse=True)
@@ -224,6 +231,87 @@ def evaluate_selection(rows: list[JSON], embeddings: dict[str, list[float]], dat
     }
 
 
+def _train_mlp_head(
+    x_train: np.ndarray,
+    residual_train: np.ndarray,
+    x_validation: np.ndarray,
+    residual_validation: np.ndarray,
+    *,
+    hidden_dim: int,
+    epochs: int,
+    lr: float,
+    weight_decay: float,
+    batch_size: int,
+    device_arg: str,
+) -> tuple[dict[str, Any], list[JSON]]:
+    try:
+        import torch
+    except Exception as exc:
+        raise RuntimeError("MLP head training needs torch.") from exc
+
+    if device_arg == "auto":
+        device = "mps" if getattr(torch.backends, "mps", None) and torch.backends.mps.is_available() else "cpu"
+    else:
+        device = device_arg
+
+    torch.manual_seed(7)
+    model = torch.nn.Sequential(
+        torch.nn.Linear(x_train.shape[1], hidden_dim),
+        torch.nn.GELU(),
+        torch.nn.Linear(hidden_dim, residual_train.shape[1]),
+    ).to(device)
+    optimiser = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
+    x_t = torch.tensor(x_train, dtype=torch.float32, device=device)
+    y_t = torch.tensor(residual_train, dtype=torch.float32, device=device)
+    x_v = torch.tensor(x_validation, dtype=torch.float32, device=device)
+    y_v = torch.tensor(residual_validation, dtype=torch.float32, device=device)
+    batch_size = min(max(8, batch_size), len(x_train))
+    best_state: dict[str, Any] | None = None
+    best_val = float("inf")
+    history: list[JSON] = []
+
+    for epoch in range(1, epochs + 1):
+        model.train()
+        order = torch.randperm(len(x_t), device=device)
+        train_losses: list[float] = []
+        for start in range(0, len(x_t), batch_size):
+            idx = order[start : start + batch_size]
+            pred = model(x_t[idx])
+            loss = torch.nn.functional.mse_loss(pred, y_t[idx])
+            optimiser.zero_grad(set_to_none=True)
+            loss.backward()
+            optimiser.step()
+            train_losses.append(float(loss.detach().cpu()))
+
+        if epoch == 1 or epoch % 10 == 0 or epoch == epochs:
+            model.eval()
+            with torch.no_grad():
+                val_loss = float(torch.nn.functional.mse_loss(model(x_v), y_v).detach().cpu())
+            train_loss = float(np.mean(train_losses))
+            history.append({"epoch": epoch, "train_mse": round(train_loss, 8), "validation_mse": round(val_loss, 8)})
+            if val_loss < best_val:
+                best_val = val_loss
+                best_state = {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
+
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    first: torch.nn.Linear = model[0]  # type: ignore[assignment]
+    second: torch.nn.Linear = model[2]  # type: ignore[assignment]
+    head = {
+        "head_type": "mlp",
+        "hidden_dim": hidden_dim,
+        "activation": "gelu",
+        "training_history": history,
+        "layers": {
+            "linear1_weight": first.weight.detach().cpu().numpy().T.tolist(),
+            "linear1_bias": first.bias.detach().cpu().numpy().tolist(),
+            "linear2_weight": second.weight.detach().cpu().numpy().T.tolist(),
+            "linear2_bias": second.bias.detach().cpu().numpy().tolist(),
+        },
+    }
+    return head, history
+
+
 def train(args: argparse.Namespace) -> None:
     dataset_dir = Path(args.dataset_dir).resolve()
     output_dir = Path(args.output_dir).resolve()
@@ -240,26 +328,65 @@ def train(args: argparse.Namespace) -> None:
 
     x_train_raw, y_train, current_train, _ = feature_matrix(train_rows, embeddings, dataset_dir)
     x_train, mean, std = _normalise_rows(x_train_raw)
-    x_train_aug = np.concatenate([x_train, np.ones((len(x_train), 1))], axis=1)
+    residual_train = y_train - current_train
+    x_val_raw, y_val, current_val, _ = feature_matrix(validation_rows or test_rows or train_rows, embeddings, dataset_dir)
+    x_val = (x_val_raw - mean) / std
+    residual_val = y_val - current_val
+
     # Slow robot-view video is dominated by visual persistence. Predict the
     # action-conditioned residual instead of relearning the full future latent.
-    weights = _ridge_multi(x_train_aug, y_train - current_train, args.alpha)
+    if args.head == "ridge":
+        x_train_aug = np.concatenate([x_train, np.ones((len(x_train), 1))], axis=1)
+        weights = _ridge_multi(x_train_aug, residual_train, args.alpha)
+        head: JSON = {
+            "head_type": "ridge",
+            "alpha": args.alpha,
+            "weights_shape": list(weights.shape),
+            "weights": [[round(float(value), 10) for value in row] for row in weights],
+        }
+
+        def predict_residual(raw_x: np.ndarray) -> np.ndarray:
+            x_norm = (raw_x - mean) / std
+            x_aug = np.concatenate([x_norm, np.ones((len(x_norm), 1))], axis=1)
+            return x_aug @ weights
+
+    else:
+        head, _history = _train_mlp_head(
+            x_train,
+            residual_train,
+            x_val,
+            residual_val,
+            hidden_dim=args.hidden_dim,
+            epochs=args.epochs,
+            lr=args.lr,
+            weight_decay=args.weight_decay,
+            batch_size=args.train_batch_size,
+            device_arg=args.device,
+        )
+        layer1_w = np.asarray(head["layers"]["linear1_weight"], dtype=float)
+        layer1_b = np.asarray(head["layers"]["linear1_bias"], dtype=float)
+        layer2_w = np.asarray(head["layers"]["linear2_weight"], dtype=float)
+        layer2_b = np.asarray(head["layers"]["linear2_bias"], dtype=float)
+
+        def predict_residual(raw_x: np.ndarray) -> np.ndarray:
+            x_norm = (raw_x - mean) / std
+            hidden = _gelu(x_norm @ layer1_w + layer1_b)
+            return hidden @ layer2_w + layer2_b
 
     def predict(split_rows: list[JSON]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         x_raw, y, current, _ = feature_matrix(split_rows, embeddings, dataset_dir)
-        x_norm = (x_raw - mean) / std
-        x_aug = np.concatenate([x_norm, np.ones((len(x_norm), 1))], axis=1)
-        pred = current + x_aug @ weights
+        pred = current + predict_residual(x_raw)
         return pred, y, current
 
     eval_report: JSON = {
         "schema_version": 1,
         "model_type": "dimos_go2_replay_latent_dynamics_head",
-        "architecture": "frozen_dinov2_current_latent_plus_egomotion_to_future_latent_residual_ridge_head",
+        "architecture": f"frozen_dinov2_current_latent_plus_egomotion_to_future_latent_residual_{args.head}_head",
         "claim_boundary": "Fine-tunes/trains only a small latent dynamics head on DimOS Go2 replay-derived pairs. The DINOv2 backbone is frozen; this is not a trained V-JEPA or Go2 foundation world model.",
         "dataset_dir": str(dataset_dir),
         "backbone": args.model_name,
         "backbone_frozen": True,
+        "head_type": args.head,
         "alpha": args.alpha,
         "input_schema": {
             "current_latent": "frozen DINOv2 CLS embedding of current robot-view frame",
@@ -281,7 +408,7 @@ def train(args: argparse.Namespace) -> None:
         pred, y, current = predict(split_rows)
         eval_report["latent_prediction_metrics"][split] = metrics(y, pred, current)
         eval_report["worldforge_candidate_scoring_eval"][split] = evaluate_selection(
-            split_rows, embeddings, dataset_dir, weights, mean, std
+            split_rows, embeddings, dataset_dir, predict_residual
         )
 
     model = {
@@ -292,20 +419,19 @@ def train(args: argparse.Namespace) -> None:
         "backbone": args.model_name,
         "backbone_frozen": True,
         "feature_names": [f"current_latent:{i}" for i in range(y_train.shape[1])]
-        + ["dx_body_m", "dy_body_m", "sin_dyaw", "cos_dyaw_minus_1", "distance_m", "horizon_s", "bias"],
+        + ["dx_body_m", "dy_body_m", "sin_dyaw", "cos_dyaw_minus_1", "distance_m", "horizon_s"],
         "normalization": {
             "mean": [round(float(value), 10) for value in mean],
             "std": [round(float(value), 10) for value in std],
         },
-        "weights_shape": list(weights.shape),
-        "weights": [[round(float(value), 10) for value in row] for row in weights],
+        "head": head,
         "training_summary": eval_report,
     }
     (output_dir / "model.json").write_text(json.dumps(model, indent=2, sort_keys=True) + "\n")
     (output_dir / "eval_report.json").write_text(json.dumps(eval_report, indent=2, sort_keys=True) + "\n")
 
     sample_rows = (test_rows or validation_rows or train_rows)[:20]
-    selection = evaluate_selection(sample_rows, embeddings, dataset_dir, weights, mean, std)
+    selection = evaluate_selection(sample_rows, embeddings, dataset_dir, predict_residual)
     (output_dir / "candidate_scores_sample.json").write_text(json.dumps(selection["examples"], indent=2, sort_keys=True) + "\n")
     (output_dir / "README.md").write_text(model_card(eval_report), encoding="utf-8")
     print(json.dumps(eval_report, indent=2, sort_keys=True))
@@ -333,7 +459,7 @@ This is an experimental WorldForge-style world-model head trained on the derived
 
 ## What Was Trained
 
-Only a small ridge dynamics head was trained:
+Only a small `{eval_report["head_type"]}` dynamics head was trained:
 
 ```text
 frozen DINOv2 current-frame latent + egomotion/action delta
@@ -376,7 +502,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default="artifacts/dimos_replay_latent_dynamics")
     parser.add_argument("--model-name", default="facebook/dinov2-small")
     parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument("--head", choices=["ridge", "mlp"], default="ridge")
     parser.add_argument("--alpha", type=float, default=10.0)
+    parser.add_argument("--hidden-dim", type=int, default=512)
+    parser.add_argument("--epochs", type=int, default=120)
+    parser.add_argument("--lr", type=float, default=0.001)
+    parser.add_argument("--weight-decay", type=float, default=0.0001)
+    parser.add_argument("--train-batch-size", type=int, default=128)
     parser.add_argument("--device", default="auto", choices=["auto", "cpu", "mps"])
     return parser.parse_args()
 

@@ -1,0 +1,12 @@
+{
+  "artifacts": {
+    "candidate_scores": "artifacts/replay_mpc_demo/candidate_scores.json",
+    "outcome_after_execution": "artifacts/replay_mpc_demo/outcome_after_execution.json",
+    "score_info": "artifacts/replay_mpc_demo/score_info.json",
+    "selected_action": "artifacts/replay_mpc_demo/selected_action.json",
+    "summary_image": "artifacts/replay_mpc_demo/predicted_vs_actual_future.jpg",
+    "video": "artifacts/replay_mpc_demo/replay_mpc_demo.mp4"
+  },
+  "run_id": "replay-mpc-demo",
+  "schema_version": 1
+}

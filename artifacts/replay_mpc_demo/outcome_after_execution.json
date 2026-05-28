@@ -1,0 +1,8 @@
+{
+  "actual_future_frame": "images/frames/go2_slamabuse1_frame_001791.jpg",
+  "note": "Offline replay evaluation uses the actual future frame as the visual goal for auditing the world-model scorer.",
+  "outcome_type": "offline_replay_eval",
+  "run_id": "replay-mpc-demo",
+  "schema_version": 1,
+  "selected_matches_observed_replay_action": true
+}

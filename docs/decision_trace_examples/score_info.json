@@ -70,7 +70,7 @@
   ],
   "capability": "score",
   "claim_boundary": "Small scorer head trained on transparent labels from real Go2 frames and label-safe real-photo-edit counterfactuals. Not a Go2 foundation world model.",
-  "model_artifact": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/micro_world_scorer/model.json",
+  "model_artifact": "artifacts/micro_world_scorer/model.json",
   "provider": "go2-cube-micro-world-scorer",
   "score_info": {
     "embodiment": "unitree_go2",

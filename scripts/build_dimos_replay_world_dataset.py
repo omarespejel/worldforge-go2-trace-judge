@@ -49,7 +49,28 @@ DIMOS_LFS_OBJECTS: dict[str, dict[str, Any]] = {
         "size": 196_309_743,
         "db_name": "go2_bigoffice.db",
         "description": "Public DimOS Unitree Go2 big-office replay with robot-view image, odom, and lidar streams.",
-    }
+    },
+    "go2_hongkong_office": {
+        "path": "data/.lfs/go2_hongkong_office.db.tar.gz",
+        "oid": "d1bb7de9a090b4053ba1ee4f36d776e439d970cba08ebb489f9311f26946f56c",
+        "size": 772_688_230,
+        "db_name": "go2_hongkong_office.db",
+        "description": "Larger public DimOS Unitree Go2 Hong Kong office replay with robot-view image, odom, and lidar streams.",
+    },
+    "go2_slamabuse1": {
+        "path": "data/.lfs/go2_slamabuse1.db.tar.gz",
+        "oid": "a85feac43debdebf344c567483ab7d1bec12c3cf9e4df26034260a24e225f219",
+        "size": 285_259_757,
+        "db_name": "go2_slamabuse1.db",
+        "description": "Public DimOS Unitree Go2 SLAM stress-test replay with robot-view image, odom, and lidar streams.",
+    },
+    "go2_slamabuse2": {
+        "path": "data/.lfs/go2_slamabuse2.db.tar.gz",
+        "oid": "7d9a13596cf3d9a50e437fa89e8a3d68d843587116681564b4de7422b53c54dd",
+        "size": 306_440_341,
+        "db_name": "go2_slamabuse2.db",
+        "description": "Second public DimOS Unitree Go2 SLAM stress-test replay with robot-view image, odom, and lidar streams.",
+    },
 }
 
 
@@ -453,6 +474,11 @@ def dataset_card(summary: JSON) -> str:
         f"- `{name}`: `{summary['source_lfs_paths'][name]}` / `{summary['source_lfs_oids'][name]}`"
         for name in summary["source_datasets"]
     )
+    size_category = "n<1K"
+    if summary["pair_count"] >= 10_000:
+        size_category = "10K<n<100K"
+    elif summary["pair_count"] >= 1_000:
+        size_category = "1K<n<10K"
     return f"""---
 license: apache-2.0
 task_categories:
@@ -467,7 +493,7 @@ tags:
 - egomotion
 pretty_name: WorldForge Go2 DimOS Replay World Pairs
 size_categories:
-- n<1K
+- {size_category}
 ---
 
 # WorldForge Go2 DimOS Replay World Pairs

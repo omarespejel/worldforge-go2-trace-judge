@@ -39,6 +39,9 @@ The build target uses:
 go2_short
 markers_go2
 go2_bigoffice
+go2_hongkong_office
+go2_slamabuse1
+go2_slamabuse2
 go2_china_office
 ```
 
@@ -49,12 +52,12 @@ script records this in `dataset_summary.json` instead of inventing labels.
 Current derived dataset:
 
 ```text
-pair_count: 540
-train: 378
-validation: 81
-test: 81
-usable source frames: 6478
-unique exported frames: 1071
+pair_count: 2557
+train: 1791
+validation: 383
+test: 383
+usable source frames: 20918
+unique exported frames: 5046
 ```
 
 ## Hugging Face Layout
@@ -109,26 +112,60 @@ Only the ridge residual head is trained. The DINOv2 backbone is frozen.
 Held-out chronological split metrics:
 
 ```text
-validation future cosine: 0.531886
-validation no-motion baseline: 0.518609
-validation lift: +0.013276
+validation future cosine: 0.631262
+validation no-motion baseline: 0.580600
+validation lift: +0.050662
 
-test future cosine: 0.512470
-test no-motion baseline: 0.506077
-test lift: +0.006392
+test future cosine: 0.543147
+test no-motion baseline: 0.524954
+test lift: +0.018193
 
-validation candidate-ranking accuracy: 44.4%
-test candidate-ranking accuracy: 32.1%
+validation candidate-ranking accuracy: 28.5%
+test candidate-ranking accuracy: 25.8%
 random among six candidates: 16.7%
 ```
 
 Interpretation:
 
-- The learned head gives a small positive lift over visual persistence.
-- Candidate ranking is above random but not strong enough to claim autonomous
-  control.
+- The expanded replay dataset improved the core future-latent prediction lift.
+- Candidate ranking is above random but weaker than the earlier smaller split,
+  so we keep the claim narrow: this is useful for score-provider scaffolding,
+  not direct autonomous control.
 - This is a dataset/model scaffold for future WorldForge score providers, not a
   safety controller.
+
+Rejected ablations:
+
+```text
+DINOv2-small MLP head: rejected because validation/test future-latent lift was negative.
+DINOv2-base ridge head: rejected because it underperformed DINOv2-small ridge on test lift.
+```
+
+## Replay-MPC Demo
+
+The no-robot demo uses a held-out replay row as a miniature planning problem:
+
+```text
+current Go2 replay frame
+-> six candidate egomotion actions
+-> predicted future DINOv2 latent for each action
+-> cosine score against actual future replay latent
+-> WorldForge-style trace artifacts
+```
+
+Outputs:
+
+```text
+artifacts/replay_mpc_demo/replay_mpc_demo.mp4
+artifacts/replay_mpc_demo/predicted_vs_actual_future.jpg
+artifacts/replay_mpc_demo/score_info.json
+artifacts/replay_mpc_demo/candidate_scores.json
+artifacts/replay_mpc_demo/selected_action.json
+artifacts/replay_mpc_demo/outcome_after_execution.json
+```
+
+In the current selected demo row, the model ranks the observed replay egomotion
+first against five counterfactual candidates with a positive margin of `+0.0170`.
 
 ## Rebuild
 

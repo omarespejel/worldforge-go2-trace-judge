@@ -2,6 +2,9 @@
   "artifacts": [
     "README.md",
     "candidate_scores.json",
+    "dimos_replay_dataset_card.md",
+    "dimos_replay_dataset_provenance.json",
+    "dimos_replay_dataset_summary.json",
     "dinov2_hybrid_eval.json",
     "dinov2_hybrid_model.json",
     "final_hackathon_video.mp4",
@@ -9,6 +12,7 @@
     "hf_dataset_data",
     "hf_dataset_summary.json",
     "hf_model",
+    "hf_model_dimos_replay_latent",
     "hf_model_dinov2",
     "hf_model_jepa",
     "media_review_contact_sheet.jpg",
@@ -23,11 +27,18 @@
     "model_honesty_report_md.md",
     "outcome_after_execution.json",
     "real_photo_edit_contact_sheet.jpg",
+    "replay_mpc_candidate_scores.json",
+    "replay_mpc_demo.mp4",
+    "replay_mpc_outcome_after_execution.json",
+    "replay_mpc_run_manifest.json",
+    "replay_mpc_score_info.json",
+    "replay_mpc_selected_action.json",
+    "replay_mpc_summary.jpg",
     "run_manifest.json",
     "score_info.json",
     "selected_action.json"
   ],
   "bundle_dir": "submission_bundle",
-  "claim_boundary": "Small micro world scorer over real Go2 frames and label-safe counterfactual traces. Not a Go2 foundation model.",
+  "claim_boundary": "Small scorers over real Go2 frames, label-safe counterfactual traces, and DimOS replay latent dynamics. Not a Go2 foundation model.",
   "schema_version": 1
 }

@@ -12,9 +12,10 @@ MICRO_JEPA_MODEL ?= artifacts/micro_jepa_scorer/model.json
 MICRO_WORLD_IMAGE ?= artifacts/live_ciro/direct_camera_unsafe_path.jpg
 DIMOS_REPLAY_DATASET ?= hf_dataset_dimos_replay
 DIMOS_REPLAY_LATENT_MODEL ?= artifacts/dimos_replay_latent_dynamics
-DIMOS_REPLAY_SOURCE_DATASETS ?= go2_short,go2_china_office,markers_go2,go2_bigoffice
+DIMOS_REPLAY_SOURCE_DATASETS ?= go2_short,markers_go2,go2_bigoffice,go2_hongkong_office,go2_slamabuse1,go2_slamabuse2,go2_china_office
+DIMOS_REPLAY_MAX_PAIRS_PER_SOURCE ?= 500
 
-.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics dimos-replay-stretch ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo dimos-replay-stretch ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
 
 all: hackathon-final
 
@@ -120,6 +121,7 @@ dimos-replay-dataset:
 	$(PYTHON) scripts/build_dimos_replay_world_dataset.py \
 		--datasets "$(DIMOS_REPLAY_SOURCE_DATASETS)" \
 		--output-dir "$(DIMOS_REPLAY_DATASET)" \
+		--max-pairs-per-source "$(DIMOS_REPLAY_MAX_PAIRS_PER_SOURCE)" \
 		--clean
 
 dimos-replay-latent-dynamics:
@@ -133,7 +135,14 @@ dimos-replay-latent-dynamics:
 	cp "$(DIMOS_REPLAY_LATENT_MODEL)/candidate_scores_sample.json" hf_model_dimos_replay_latent/candidate_scores_sample.json
 	cp "$(DIMOS_REPLAY_LATENT_MODEL)/README.md" hf_model_dimos_replay_latent/README.md
 
-dimos-replay-stretch: check dimos-replay-dataset dimos-replay-latent-dynamics
+replay-mpc-demo:
+	$(PYTHON) scripts/run_replay_mpc_demo.py \
+		--dataset-dir "$(DIMOS_REPLAY_DATASET)" \
+		--model-dir hf_model_dimos_replay_latent \
+		--output-dir artifacts/replay_mpc_demo \
+		--clean
+
+dimos-replay-stretch: check dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo
 
 final-video:
 	$(PYTHON) scripts/build_final_showcase_video.py

@@ -41,6 +41,9 @@ why one won, and what artifacts were saved for replay or later training.
   - Hugging Face card/summary/provenance plus a frozen-DINOv2 residual dynamics
     model package. The full replay-derived image/jsonl dataset is published on
     Hugging Face, not duplicated in GitHub. See `docs/DIMOS_REPLAY_WORLD_MODEL.md`.
+- `artifacts/replay_mpc_demo/`
+  - No-robot replay-MPC demo: real DimOS Go2 replay frame, six candidate
+    egomotion actions, latent future scoring, selected action, and JSON trace.
 - `submission_bundle/`
   - Copy-ready hackathon bundle.
 
@@ -104,6 +107,9 @@ scoring, evidence, and replayability.
   - Builds action-conditioned future-frame pairs from public DimOS Go2 replay DBs.
 - `scripts/train_dimos_replay_latent_dynamics.py`
   - Trains a frozen-DINOv2 residual latent dynamics head on the replay pairs.
+- `scripts/run_replay_mpc_demo.py`
+  - Runs replay-time candidate scoring without robot access and writes MP4 plus
+    WorldForge-style trace JSON.
 - `scripts/upload_hf_artifacts.py`
   - Uploads the HF-ready replay dataset/model folders using `HF_TOKEN`.
 - `scripts/audit_model_honesty.py`
@@ -143,6 +149,11 @@ python3 scripts/run_micro_world_scorer_demo.py \
   --run-id latest \
   --clean
 python3 scripts/build_final_showcase_video.py
+python3 scripts/run_replay_mpc_demo.py \
+  --dataset-dir hf_dataset_dimos_replay \
+  --model-dir hf_model_dimos_replay_latent \
+  --output-dir artifacts/replay_mpc_demo \
+  --clean
 python3 scripts/build_submission_bundle.py
 ```
 
@@ -268,24 +279,50 @@ hf_dataset_dimos_replay/
 Current derived replay dataset:
 
 ```text
-pairs: 540
-train/validation/test: 378 / 81 / 81
-usable source frames: 6478
-usable replays: go2_short, markers_go2, go2_bigoffice
+pairs: 2557
+train/validation/test: 1791 / 383 / 383
+usable source frames: 20918
+usable replays: go2_short, markers_go2, go2_bigoffice, go2_hongkong_office,
+  go2_slamabuse1, go2_slamabuse2
 skipped replay: go2_china_office, missing usable pose fields
 ```
 
 Current frozen-DINOv2 residual dynamics head:
 
 ```text
-validation lift vs no-motion baseline: +0.013276 cosine
-test lift vs no-motion baseline: +0.006392 cosine
-validation candidate-ranking accuracy: 44.4%
-test candidate-ranking accuracy: 32.1%
+validation lift vs no-motion baseline: +0.050662 cosine
+test lift vs no-motion baseline: +0.018193 cosine
+validation candidate-ranking accuracy: 28.5%
+test candidate-ranking accuracy: 25.8%
+random among six candidates: 16.7%
 ```
 
 This is deliberately framed as a small action-conditioned world-model head, not a
 trained Go2 foundation model or V-JEPA model.
+
+Rejected ablations:
+
+```text
+DINOv2-small MLP head: rejected, negative test lift despite slightly better ranking.
+DINOv2-base ridge head: rejected, lower test lift than DINOv2-small ridge.
+```
+
+No-robot replay-MPC demo:
+
+```bash
+make replay-mpc-demo
+```
+
+Output:
+
+```text
+artifacts/replay_mpc_demo/replay_mpc_demo.mp4
+artifacts/replay_mpc_demo/predicted_vs_actual_future.jpg
+artifacts/replay_mpc_demo/score_info.json
+artifacts/replay_mpc_demo/candidate_scores.json
+artifacts/replay_mpc_demo/selected_action.json
+artifacts/replay_mpc_demo/outcome_after_execution.json
+```
 
 ## One-Command Demo
 
