@@ -165,16 +165,16 @@ def link(draw: ImageDraw.ImageDraw, y: int, label: str, value: str) -> None:
 def slide_hook(_: float) -> Image.Image:
     img = canvas()
     draw = ImageDraw.Draw(img)
-    text(draw, (88, 94), "Robots should show their work.", F_TITLE)
+    text(draw, (88, 94), "We made Go2 decisions inspectable.", F_TITLE)
     text(draw, (92, 190), "WorldForge Go2 Trace Judge", F_MONO, fill=GREEN)
     image_box(img, path_or_fallback("artifacts/live_ciro/direct_camera_unsafe_path.jpg"), (92, 288, 1300, 924), crop=True)
     panel(draw, (1350, 288, 1818, 924))
-    text(draw, (1384, 334), "one frame", F_MONO, fill=MUTED)
-    text(draw, (1384, 404), "+ goal", F_MONO, fill=MUTED)
-    text(draw, (1384, 474), "+ actions", F_MONO, fill=MUTED)
+    text(draw, (1384, 330), "real Go2 data", F_MONO, fill=GREEN)
+    text(draw, (1384, 402), "open replay dataset", F_MONO, fill=GREEN)
+    text(draw, (1384, 474), "small world model", F_MONO, fill=GREEN)
     draw.line((1386, 548, 1780, 548), fill=INK, width=2)
-    text(draw, (1384, 602), "ranked futures", F_H2, fill=GREEN)
-    text(draw, (1384, 666), "evidence trail", F_H2, fill=GREEN)
+    text(draw, (1384, 602), "candidate scores", F_H2)
+    text(draw, (1384, 666), "decision traces", F_H2)
     text(draw, (92, 992), "github.com/omarespejel/worldforge-go2-trace-judge", F_MONO_SMALL, fill=BLUE)
     return img
 
@@ -242,18 +242,9 @@ def slide_replay_arena(_: float) -> Image.Image:
     )
     image_box(img, contact_sheet, (86, 232, 1218, 866), crop=True)
     panel(draw, (1264, 232, 1830, 866))
-    metric(draw, (1300, 292), str(summary.get("arena_decisions", 12)), "decisions rendered", GREEN)
-    metric(
-        draw,
-        (1300, 484),
-        f"{float(summary.get('selected_match_rate', 1.0)) * 100:.0f}%",
-        "match observed replay action",
-        GREEN,
-    )
-    text(draw, (1302, 688), "same loop", F_MONO, fill=MUTED)
-    text(draw, (1302, 736), "current frame", F_MONO)
-    text(draw, (1302, 782), "+ candidate action", F_MONO)
-    text(draw, (1302, 828), "-> scored future", F_MONO, fill=GREEN)
+    metric(draw, (1300, 292), str(summary.get("scored_rows", 383)), "held-out test rows scored", GREEN)
+    metric(draw, (1300, 484), str(summary.get("arena_decisions", 12)), "rendered trace decisions", GREEN)
+    metric(draw, (1300, 676), str(len(summary.get("sources", [])) or 6), "DimOS replay sources", GREEN)
     return img
 
 
@@ -385,15 +376,14 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     builder = Builder()
     # 58 seconds total, designed for external voiceover.
-    builder.hold(4, slide_hook)
-    builder.hold(6, slide_problem)
-    builder.hold(7, slide_score)
+    builder.hold(5, slide_hook)
+    builder.hold(8, slide_open_artifacts)
+    builder.hold(8, slide_score)
     builder.hold(8, slide_replay_arena)
-    builder.hold(6, slide_trace)
-    builder.hold(5, slide_sim_bridge)
+    builder.hold(7, slide_trace)
+    builder.hold(6, slide_sim_bridge)
     builder.hold(5, slide_worldforge)
-    builder.hold(9, slide_open_artifacts)
-    builder.hold(8, slide_close)
+    builder.hold(11, slide_close)
     cmd = [
         "ffmpeg",
         "-y",
