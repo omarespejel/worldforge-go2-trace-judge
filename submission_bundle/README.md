@@ -3,6 +3,8 @@
 ## Main Demo
 
 - `final_hackathon_video.mp4`: final judge video shell for external voiceover.
+- `sim_decision_trace_video.mp4`: supporting clip showing candidate scoring,
+  trace JSON, and DimOS MCP simulation handoff.
 - `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
 - `micro_world_annotated.jpg`: annotated frame with candidate scores.
 - `replay_mpc_demo.mp4`: no-robot replay-MPC demo from public DimOS Go2 replay data.

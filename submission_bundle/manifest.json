@@ -43,6 +43,7 @@
     "run_manifest.json",
     "score_info.json",
     "selected_action.json",
+    "sim_decision_trace_video.mp4",
     "submission_notes.md"
   ],
   "bundle_dir": "submission_bundle",

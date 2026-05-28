@@ -13,6 +13,7 @@ counterfactual candidate scenes, a small learned scorer, and replayable evidence
 
 ```text
 artifacts/showcase/final_hackathon_video.mp4
+artifacts/showcase/sim_decision_trace_video.mp4
 artifacts/replay_mpc_arena/replay_mpc_arena.mp4
 artifacts/replay_mpc_arena/decision_traces/
 artifacts/dimos_mcp_sim_motion_take2/dimos_mcp_sim_motion_proof.mp4
@@ -66,6 +67,8 @@ selected action and rejected alternatives.
   WorldForge-style trace files.
 - DimOS MCP/MuJoCo bridge proof showing selected movement commands reaching the
   simulated Go2 runtime.
+- 23-second supporting video showing candidate scoring, trace JSON, and the
+  handoff from WorldForge-style decision evidence to DimOS MCP simulation.
 - Model honesty audit with shuffled-label and plate-holdout controls.
 - One-command demo that writes annotated image, MP4, and evidence JSON.
 - 58-second final video.

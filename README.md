@@ -19,7 +19,10 @@ why one won, and what artifacts were saved for replay or later training.
 ## Final Artifacts
 
 - `artifacts/showcase/final_hackathon_video.mp4`
-  - 78-second final video.
+  - 58-second final video.
+- `artifacts/showcase/sim_decision_trace_video.mp4`
+  - 23-second supporting clip: candidate scoring, trace JSON, and DimOS MCP
+    simulation handoff.
 - `artifacts/micro_world_demo/latest/micro_world_trace.mp4`
   - One-command scorer trace from a real Go2 frame.
 - `artifacts/micro_world_demo/latest/`

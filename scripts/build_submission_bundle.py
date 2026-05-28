@@ -27,6 +27,7 @@ def run(args: argparse.Namespace) -> int:
 
     artifacts = {
         "final_hackathon_video": root / "artifacts/showcase/final_hackathon_video.mp4",
+        "sim_decision_trace_video": root / "artifacts/showcase/sim_decision_trace_video.mp4",
         "submission_notes": root / "docs/SUBMISSION.md",
         "micro_world_trace": root / "artifacts/micro_world_demo/latest/micro_world_trace.mp4",
         "micro_world_annotated": root / "artifacts/micro_world_demo/latest/annotated_image.jpg",
@@ -82,6 +83,8 @@ def run(args: argparse.Namespace) -> int:
 ## Main Demo
 
 - `final_hackathon_video.mp4`: final judge video shell for external voiceover.
+- `sim_decision_trace_video.mp4`: supporting clip showing candidate scoring,
+  trace JSON, and DimOS MCP simulation handoff.
 - `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
 - `micro_world_annotated.jpg`: annotated frame with candidate scores.
 - `replay_mpc_demo.mp4`: no-robot replay-MPC demo from public DimOS Go2 replay data.

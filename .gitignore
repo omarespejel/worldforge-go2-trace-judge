@@ -35,6 +35,8 @@ artifacts/replay_run/annotated_frames/
 artifacts/showcase/frames/
 artifacts/showcase/final_frames/
 artifacts/showcase/robot_video_frames/
+artifacts/showcase/sim_decision_frames/
+artifacts/showcase/sim_decision_preview_*.jpg
 artifacts/showcase/qc/thumb_*.jpg
 artifacts/micro_world_demo/*/video_frames/
 artifacts/micro_jepa_demo/*/video_frames/
