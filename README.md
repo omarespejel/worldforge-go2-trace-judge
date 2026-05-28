@@ -44,6 +44,9 @@ why one won, and what artifacts were saved for replay or later training.
 - `artifacts/replay_mpc_demo/`
   - No-robot replay-MPC demo: real DimOS Go2 replay frame, six candidate
     egomotion actions, latent future scoring, selected action, and JSON trace.
+- `artifacts/replay_mpc_arena/`
+  - Multi-scene Replay-MPC arena: 12 held-out DimOS Go2 replay decisions,
+    per-decision WorldForge-style traces, contact sheet, and MP4.
 - `artifacts/dimos_mcp_bridge_plan/`
   - Dry-run DimOS MCP command proposal generated from the replay-MPC selected
     action. This is the bridge between WorldForge scoring evidence and a
@@ -114,6 +117,10 @@ scoring, evidence, and replayability.
 - `scripts/run_replay_mpc_demo.py`
   - Runs replay-time candidate scoring without robot access and writes MP4 plus
     WorldForge-style trace JSON.
+- `scripts/run_replay_mpc_arena.py`
+  - Renders multiple held-out replay decisions as an arena video and writes
+    per-decision `score_info`, `candidate_scores`, `selected_action`, and
+    `outcome_after_execution` traces.
 - `scripts/dimos_mcp_bridge_plan.py`
   - Converts replay-MPC `selected_action.json` into a conservative DimOS MCP
     command plan. Execution is disabled by default and requires an explicit
@@ -167,6 +174,12 @@ python3 scripts/run_replay_mpc_demo.py \
   --dataset-dir hf_dataset_dimos_replay \
   --model-dir hf_model_dimos_replay_latent \
   --output-dir artifacts/replay_mpc_demo \
+  --clean
+python3 scripts/run_replay_mpc_arena.py \
+  --dataset-dir hf_dataset_dimos_replay \
+  --model-dir hf_model_dimos_replay_latent \
+  --output-dir artifacts/replay_mpc_arena \
+  --examples 12 \
   --clean
 python3 scripts/dimos_mcp_bridge_plan.py --clean
 python3 scripts/build_submission_bundle.py

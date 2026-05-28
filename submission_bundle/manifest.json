@@ -2,6 +2,8 @@
   "artifacts": [
     "README.md",
     "candidate_scores.json",
+    "dimos_mcp_sim_motion_proof.mp4",
+    "dimos_mcp_sim_motion_report.json",
     "dimos_replay_dataset_card.md",
     "dimos_replay_dataset_provenance.json",
     "dimos_replay_dataset_summary.json",
@@ -27,6 +29,10 @@
     "model_honesty_report_md.md",
     "outcome_after_execution.json",
     "real_photo_edit_contact_sheet.jpg",
+    "replay_mpc_arena.mp4",
+    "replay_mpc_arena_contact_sheet.jpg",
+    "replay_mpc_arena_decision_traces",
+    "replay_mpc_arena_summary.json",
     "replay_mpc_candidate_scores.json",
     "replay_mpc_demo.mp4",
     "replay_mpc_outcome_after_execution.json",
@@ -36,7 +42,8 @@
     "replay_mpc_summary.jpg",
     "run_manifest.json",
     "score_info.json",
-    "selected_action.json"
+    "selected_action.json",
+    "submission_notes.md"
   ],
   "bundle_dir": "submission_bundle",
   "claim_boundary": "Small scorers over real Go2 frames, label-safe counterfactual traces, and DimOS replay latent dynamics. Not a Go2 foundation model.",

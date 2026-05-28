@@ -27,6 +27,7 @@ def run(args: argparse.Namespace) -> int:
 
     artifacts = {
         "final_hackathon_video": root / "artifacts/showcase/final_hackathon_video.mp4",
+        "submission_notes": root / "docs/SUBMISSION.md",
         "micro_world_trace": root / "artifacts/micro_world_demo/latest/micro_world_trace.mp4",
         "micro_world_annotated": root / "artifacts/micro_world_demo/latest/annotated_image.jpg",
         "real_photo_edit_contact_sheet": root / "artifacts/real_photo_edit_dataset/contact_sheet.jpg",
@@ -52,6 +53,11 @@ def run(args: argparse.Namespace) -> int:
         "replay_mpc_selected_action": root / "artifacts/replay_mpc_demo/selected_action.json",
         "replay_mpc_outcome_after_execution": root / "artifacts/replay_mpc_demo/outcome_after_execution.json",
         "replay_mpc_run_manifest": root / "artifacts/replay_mpc_demo/run_manifest.json",
+        "replay_mpc_arena": root / "artifacts/replay_mpc_arena/replay_mpc_arena.mp4",
+        "replay_mpc_arena_contact_sheet": root / "artifacts/replay_mpc_arena/arena_contact_sheet.jpg",
+        "replay_mpc_arena_summary": root / "artifacts/replay_mpc_arena/arena_summary.json",
+        "dimos_mcp_sim_motion_proof": root / "artifacts/dimos_mcp_sim_motion_take2/dimos_mcp_sim_motion_proof.mp4",
+        "dimos_mcp_sim_motion_report": root / "artifacts/dimos_mcp_sim_motion_take2/motion_take2_report.json",
         "score_info": root / "artifacts/micro_world_demo/latest/score_info.json",
         "candidate_scores": root / "artifacts/micro_world_demo/latest/candidate_scores.json",
         "selected_action": root / "artifacts/micro_world_demo/latest/selected_action.json",
@@ -69,6 +75,7 @@ def run(args: argparse.Namespace) -> int:
     _copy_tree(root / "hf_model_jepa", out / "hf_model_jepa")
     _copy_tree(root / "hf_model_dinov2", out / "hf_model_dinov2")
     _copy_tree(root / "hf_model_dimos_replay_latent", out / "hf_model_dimos_replay_latent")
+    _copy_tree(root / "artifacts/replay_mpc_arena/decision_traces", out / "replay_mpc_arena_decision_traces")
 
     readme = """# WorldForge Go2 Trace Judge Submission Bundle
 
@@ -78,8 +85,12 @@ def run(args: argparse.Namespace) -> int:
 - `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
 - `micro_world_annotated.jpg`: annotated frame with candidate scores.
 - `replay_mpc_demo.mp4`: no-robot replay-MPC demo from public DimOS Go2 replay data.
+- `replay_mpc_arena.mp4`: multi-scene replay-MPC arena over held-out DimOS Go2
+  replay rows.
 - `replay_mpc_summary.jpg`: white-background summary frame showing current view,
   actual replay future, ranked candidate futures, and selected action.
+- `dimos_mcp_sim_motion_proof.mp4`: simulation proof that selected MCP movement
+  commands execute through DimOS/MuJoCo.
 
 ## Evidence
 
@@ -93,6 +104,9 @@ def run(args: argparse.Namespace) -> int:
 - `replay_mpc_selected_action.json`
 - `replay_mpc_outcome_after_execution.json`
 - `replay_mpc_run_manifest.json`
+- `replay_mpc_arena_summary.json`
+- `replay_mpc_arena_contact_sheet.jpg`
+- `dimos_mcp_sim_motion_report.json`
 
 These show the WorldForge-style boundary:
 

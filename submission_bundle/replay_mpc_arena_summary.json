@@ -1,0 +1,23 @@
+{
+  "arena_decisions": 12,
+  "artifacts": {
+    "contact_sheet": "artifacts/replay_mpc_arena/arena_contact_sheet.jpg",
+    "decision_traces": "artifacts/replay_mpc_arena/decision_traces",
+    "video": "artifacts/replay_mpc_arena/replay_mpc_arena.mp4"
+  },
+  "dataset_pairs": 2557,
+  "run_id": "replay-mpc-arena",
+  "schema_version": 1,
+  "scored_rows": 383,
+  "scored_split": "test",
+  "selected_match_rate": 1.0,
+  "selected_matches_observed_replay_action": 12,
+  "sources": [
+    "go2_bigoffice",
+    "go2_hongkong_office",
+    "go2_short",
+    "go2_slamabuse1",
+    "go2_slamabuse2",
+    "markers_go2"
+  ]
+}

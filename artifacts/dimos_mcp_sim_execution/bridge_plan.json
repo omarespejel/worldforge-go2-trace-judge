@@ -1,0 +1,97 @@
+{
+  "candidate_score_order": [
+    {
+      "candidate_id": "actual_egomotion",
+      "score": 0.521666
+    },
+    {
+      "candidate_id": "rotate_left",
+      "score": 0.504633
+    },
+    {
+      "candidate_id": "reverse_actual",
+      "score": 0.503844
+    },
+    {
+      "candidate_id": "forward_same_distance",
+      "score": 0.503444
+    },
+    {
+      "candidate_id": "zero_motion",
+      "score": 0.500955
+    },
+    {
+      "candidate_id": "rotate_right",
+      "score": 0.500205
+    }
+  ],
+  "dimos_bin": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/.venv/bin/dimos",
+  "dimos_repo": "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge",
+  "execution": {
+    "executed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Navigation goal reached\n"
+  },
+  "mapping_note": "Observed replay egomotion maps to a bounded relative_move. The vector is pose-derived replay evidence, so the live command is deliberately clamped.",
+  "mcp_command": [
+    "/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/.venv/bin/dimos",
+    "mcp",
+    "call",
+    "relative_move",
+    "--json-args",
+    "{\"degrees\": 30.0, \"forward\": -0.5, \"left\": 0.3}"
+  ],
+  "mcp_params": {
+    "degrees": 30.0,
+    "forward": -0.5,
+    "left": 0.3
+  },
+  "mcp_shell_command": "'/Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/.venv/bin/dimos' 'mcp' 'call' 'relative_move' '--json-args' '{\"degrees\": 30.0, \"forward\": -0.5, \"left\": 0.3}'",
+  "mcp_tool": "relative_move",
+  "references": {
+    "dimos_cli_source": "docs/usage/cli.md::dimos mcp call",
+    "dimos_skill_source": "dimos/robot/unitree/unitree_skill_container.py::relative_move,wait"
+  },
+  "run_id": "dimos-mcp-bridge-plan",
+  "safety": {
+    "dry_run_by_default": true,
+    "execute_requires_confirm": "LIVE_DIMOS_MCP_EXECUTE",
+    "execute_requires_env": "WORLDFORGE_DIMOS_ENABLE_EXECUTE=1",
+    "host_boundary": "DimOS owns robot/sim execution and safety; this script only proposes or explicitly invokes MCP tools.",
+    "motion_limits": {
+      "max_forward_m": 0.5,
+      "max_left_m": 0.3,
+      "max_rotation_deg": 30.0
+    },
+    "pose_derived_replay_candidates_require_extra_flag": [
+      "actual_egomotion",
+      "reverse_actual"
+    ]
+  },
+  "schema_version": 1,
+  "score_info_summary": {
+    "demo_type": "replay_mpc_world_model_score_demo",
+    "score_contract": "score(candidate)=cosine(predicted_future_latent(current_image,candidate_delta), goal_future_latent)",
+    "world_model": {
+      "backbone": "facebook/dinov2-small",
+      "claim": "Predicts future visual embeddings from current Go2 replay frame and candidate egomotion.",
+      "head": "ridge",
+      "type": "small_action_conditioned_latent_world_model"
+    }
+  },
+  "selected_worldforge_candidate": {
+    "action_vector": [
+      -1.408464,
+      0.583769,
+      0.852452,
+      -0.477194,
+      1.52465,
+      3.01591
+    ],
+    "candidate_id": "actual_egomotion",
+    "score": 0.521666,
+    "selected_in_replay": true
+  },
+  "source_trace_dir": "/Users/espejelomar/StarkNet/zk-ai/hackathons/worldforge-go2-trace-judge/artifacts/replay_mpc_demo"
+}

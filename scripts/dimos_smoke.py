@@ -167,6 +167,8 @@ def main() -> int:
     modes = args.mode or ["help", "list", "show-config"]
     results = []
     env = os.environ.copy()
+    if dimos_bin.parent.exists():
+        env["PATH"] = f"{dimos_bin.parent}{os.pathsep}{env.get('PATH', '')}"
     if args.bypass_system_config:
         env["PYTEST_VERSION"] = "dimos-smoke"
     for mode in modes:

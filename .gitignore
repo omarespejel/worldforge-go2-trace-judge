@@ -56,6 +56,9 @@ artifacts/real_photo_edit_dataset/traces/
 artifacts/dimos_replay_lfs_cache/
 artifacts/dimos_replay_latent_dynamics*/
 artifacts/replay_mpc_demo/frame_embeddings_cache.json
+artifacts/replay_mpc_arena/frame_embeddings_cache.json
+artifacts/replay_mpc_arena/video_frames/
+artifacts/dimos_mcp_sim_motion_take2/video_frames/
 artifacts/showcase/final_review/
 
 # Published on Hugging Face; keep the card/summary/provenance in GitHub only.

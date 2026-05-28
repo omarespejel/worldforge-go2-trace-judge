@@ -1,0 +1,33 @@
+{
+  "commands": [
+    {
+      "args": {
+        "degrees": 0.0,
+        "forward": 1.5,
+        "left": 0.0
+      },
+      "name": "move_forward_1p5m",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Navigation was cancelled or failed"
+    },
+    {
+      "args": {
+        "degrees": 90.0,
+        "forward": 0.0,
+        "left": 0.0
+      },
+      "name": "rotate_left_90",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Navigation goal reached"
+    }
+  ],
+  "frames": [
+    "artifacts/dimos_mcp_sim_motion_take2/before.jpg",
+    "artifacts/dimos_mcp_sim_motion_take2/after_forward.jpg",
+    "artifacts/dimos_mcp_sim_motion_take2/after_rotate.jpg"
+  ],
+  "run_id": "dimos-mcp-sim-motion-take2",
+  "schema_version": 1
+}

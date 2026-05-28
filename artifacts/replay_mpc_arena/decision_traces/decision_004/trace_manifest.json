@@ -1,0 +1,151 @@
+{
+  "candidate_scores": {
+    "scores": [
+      {
+        "action_vector": [
+          1.342405,
+          0.473228,
+          0.905441,
+          -0.575528,
+          1.423374,
+          3.01102
+        ],
+        "candidate_id": "actual_egomotion",
+        "score": 0.595288,
+        "selected_in_replay": true
+      },
+      {
+        "action_vector": [
+          0.0,
+          0.0,
+          0.905441,
+          -0.575528,
+          0.0,
+          3.01102
+        ],
+        "candidate_id": "rotate_left",
+        "score": 0.58995,
+        "selected_in_replay": false
+      },
+      {
+        "action_vector": [
+          -1.342405,
+          -0.473228,
+          -0.905441,
+          -0.575528,
+          1.423374,
+          3.01102
+        ],
+        "candidate_id": "reverse_actual",
+        "score": 0.584389,
+        "selected_in_replay": false
+      },
+      {
+        "action_vector": [
+          1.423374,
+          0.0,
+          0.0,
+          0.0,
+          1.423374,
+          3.01102
+        ],
+        "candidate_id": "forward_same_distance",
+        "score": 0.581898,
+        "selected_in_replay": false
+      },
+      {
+        "action_vector": [
+          0.0,
+          0.0,
+          -0.905441,
+          -0.575528,
+          0.0,
+          3.01102
+        ],
+        "candidate_id": "rotate_right",
+        "score": 0.579133,
+        "selected_in_replay": false
+      },
+      {
+        "action_vector": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.01102
+        ],
+        "candidate_id": "zero_motion",
+        "score": 0.576609,
+        "selected_in_replay": false
+      }
+    ]
+  },
+  "outcome_after_execution": {
+    "actual_future_frame": "images/frames/go2_bigoffice_frame_001859.jpg",
+    "outcome_type": "offline_replay_eval",
+    "selected_matches_observed_replay_action": true
+  },
+  "run_id": "replay-mpc-arena-004",
+  "schema_version": 1,
+  "score_info": {
+    "demo_type": "replay_mpc_arena_world_model_score",
+    "goal": {
+      "future_image": "images/frames/go2_bigoffice_frame_001859.jpg",
+      "future_pose": {
+        "quat_xyzw": [
+          0.033783,
+          0.001606,
+          -0.573986,
+          -0.818166
+        ],
+        "x_m": -5.057684,
+        "y_m": -7.180227,
+        "yaw_rad": 1.222499,
+        "z_m": 0.311342
+      },
+      "type": "held_out_replay_future_frame"
+    },
+    "observation": {
+      "current_image": "images/frames/go2_bigoffice_frame_001816.jpg",
+      "current_pose": {
+        "quat_xyzw": [
+          0.017429,
+          -0.007676,
+          -0.045161,
+          -0.998798
+        ],
+        "x_m": -6.352075,
+        "y_m": -7.772297,
+        "yaw_rad": 0.09008,
+        "z_m": 0.316628
+      },
+      "row_id": "go2_bigoffice_world_pair_000454",
+      "source_dataset": "go2_bigoffice"
+    },
+    "score_contract": "score(candidate)=cosine(predicted_future_latent(current_image,candidate_delta), goal_future_latent)",
+    "world_model": {
+      "backbone": "facebook/dinov2-small",
+      "claim": "Predicts future visual embeddings from current Go2 replay frame and candidate egomotion.",
+      "head": "ridge",
+      "type": "small_action_conditioned_latent_world_model"
+    }
+  },
+  "selected_action": {
+    "actual_vs_best_decoy_margin": 0.005338,
+    "selected": {
+      "action_vector": [
+        1.342405,
+        0.473228,
+        0.905441,
+        -0.575528,
+        1.423374,
+        3.01102
+      ],
+      "candidate_id": "actual_egomotion",
+      "score": 0.595288,
+      "selected_in_replay": true
+    },
+    "selected_matches_observed_replay_action": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "actual_vs_best_decoy_margin": 0.014476,
+  "selected": {
+    "action_vector": [
+      1.469212,
+      0.216483,
+      -0.864517,
+      -0.497397,
+      1.485076,
+      3.019392
+    ],
+    "candidate_id": "actual_egomotion",
+    "score": 0.222359,
+    "selected_in_replay": true
+  },
+  "selected_matches_observed_replay_action": true
+}

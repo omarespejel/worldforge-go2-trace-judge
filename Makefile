@@ -15,7 +15,7 @@ DIMOS_REPLAY_LATENT_MODEL ?= artifacts/dimos_replay_latent_dynamics
 DIMOS_REPLAY_SOURCE_DATASETS ?= go2_short,markers_go2,go2_bigoffice,go2_hongkong_office,go2_slamabuse1,go2_slamabuse2,go2_china_office
 DIMOS_REPLAY_MAX_PAIRS_PER_SOURCE ?= 500
 
-.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo dimos-mcp-bridge-plan dimos-replay-stretch dimos-sim-probe dimos-cli-smoke dimos-macos-host-prep dimos-replay-smoke dimos-replay-smoke-bypass dimos-sim-smoke ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
+.PHONY: check replay report review dataset audit ranker real-photo-edit hf-dataset micro-world-scorer micro-world-demo micro-jepa-scorer micro-jepa-demo jepa-stretch model-honesty-audit dinov2-scorer dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo replay-mpc-arena dimos-mcp-bridge-plan dimos-replay-stretch dimos-sim-probe dimos-cli-smoke dimos-macos-host-prep dimos-replay-smoke dimos-replay-smoke-bypass dimos-sim-smoke ml-stretch final-video bundle package all hackathon-final clean-generated photo-smoke
 
 all: hackathon-final
 
@@ -142,10 +142,18 @@ replay-mpc-demo:
 		--output-dir artifacts/replay_mpc_demo \
 		--clean
 
+replay-mpc-arena:
+	$(PYTHON) scripts/run_replay_mpc_arena.py \
+		--dataset-dir "$(DIMOS_REPLAY_DATASET)" \
+		--model-dir hf_model_dimos_replay_latent \
+		--output-dir artifacts/replay_mpc_arena \
+		--examples 12 \
+		--clean
+
 dimos-mcp-bridge-plan:
 	$(PYTHON) scripts/dimos_mcp_bridge_plan.py --clean
 
-dimos-replay-stretch: check dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo dimos-mcp-bridge-plan
+dimos-replay-stretch: check dimos-replay-dataset dimos-replay-latent-dynamics replay-mpc-demo replay-mpc-arena dimos-mcp-bridge-plan
 
 dimos-sim-probe:
 	$(PYTHON) scripts/dimos_simulation_probe.py

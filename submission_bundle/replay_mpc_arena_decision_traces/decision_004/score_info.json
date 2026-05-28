@@ -1,0 +1,43 @@
+{
+  "demo_type": "replay_mpc_arena_world_model_score",
+  "goal": {
+    "future_image": "images/frames/go2_bigoffice_frame_001859.jpg",
+    "future_pose": {
+      "quat_xyzw": [
+        0.033783,
+        0.001606,
+        -0.573986,
+        -0.818166
+      ],
+      "x_m": -5.057684,
+      "y_m": -7.180227,
+      "yaw_rad": 1.222499,
+      "z_m": 0.311342
+    },
+    "type": "held_out_replay_future_frame"
+  },
+  "observation": {
+    "current_image": "images/frames/go2_bigoffice_frame_001816.jpg",
+    "current_pose": {
+      "quat_xyzw": [
+        0.017429,
+        -0.007676,
+        -0.045161,
+        -0.998798
+      ],
+      "x_m": -6.352075,
+      "y_m": -7.772297,
+      "yaw_rad": 0.09008,
+      "z_m": 0.316628
+    },
+    "row_id": "go2_bigoffice_world_pair_000454",
+    "source_dataset": "go2_bigoffice"
+  },
+  "score_contract": "score(candidate)=cosine(predicted_future_latent(current_image,candidate_delta), goal_future_latent)",
+  "world_model": {
+    "backbone": "facebook/dinov2-small",
+    "claim": "Predicts future visual embeddings from current Go2 replay frame and candidate egomotion.",
+    "head": "ridge",
+    "type": "small_action_conditioned_latent_world_model"
+  }
+}

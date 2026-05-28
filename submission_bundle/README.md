@@ -6,8 +6,12 @@
 - `micro_world_trace.mp4`: one-command micro world scorer trace from a real Go2 frame.
 - `micro_world_annotated.jpg`: annotated frame with candidate scores.
 - `replay_mpc_demo.mp4`: no-robot replay-MPC demo from public DimOS Go2 replay data.
+- `replay_mpc_arena.mp4`: multi-scene replay-MPC arena over held-out DimOS Go2
+  replay rows.
 - `replay_mpc_summary.jpg`: white-background summary frame showing current view,
   actual replay future, ranked candidate futures, and selected action.
+- `dimos_mcp_sim_motion_proof.mp4`: simulation proof that selected MCP movement
+  commands execute through DimOS/MuJoCo.
 
 ## Evidence
 
@@ -21,6 +25,9 @@
 - `replay_mpc_selected_action.json`
 - `replay_mpc_outcome_after_execution.json`
 - `replay_mpc_run_manifest.json`
+- `replay_mpc_arena_summary.json`
+- `replay_mpc_arena_contact_sheet.jpg`
+- `dimos_mcp_sim_motion_report.json`
 
 These show the WorldForge-style boundary:
 

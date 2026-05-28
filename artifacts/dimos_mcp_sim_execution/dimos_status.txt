@@ -1,0 +1,5 @@
+  Run ID:    20260528-221908-unitree-go2-agentic
+  PID:       52568
+  Blueprint: unitree-go2-agentic
+  Uptime:    6m 0s
+  Log:       /Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/logs/20260528-221908-unitree-go2-agentic

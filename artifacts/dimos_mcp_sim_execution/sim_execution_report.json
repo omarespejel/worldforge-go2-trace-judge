@@ -1,0 +1,30 @@
+{
+  "artifacts": [
+    "bridge_execute_stderr.txt",
+    "bridge_execute_stdout.json",
+    "bridge_plan.json",
+    "dimos_status.txt",
+    "dimos_status_after.txt",
+    "mcp_list_tools.txt",
+    "run_plan.sh",
+    "selected_mcp_command.sh",
+    "wait_result.txt",
+    "wait_stderr.txt"
+  ],
+  "dimos_status": "Run ID:    20260528-221908-unitree-go2-agentic\n  PID:       52568\n  Blueprint: unitree-go2-agentic\n  Uptime:    6m 0s\n  Log:       /Users/espejelomar/StarkNet/zk-ai/_pr_work/dimos-worldforge-go2-trace-judge/logs/20260528-221908-unitree-go2-agentic",
+  "execution": {
+    "executed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Navigation goal reached\n"
+  },
+  "mcp_params": {
+    "degrees": 30.0,
+    "forward": -0.5,
+    "left": 0.3
+  },
+  "mcp_tool": "relative_move",
+  "run_id": "dimos-mcp-sim-execution",
+  "schema_version": 1,
+  "selected_worldforge_candidate": "actual_egomotion"
+}

@@ -1,0 +1,269 @@
+[
+  {
+    "name": "observe",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Returns the latest video frame from the robot camera. Use this skill for any visual world queries.\n\nThis skill provides the current camera view for perception tasks.\nReturns None if no frame has been captured yet."
+  },
+  {
+    "name": "begin_exploration",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Command the robot to move around and explore the area. Cancelled with end_exploration."
+  },
+  {
+    "name": "end_exploration",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Cancel the exploration. The robot will stop moving and remain where it is."
+  },
+  {
+    "name": "start_patrol",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Start patrolling the known area. The robot will continuously pick patrol goals from the router and navigate to them until `stop_patrol` is called."
+  },
+  {
+    "name": "stop_patrol",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Stop the ongoing patrol."
+  },
+  {
+    "name": "look_out_for",
+    "inputSchema": {
+      "properties": {
+        "description_of_things": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Description Of Things",
+          "type": "array"
+        },
+        "then": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Then"
+        }
+      },
+      "required": [
+        "description_of_things"
+      ],
+      "type": "object"
+    },
+    "description": "This tool will continuously look out for things matching the\ndescription in the input list, and notify the agent whenever it finds a\nmatch. After the match is found, it will stop.\n\nYou can ask it for `look_out_for([\"small dogs\", \"cats\"])` and you will be\nnotified back whenever such a detection is made.\n\nOptionally, you can specify a `then` parameter to automatically execute\nanother tool when a match is found, without waiting for the agent to\nprocess the notification. This is useful for time-sensitive actions like\nfollowing a detected person.\n\nThe `then` parameter is a dict with:\n- \"tool\": name of the tool to call (e.g. \"follow_person\")\n- \"args\": dict of arguments to pass to the tool\n\nIn the args, you can use template variables that will be replaced with\ndetection data:\n- \"$bbox\": the bounding box [x1, y1, x2, y2] of the best detection\n- \"$label\": the label/name of the detection\n- \"$image\": base64-encoded JPEG of the frame the detection was made on\n\nExample:\n    look_out_for([\"person\"], then={\n        \"tool\": \"follow_person\",\n        \"args\": {\n            \"query\": \"person\",\n            \"initial_bbox\": \"$bbox\",\n            \"initial_image\": \"$image\",\n        }\n    })"
+  },
+  {
+    "name": "stop_looking_out",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Stop looking out. Use this to end `look_out_for` tool calls."
+  },
+  {
+    "name": "agent_send",
+    "inputSchema": {
+      "properties": {
+        "message": {
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "type": "object"
+    },
+    "description": "Send a message to the running DimOS agent via LCM."
+  },
+  {
+    "name": "list_modules",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "List deployed modules and their skills."
+  },
+  {
+    "name": "server_status",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Get MCP server status: main process PID, deployed modules, and skill count."
+  },
+  {
+    "name": "navigate_with_text",
+    "inputSchema": {
+      "properties": {
+        "query": {
+          "title": "Query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    },
+    "description": "Navigate to a location by querying the existing semantic map using natural language.\n\nFirst attempts to locate an object in the robot's camera view using vision.\nIf the object is found, navigates to it. If not, falls back to querying the\nsemantic map for a location matching the description.\nCALL THIS SKILL FOR ONE SUBJECT AT A TIME. For example: \"Go to the person wearing a blue shirt in the living room\",\nyou should call this skill twice, once for the person wearing a blue shirt and once for the living room.\nArgs:\n    query: Text query to search for in the semantic map"
+  },
+  {
+    "name": "stop_navigation",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Immediatly stop moving."
+  },
+  {
+    "name": "tag_location",
+    "inputSchema": {
+      "properties": {
+        "location_name": {
+          "title": "Location Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "location_name"
+      ],
+      "type": "object"
+    },
+    "description": "Tag this location in the spatial memory with a name.\n\nThis associates the current location with the given name in the spatial memory, allowing you to navigate back to it.\n\nArgs:\n    location_name (str): the name for the location\n\nReturns:\n    str: the outcome"
+  },
+  {
+    "name": "follow_person",
+    "inputSchema": {
+      "properties": {
+        "query": {
+          "title": "Query",
+          "type": "string"
+        },
+        "initial_bbox": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Initial Bbox"
+        },
+        "initial_image": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Initial Image"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "type": "object"
+    },
+    "description": "Follow a person matching the given description using visual servoing.\n\nThe robot will continuously track and follow the person, while keeping\nthem centered in the camera view.\n\nArgs:\n    query: Description of the person to follow (e.g., \"man with blue shirt\")\n    initial_bbox: Optional pre-computed bounding box [x1, y1, x2, y2].\n        If provided, skips the initial VL model detection step. This is\n        used by the continuation system to pass detection data directly\n        from look_out_for, avoiding a redundant detection.\n    initial_image: Optional base64-encoded JPEG of the frame on which\n        initial_bbox was detected.\n\nReturns:\n    Status message indicating the result of the following action.\n\nExample:\n    follow_person(\"man with blue shirt\")\n    follow_person(\"person in the doorway\")"
+  },
+  {
+    "name": "stop_following",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Stop following the current person.\n\nReturns:\n    Confirmation message."
+  },
+  {
+    "name": "current_time",
+    "inputSchema": {
+      "properties": {},
+      "type": "object"
+    },
+    "description": "Provides current time."
+  },
+  {
+    "name": "execute_sport_command",
+    "inputSchema": {
+      "properties": {
+        "command_name": {
+          "title": "Command Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "command_name"
+      ],
+      "type": "object"
+    },
+    "description": "Execute a Unitree sport command.\n\nExample usage:\n\n    execute_sport_command(\"FrontPounce\")\n\nHere are all the command names and what they do.\n\n- \"BalanceStand\": Activates a mode that maintains the robot in a balanced standing position.\n- \"StandUp\": Commands the robot to transition from a sitting or prone position to a standing posture.\n- \"StandDown\": Instructs the robot to move from a standing position to a sitting or prone posture.\n- \"RecoveryStand\": Recovers the robot to a state from which it can take more commands. Useful to run after multiple dynamic commands like front flips, Must run after skills like sit and jump and standup.\n- \"Sit\": Commands the robot to sit down from a standing or moving stance.\n- \"RiseSit\": Commands the robot to rise back to a standing position from a sitting posture.\n- \"SwitchGait\": Switches the robot's walking pattern or style dynamically, suitable for different terrains or speeds.\n- \"Trigger\": Triggers a specific action or custom routine programmed into the robot.\n- \"BodyHeight\": Adjusts the height of the robot's body from the ground, useful for navigating various obstacles.\n- \"FootRaiseHeight\": Controls how high the robot lifts its feet during movement, which can be adjusted for different surfaces.\n- \"SpeedLevel\": Sets or adjusts the speed at which the robot moves, with various levels available for different operational needs.\n- \"Hello\": Performs a greeting action, which could involve a wave or other friendly gesture.\n- \"Stretch\": Engages the robot in a stretching routine.\n- \"TrajectoryFollow\": Directs the robot to follow a predefined trajectory, which could involve complex paths or maneuvers.\n- \"ContinuousGait\": Enables a mode for continuous walking or running, ideal for long-distance travel.\n- \"Content\": To display or trigger when the robot is happy.\n- \"Wallow\": The robot falls onto its back and rolls around.\n- \"Dance1\": Performs a predefined dance routine 1, programmed for entertainment or demonstration.\n- \"Dance2\": Performs another variant of a predefined dance routine 2.\n- \"GetBodyHeight\": Retrieves the current height of the robot's body from the ground.\n- \"GetFootRaiseHeight\": Retrieves the current height at which the robot's feet are being raised during movement.\n- \"GetSpeedLevel\": Retrieves the current speed level setting of the robot.\n- \"SwitchJoystick\": Switches the robot's control mode to respond to joystick input for manual operation.\n- \"Pose\": Commands the robot to assume a specific pose or posture as predefined in its programming.\n- \"Scrape\": The robot performs a scraping motion.\n- \"FrontFlip\": Commands the robot to perform a front flip, showcasing its agility and dynamic movement capabilities.\n- \"FrontJump\": Instructs the robot to jump forward, demonstrating its explosive movement capabilities.\n- \"FrontPounce\": Commands the robot to perform a pouncing motion forward.\n- \"WiggleHips\": The robot performs a hip wiggling motion, often used for entertainment or demonstration purposes.\n- \"GetState\": Retrieves the current operational state of the robot, including its mode, position, and status.\n- \"EconomicGait\": Engages a more energy-efficient walking or running mode to conserve battery life.\n- \"FingerHeart\": Performs a finger heart gesture while on its hind legs.\n- \"Handstand\": Commands the robot to perform a handstand, demonstrating balance and control.\n- \"CrossStep\": Commands the robot to perform cross-step movements.\n- \"OnesidedStep\": Commands the robot to perform one-sided step movements.\n- \"Bound\": Commands the robot to perform bounding movements.\n- \"MoonWalk\": Commands the robot to perform a moonwalk motion.\n- \"LeftFlip\": Executes a flip towards the left side.\n- \"RightFlip\": Performs a flip towards the right side.\n- \"Backflip\": Executes a backflip, a complex and dynamic maneuver."
+  },
+  {
+    "name": "relative_move",
+    "inputSchema": {
+      "properties": {
+        "forward": {
+          "default": 0.0,
+          "title": "Forward",
+          "type": "number"
+        },
+        "left": {
+          "default": 0.0,
+          "title": "Left",
+          "type": "number"
+        },
+        "degrees": {
+          "default": 0.0,
+          "title": "Degrees",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "description": "Move the robot relative to its current position.\n\nThe `degrees` arguments refers to the rotation the robot should be at the end, relative to its current rotation.\n\nExample calls:\n\n    # Move to a point that's 2 meters forward and 1 to the right.\n    relative_move(forward=2, left=-1, degrees=0)\n\n    # Move back 1 meter, while still facing the same direction.\n    relative_move(forward=-1, left=0, degrees=0)\n\n    # Rotate 90 degrees to the right (in place)\n    relative_move(forward=0, left=0, degrees=-90)\n\n    # Move 3 meters left, and face that direction\n    relative_move(forward=0, left=3, degrees=90)"
+  },
+  {
+    "name": "wait",
+    "inputSchema": {
+      "properties": {
+        "seconds": {
+          "title": "Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "seconds"
+      ],
+      "type": "object"
+    },
+    "description": "Wait for a specified amount of time.\n\nArgs:\n    seconds: Seconds to wait"
+  }
+]

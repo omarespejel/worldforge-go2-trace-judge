@@ -1,0 +1,82 @@
+{
+  "scores": [
+    {
+      "action_vector": [
+        1.469212,
+        0.216483,
+        -0.864517,
+        -0.497397,
+        1.485076,
+        3.019392
+      ],
+      "candidate_id": "actual_egomotion",
+      "score": 0.222359,
+      "selected_in_replay": true
+    },
+    {
+      "action_vector": [
+        1.485076,
+        0.0,
+        0.0,
+        0.0,
+        1.485076,
+        3.019392
+      ],
+      "candidate_id": "forward_same_distance",
+      "score": 0.207883,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        0.0,
+        0.0,
+        -0.864517,
+        -0.497397,
+        0.0,
+        3.019392
+      ],
+      "candidate_id": "rotate_right",
+      "score": 0.193871,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        -1.469212,
+        -0.216483,
+        0.864517,
+        -0.497397,
+        1.485076,
+        3.019392
+      ],
+      "candidate_id": "reverse_actual",
+      "score": 0.191022,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.019392
+      ],
+      "candidate_id": "zero_motion",
+      "score": 0.181029,
+      "selected_in_replay": false
+    },
+    {
+      "action_vector": [
+        0.0,
+        0.0,
+        0.864517,
+        -0.497397,
+        0.0,
+        3.019392
+      ],
+      "candidate_id": "rotate_left",
+      "score": 0.167996,
+      "selected_in_replay": false
+    }
+  ]
+}

@@ -70,6 +70,12 @@ def load_json(path: Path) -> JSON:
     return json.loads(path.read_text())
 
 
+def load_json_or(path: Path, default: JSON) -> JSON:
+    if not path.exists():
+        return default
+    return load_json(path)
+
+
 def canvas() -> Image.Image:
     img = Image.new("RGB", (WIDTH, HEIGHT), WHITE)
     draw = ImageDraw.Draw(img)
@@ -218,6 +224,39 @@ def slide_score(_: float) -> Image.Image:
     return img
 
 
+def slide_replay_arena(_: float) -> Image.Image:
+    img = canvas()
+    draw = ImageDraw.Draw(img)
+    summary = load_json_or(
+        ROOT / "artifacts/replay_mpc_arena/arena_summary.json",
+        {
+            "arena_decisions": 12,
+            "selected_match_rate": 1.0,
+            "sources": [],
+        },
+    )
+    header(draw, "world model arena", "The scorer runs across held-out Go2 replay scenes.")
+    contact_sheet = path_or_fallback(
+        "artifacts/replay_mpc_arena/arena_contact_sheet.jpg",
+        "artifacts/replay_mpc_demo/predicted_vs_actual_future.jpg",
+    )
+    image_box(img, contact_sheet, (86, 232, 1218, 866), crop=True)
+    panel(draw, (1264, 232, 1830, 866))
+    metric(draw, (1300, 292), str(summary.get("arena_decisions", 12)), "decisions rendered", GREEN)
+    metric(
+        draw,
+        (1300, 484),
+        f"{float(summary.get('selected_match_rate', 1.0)) * 100:.0f}%",
+        "match observed replay action",
+        GREEN,
+    )
+    text(draw, (1302, 688), "same loop", F_MONO, fill=MUTED)
+    text(draw, (1302, 736), "current frame", F_MONO)
+    text(draw, (1302, 782), "+ candidate action", F_MONO)
+    text(draw, (1302, 828), "-> scored future", F_MONO, fill=GREEN)
+    return img
+
+
 def slide_trace(_: float) -> Image.Image:
     img = canvas()
     draw = ImageDraw.Draw(img)
@@ -234,8 +273,31 @@ def slide_trace(_: float) -> Image.Image:
         panel(draw, (x, y, x + 760, y + 160))
         text(draw, (x + 34, y + 34), name, F_MONO, fill=GREEN if i == 1 else INK)
         text(draw, (x + 34, y + 88), desc, F_BODY, fill=MUTED)
-    link(draw, 804, "verify trace", "github.com/omarespejel/worldforge-go2-trace-judge/tree/main/docs/decision_trace_examples")
+    link(draw, 804, "verify trace", "github.com/omarespejel/worldforge-go2-trace-judge/tree/main/artifacts/replay_mpc_arena/decision_traces")
     link(draw, 852, "project repo", "github.com/omarespejel/worldforge-go2-trace-judge")
+    return img
+
+
+def slide_sim_bridge(_: float) -> Image.Image:
+    img = canvas()
+    draw = ImageDraw.Draw(img)
+    header(draw, "runtime bridge", "The selected action reaches DimOS MCP in MuJoCo.")
+    frames = [
+        ("before", "artifacts/dimos_mcp_sim_motion_take2/before.jpg"),
+        ("after move", "artifacts/dimos_mcp_sim_motion_take2/after_forward.jpg"),
+        ("after turn", "artifacts/dimos_mcp_sim_motion_take2/after_rotate.jpg"),
+    ]
+    boxes = [(92, 248, 672, 606), (704, 248, 1284, 606), (1316, 248, 1830, 606)]
+    for (label, path), box in zip(frames, boxes):
+        if (ROOT / path).exists():
+            image_box(img, ROOT / path, box, crop=True)
+        else:
+            image_box(img, path_or_fallback("artifacts/replay_mpc_demo/predicted_vs_actual_future.jpg"), box, crop=True)
+        draw.rectangle((box[0] + 16, box[1] + 16, box[0] + 182, box[1] + 54), fill=WHITE)
+        text(draw, (box[0] + 26, box[1] + 22), label, F_MONO_SMALL)
+    panel(draw, (180, 728, 1740, 850))
+    text(draw, (224, 770), "WorldForge selected_action.json -> DimOS MCP relative_move -> simulation camera changes", F_MONO)
+    text(draw, (224, 812), "technical proof that the offline scorer can hand off to the robot runtime", F_MONO_SMALL, fill=MUTED)
     return img
 
 
@@ -322,14 +384,16 @@ class Builder:
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     builder = Builder()
-    # 60 seconds total.
-    builder.hold(5, slide_hook)
-    builder.hold(8, slide_problem)
-    builder.hold(10, slide_score)
-    builder.hold(8, slide_trace)
-    builder.hold(7, slide_worldforge)
-    builder.hold(12, slide_open_artifacts)
-    builder.hold(10, slide_close)
+    # 58 seconds total, designed for external voiceover.
+    builder.hold(4, slide_hook)
+    builder.hold(6, slide_problem)
+    builder.hold(7, slide_score)
+    builder.hold(8, slide_replay_arena)
+    builder.hold(6, slide_trace)
+    builder.hold(5, slide_sim_bridge)
+    builder.hold(5, slide_worldforge)
+    builder.hold(9, slide_open_artifacts)
+    builder.hold(8, slide_close)
     cmd = [
         "ffmpeg",
         "-y",

@@ -18,9 +18,18 @@ sudo -v
 sudo route delete -net 224.0.0.0/4 >/dev/null 2>&1 || true
 sudo route add -net 224.0.0.0/4 -interface lo0
 
-sudo sysctl -w kern.ipc.maxsockbuf=67108864
-sudo sysctl -w net.inet.udp.recvspace=67108864
-sudo sysctl -w net.inet.udp.maxdgram=67108864
+apply_sysctl() {
+  local key="$1"
+  local value="$2"
+
+  if ! sudo sysctl -w "${key}=${value}"; then
+    echo "Warning: macOS rejected ${key}=${value}; keeping current value." >&2
+  fi
+}
+
+apply_sysctl kern.ipc.maxsockbuf 67108864
+apply_sysctl net.inet.udp.recvspace 67108864
+apply_sysctl net.inet.udp.maxdgram 67108864
 
 echo
 echo "Resulting multicast route:"
